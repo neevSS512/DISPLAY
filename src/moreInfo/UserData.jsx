@@ -60,7 +60,7 @@ const UserData = ({ user, handleClose }) => {
 
   return (
     <div className='neev'>
-      <h3 className='ctr'>
+      <h3 className='ugm'>
         More Info About The Game User
         <button 
            className='go-back-btn'

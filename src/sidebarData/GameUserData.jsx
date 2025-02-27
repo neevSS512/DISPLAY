@@ -15,7 +15,7 @@ const GameUserData = () => {
   const [error, setError] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [showUserData, setShowUserData] = useState(false);
-  const [search, setSearch] = useState(""); // The search query
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   // Fetch game user data
@@ -86,7 +86,7 @@ const GameUserData = () => {
     borderCollapse: "collapse",
     marginTop: "20px ",
     marginBottom:"20px",
-    marginLeft:"230px"
+    marginLeft:"230px",
   }
 
   return (
@@ -165,22 +165,22 @@ const GameUserData = () => {
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
               <tr key={item.Id} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.Id}</td>
+                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item._id}</td>
                 <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.UserName}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.MobileNo}</td>
+                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>{item.MobileNo}</td>
                 <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.State}</td>
                 <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isMobileVerified ? 'Yes' : 'No'}</td>
                 <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isBankVerified ? 'Yes' : 'No'}</td>
                 <td style={{ padding: "px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.level}</td>
-                <td> 
+                <td className='table-data'> 
                 <button
   style={{
-    backgroundColor: item.BlockRemarks === "Yes" ? 'green' : 'red', // Conditional background color
+    backgroundColor: item.BlockRemarks === "Yes" ? 'green' : 'red',
     color: 'white',
     padding: '3px 8px',
     borderRadius: '5px',
     textAlign: 'center',
-    width: '48px',  // Set a fixed width for the button
+    width: '48px', 
     minWidth: '28px',
     display: 'inline-block',
     fontSize: '15px',
@@ -192,16 +192,18 @@ const GameUserData = () => {
 </button>
 
                 </td>
-               <td>
+               <td className='table-data '>
                <button
                   style={{
-                    padding: "9px",
-                    textAlign: "left",
+                    padding: "4px",
+                    width:"7vw",
+                    textAlign: "center",
                     borderBottom: "1px solid #ddd",
                     color: "white",
                     borderRadius: "9px",
                     margin: "12px",
-                    marginLeft: "12px",
+                    marginLeft: "2px",
+                    marginRight:"1px",
                     cursor: "pointer",
                     transition: "background-color 0.3s ease"
                   }}

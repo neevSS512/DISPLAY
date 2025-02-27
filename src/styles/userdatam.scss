@@ -15,22 +15,25 @@
 }
 
 
-
-h3{
-    display:inline-block;
-    border: 1px solid black;
-    border-radius: 9px;
-    background-color: rgb(221, 221, 221);
-    width: 100%;
-    height: 50px;
-    margin-bottom: 12px;
-    margin-top: 12px;
+h3 {
+  border: 1px solid black;
+  border-radius: 9px;
+  background-color: rgb(221, 221, 221);
+  width: 100%;              // Full width of the parent container
+  height: 50px;             // Fixed height for the element
+  margin-bottom: 12px;
+  margin-top: 12px;
+  text-align: center;       // Text alignment for fallback
 }
 
-.ctr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ugm{
+  display: flex;
+  justify-content: center;  // Center horizontally
+  align-items: center;      // Center vertically
+  padding-top: 2px;         // Adjust the padding if needed
+  width: 82vw;          // Set specific width if necessary
+  margin-left: 230px;       // Adjust margin based on your layout
+
 }
 
 .withdraw-container {

@@ -12,6 +12,10 @@ import { VscSnake } from "react-icons/vsc";
 import { GiPoolDive } from "react-icons/gi";
 import { FaIdeal } from "react-icons/fa";
 import { FaMoneyBillWave } from "react-icons/fa";
+import { FaGamepad } from 'react-icons/fa';
+
+
+
 
 import { IoLogoPlaystation } from "react-icons/io";
 import { FaUsers } from "react-icons/fa"; // Icon for Public Score
@@ -50,6 +54,11 @@ export const SidebarData = [
         path: '/Transaction',
     },
     {
+        title: 'gameConfiguration',
+        icon: <FaGamepad  style={{ marginRight: '9px' }} />,
+        path: '/gameConfigurations',
+    },
+    {
         title: 'Settings',
         icon: <SettingsIcon style={{ marginRight: '9px' }} />,
         path: '#Settings',
@@ -60,12 +69,12 @@ export const SidebarData = [
                 path: '#ludo',
                 subItems: [
                   {
-                    title: 'Public',
+                    title: 'Classic',
                     icon: <FaUsers style={{ marginRight: '9px' }} />,
                     path: '/LudoPublicMoreData',
                   },
                   {
-                    title: 'Counter',
+                    title: 'Rapid',
                     icon: <MdTimer style={{ marginRight: '9px' }} />,
                     path: '/ludocounter',
                   },
@@ -82,12 +91,12 @@ export const SidebarData = [
                 path: '#Snake',
                 subItems: [
                     {
-                      title: 'Public',
+                      title: 'Classic',
                       icon: <FaUsers style={{ marginRight: '9px' }} />,
                       path: '/snakepublic',
                     },
                     {
-                      title: 'Counter',
+                      title: 'Rapid',
                       icon: <MdTimer style={{ marginRight: '9px' }} />,
                       path: '/snakecounter',
                     },

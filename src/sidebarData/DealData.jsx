@@ -228,7 +228,6 @@ const buttonStyles = {
                       type="number"
                       value={item.reke || ''}
                       onChange={(e) => handleInputChange(e, index, 'reke')}
-                      // onBlur={() => handleSave(index, 'reke')}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "reke")}>{item.reke || 'N/A'}</span>
@@ -241,7 +240,7 @@ const buttonStyles = {
                       type="number"
                       value={item.bonus || ''}
                       onChange={(e) => handleInputChange(e, index, 'bonus')}
-                      // onBlur={() => handleSave(index, 'bonus')}
+                      
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "bonus")}>{item.bonus || 'N/A'}</span>
@@ -254,7 +253,7 @@ const buttonStyles = {
                       type="text"
                       value={item.mode || ''}
                       onChange={(e) => handleInputChange(e, index, 'mode')}
-                      // onBlur={() => handleSave(index, 'mode')}
+                     
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "mode")}>{item.mode || 'N/A'}</span>

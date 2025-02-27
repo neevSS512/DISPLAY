@@ -109,6 +109,7 @@ import LudoScore from './sidebarData/LudoScore'
 import SnakeScore from './sidebarData/SnakeScore'
 import SnakePublic from './sidebarData/SnakePublic';
 import TransactionData from './sidebarData/TransactionData';
+import ConfigData from './sidebarData/ConfigData'
 
 
 
@@ -144,6 +145,8 @@ function App() {
             <Route path="/ludoscore" element={<LudoScore />} />
             <Route path="/snakescore" element={<SnakeScore />} />
             <Route path="/Transaction" element={<TransactionData />} />
+            <Route path="/gameConfigurations" element={<ConfigData/>} />
+            
 
           </Routes>
         </div>

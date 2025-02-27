@@ -199,7 +199,7 @@ const tableStyles = {
 
   return (
     <div className="neev">
-      <h3 className="sc">Snake Counter
+      <h3 className="sc">Snake Rapid
 
 
       <button className="btn-s" onClick={handleCreateRow} >Create Data</button>

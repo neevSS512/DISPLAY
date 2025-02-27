@@ -173,23 +173,14 @@ const TransactionData = () => {
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.previous_cash}</td>
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.amount}</td>
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.transection_purpose}</td>
-              <td style={{
-                backgroundColor: item.tds_track ? 'green' : 'red',
-                color: 'white',
-                padding: '3px 8px',
-                borderRadius: '5px',
-                textAlign: 'center',
-                minWidth: '28px',
-                display: 'inline-block',
-                fontSize:'15px',
-                margin: '12px',
-                borderBottom: '1px solid #ddd',
-              }}>
-                {item.tds_track ? 'Yes' : 'No'}
-              </td>
+               <td className="table-data">
+                  <span className={item.tds_track ? 'yes-status' : 'no-status'}>
+                    {item.tds_track ? 'Yes' : 'No'}
+                  </span>
+                </td>
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.current_total_cash}</td>
               <td style={{ padding: '7px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.cd_ist}</td>
-              <td>
+              <td className='table-data'>
                 <button
                   style={{
                     color: 'white',

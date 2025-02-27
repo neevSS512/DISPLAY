@@ -88,7 +88,8 @@ const RechargeData = () => {
   const tdStylees = {
     padding: "8px",
     textAlign: "left",
-    borderBottom: "1px solid #ddd"
+    borderBottom: "1px solid #ddd",
+    whiteSpace:"nowrap"
   };
 
   const ctcStyles = {
@@ -195,7 +196,8 @@ const RechargeData = () => {
                 <td style={tdStylees}>{item.previous_cash}</td>
                 <td style={tdStylees}>{item.after_cash}</td>
                 <td style={tdStylees}>{item.cd_ist}</td>
-                <button style={ctcStyles}>{item.txStatus}</button>
+                <td className='table-data'><button style={ctcStyles}>{item.txStatus}</button></td>
+           
               </tr>
             ))
           ) : (

@@ -189,7 +189,8 @@ const WithdrawData = () => {
                 <td style={ttdStyles}>{item.bank}</td>
                 <td style={ttdStyles}>{item.amount}</td>
                 <td style={ttdStyles}>{item.transferid}</td>
-                <button style={cttStyles}>{item.status}</button>
+                <td className='table-data'> <button style={cttStyles}>{item.status}</button></td>
+               
               </tr>
             ))
           ) : (
