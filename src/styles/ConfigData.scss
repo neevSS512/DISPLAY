@@ -90,6 +90,7 @@
   white-space: normal; /* Allow the text to wrap to the next line */
   border: none; /* Ensure no border */
   padding: 8px;
+  
 
 }
 
@@ -109,6 +110,9 @@
   outline: none; /* Remove outline */
   padding: 0;
   margin: 0;
+  text-align: left;
+  border:1px solid black;
+  
 }
 
 
@@ -122,10 +126,12 @@
   white-space: pre-wrap;    /* Preserve line breaks and wrap the text */
   vertical-align: top;      /* Align the content at the top */
   padding: 8px;             /* Optional padding */
+ 
 }
 
 .state-item {
   margin-bottom: 4px;       /* Space between each state value */
   word-wrap: break-word;    /* Ensure wrapping within the state item */
   white-space: normal;      /* Allow word wrapping if needed */
+  
 }

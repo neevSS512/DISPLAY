@@ -96,6 +96,72 @@ const PlayingData = () => {
   };
   
 
+  
+  const handleDelete = async (id) => {
+    // Show a confirmation dialog
+    const isConfirmed = window.confirm("Do you want to delete this row?");
+  
+    if (isConfirmed) {
+      try {
+        console.log(`Deleting row with id: ${id}`);
+        
+        // Send the delete request to the backend
+        const response = await axios.delete(`http://localhost:3001/pctg/ctgData/${id}`);
+  
+        // Log the response to check if the request was successful
+        console.log('Delete Response:', response);
+  
+        // Update the state to remove the deleted item from the table
+        setFilteredData((prevData) => {
+          const updatedData = prevData.filter(item => item._id !== id);
+          console.log('Updated Data after Deletion:', updatedData); // Log the updated data
+          return updatedData;
+        });
+  
+        // Show a success alert
+        showAlert('Row deleted successfully');
+      } catch (err) {
+        console.error('Error deleting data:', err);
+        // Show an error alert
+        showAlert('Failed to delete row');
+      }
+    } else {
+      // Show a cancellation alert
+      showAlert('Deletion cancelled');
+    }
+  };
+  
+  const showAlert = (message) => {
+    // Create a div for the alert message
+    const alertDiv = document.createElement('div');
+    alertDiv.textContent = message;
+    alertDiv.style.position = 'fixed';
+    alertDiv.style.top = '4%';
+    alertDiv.style.left = '50%';
+    alertDiv.style.transform = 'translateX(-50%)'; // Center horizontally
+    alertDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    alertDiv.style.color = 'white';
+    alertDiv.style.padding = '8px 20px'; // Reduced padding to reduce height
+    alertDiv.style.borderRadius = '5px';
+    alertDiv.style.zIndex = '9999';
+    alertDiv.style.fontSize = '16px'; // Reduced font size
+    alertDiv.style.fontWeight = 'bold';
+    alertDiv.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+    alertDiv.style.transition = 'opacity 0.5s ease-out'; // Fade out effect
+  
+    // Append the alert to the body
+    document.body.appendChild(alertDiv);
+  
+    // Remove the alert after 1.5 seconds
+    setTimeout(() => {
+      alertDiv.style.opacity = '0'; // Apply the fade-out effect
+      setTimeout(() => {
+        document.body.removeChild(alertDiv);
+      }, 500); // Allow the fade-out transition to complete before removing
+    }, 1500);
+  };
+  
+
   // Handle field edit
   const handleEdit = (index, field) => {
     setEditedRow(index);
@@ -154,13 +220,15 @@ const PlayingData = () => {
   };
   
 const buttonStyles = {
-  padding: "9px",
-  textAlign: "left",
+  padding: "5px 8px",
+  textAlign: "center",
   borderBottom: "1px solid #ddd",
   color: "white",
-  borderRadius: "9px",
+  borderRadius: "5px",
   margin: "12px",
   marginLeft: "10px",
+  fontSize:'15px',
+  minWidth: '28px',
   cursor: "pointer",
   transition: "background-color 0.3s ease",
   whiteSpace: "nowrap",  // Prevent text wrapping
@@ -196,8 +264,9 @@ const buttonStyles = {
             <th style={thStyles}>Online Players</th>
             <th style={thStyles}>Leaderboard Score</th>
             <th style={thStyles}>Play Store</th>
-            <th style={thStyles}>_IP</th>
+            <th style={thStyles}>IP</th>
             <th style={thStyles}>Free Win Game</th>
+            <th style={thStyles}></th>
             <th style={thStyles}></th>
           </tr>
         </thead>
@@ -274,10 +343,10 @@ const buttonStyles = {
                     style={{
                       backgroundColor: item.use_bot ? 'green' : 'red',
                       color: 'white',
-                      padding: '5px 10px',
+                      padding: '3px 8px',
                       borderRadius: '5px',
                       textAlign: 'center',
-                      minWidth: '40px',
+                      minWidth: '34px',
                       display: 'inline-block',
                     }}
                     onClick={() => handleToggle(index, "use_bot")}
@@ -320,10 +389,10 @@ const buttonStyles = {
                     style={{
                       backgroundColor: item.play_store ? 'green' : 'red',
                       color: 'white',
-                      padding: '5px 10px',
+                      padding: '3px 8px',
                       borderRadius: '5px',
                       textAlign: 'center',
-                      minWidth: '40px',
+                      minWidth: '34px',
                       display: 'inline-block',
                     }}
                     onClick={() => handleToggle(index, "play_store")}
@@ -336,10 +405,10 @@ const buttonStyles = {
                     style={{
                       backgroundColor: item._ip ? 'green' : 'red',
                       color: 'white',
-                      padding: '5px 10px',
+                      padding: '3px 8px',
                       borderRadius: '5px',
                       textAlign: 'center',
-                      minWidth: '40px',
+                      minWidth: '34px',
                       display: 'inline-block',
                     }}
                     onClick={() => handleToggle(index, "_ip")}
@@ -354,10 +423,10 @@ const buttonStyles = {
                     style={{
                       backgroundColor: item.freeWinGame ? 'green' : 'red',
                       color: 'white',
-                      padding: '5px 10px',
+                      padding: '3px 8px',
                       borderRadius: '5px',
                       textAlign: 'center',
-                      minWidth: '40px',
+                      minWidth: '34px',
                       display: 'inline-block',
                     }}
                     onClick={() => handleToggle(index, "freeWinGame")}
@@ -368,15 +437,28 @@ const buttonStyles = {
 
 
 
+                <td className='table-data'>  
+               <button
+                    style={buttonStyles}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
+                    onClick={() => handleSave(index)} 
+              >
+               Update
+              </button>
+              </td>   
 
-<button
-  style={buttonStyles}
-  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
-  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
-  onClick={() => handleSave(index)} 
->
-  Update data
-</button>
+    <td className='table-data'>
+  <button
+    style={buttonStyles}
+    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
+    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
+    onClick={() => handleDelete(item._id)}  // Pass the item's _id here
+  >
+    Delete
+  </button>
+</td>
+
 
                 
               </tr>

@@ -93,19 +93,24 @@ export default function KycData() {
   };
 
   const yesStyle = {
-    backgroundColor: "green",
-    color: "white",
-    padding: "5px 10px",
-    borderRadius: "15px",
-    textAlign: "center",
+    color: 'white',
+    backgroundColor:'green',
+    padding: '3px 8px',
+    borderRadius: '5px',
+    textAlign: 'center',
+    minWidth: '34px',
+    display: 'inline-block',
+   
   };
 
   const noStyle = {
-    backgroundColor: "red",
-    color: "white",
-    padding: "5px 10px",
-    borderRadius: "15px",
-    textAlign: "center",
+    color: 'white',
+    backgroundColor:'red',
+    padding: '3px 8px',
+    borderRadius: '5px',
+    textAlign: 'center',
+    minWidth: '34px',
+    display: 'inline-block',
   };
 
   const evenRowStyle = {

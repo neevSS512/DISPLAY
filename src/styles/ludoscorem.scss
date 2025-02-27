@@ -14,8 +14,7 @@
     font-size: 11px;
   }
   
-  
-  
+   
 h3 {
   border: 1px solid black;
   border-radius: 9px;
@@ -27,7 +26,7 @@ h3 {
   text-align: center;       // Text alignment for fallback
 }
 
-.lcm{
+.lsm{
   display: flex;
   justify-content: center;  // Center horizontally
   align-items: center;      // Center vertically
@@ -36,7 +35,9 @@ h3 {
   margin-left: 230px;       // Adjust margin based on your layout
 
 }
+
   
+
   .withdraw-container {
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -59,15 +60,3 @@ h3 {
     cursor: pointer;
   }
   
-  .btn-h{
-    margin-left: 850px;
-    height: 38px;
-    padding: 8px;
-    border-radius: 9px;
-  }
-  .btn-l{
-    margin-left: 50px;
-    height: 38px;
-    padding: 8px;
-    border-radius: 9px;
-  }

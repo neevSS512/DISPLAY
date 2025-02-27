@@ -89,17 +89,21 @@
 .yes-status {
   background-color: green;
   color: white;
-  padding: 5px 10px;
+  padding: 3px 8px;
   border-radius: 5px;
   text-align: center;
+  min-width: 34px;
+  display: inline-block;
 }
 
 .no-status {
   background-color: red;
   color: white;
-  padding: 5px 10px;
+  padding: 3px 8px;
   border-radius: 5px;
   text-align: center;
+  min-width: 34px;
+  display: inline-block;
 }
 
 /* Navbar search styles */

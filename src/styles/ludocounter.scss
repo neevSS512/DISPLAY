@@ -342,7 +342,7 @@ th:nth-child(9), td:nth-child(9) { width: 10%; }
 
 
 
-.btn-f{
+.btn-y{
   margin-left: 840px;
   height: 30px;
   padding:4px;
@@ -350,11 +350,17 @@ th:nth-child(9), td:nth-child(9) { width: 10%; }
   background-color: rgb(27, 24, 121);
 }
 
-.btn-g{
+.btn-u{
   margin-left: 35px;
   height: 30px;
   padding: 4px;
   border-radius: 7px;
   background-color: rgb(27, 24, 121);
 
+}
+
+.table-data {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }

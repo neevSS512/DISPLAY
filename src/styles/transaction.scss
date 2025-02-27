@@ -132,17 +132,21 @@ h3 {
   
 
   .yes-status {
-    background-color: green;
     color: white;
-    padding: 5px 10px;
+    background-color:green;
+    padding: 3px 8px;
     border-radius: 5px;
     text-align: center;
+    min-width: '34px';
+    display: 'inline-block',
   }
   
   .no-status {
-    background-color: red;
     color: white;
-    padding: 5px 10px;
+    background-color:red;
+    padding: 3px 8px;
     border-radius: 5px;
     text-align: center;
+    min-width: '34px';
+    display: 'inline-block',
   }

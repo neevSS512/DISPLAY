@@ -138,31 +138,32 @@ const isValidURL = (value) => {
                     <span onClick={() => handleEdit(index, "action")}>{item.action || 'N/A'}</span>
                   )}
                 </td>
-
+                
 <td style={tdStyles} className="table-cell">
   {editedRow === index && editedField === "value" ? (
     <input
       type="text"
-      value={item.value || ''}
-      onChange={(e) => handleInputChange(e, index, 'value')}
+      value={item.value || ''}  // Ensure value is bound to the state
+      onChange={(e) => handleInputChange(e, index, 'value')}  // Update filteredData when input changes
     />
   ) : (
-    <span >
+    <span onClick={() => handleEdit(index, "value")}>
       {isValidURL(item.value) ? (
         <a
           href={item.value}
           target="_blank"
           rel="noopener noreferrer"
-          className="table-link" // Apply this class for handling overflow
+          className="table-link"
         >
           {item.value}
         </a>
       ) : (
-        item.value || 'N/A'
+        item.value || 'N/A'  // If no value, show 'N/A'
       )}
     </span>
   )}
 </td>
+
 
 
 
@@ -294,12 +295,12 @@ const isValidURL = (value) => {
             <td className='table-data '>
                <button
                   style={{
-                    padding: "4px",
-                    width:"6vw",
+                    padding: "3px 8px",
+                    width:"5vw",
                     textAlign: "center",
                     borderBottom: "1px solid #ddd",
                     color: "white",
-                    borderRadius: "9px",
+                    borderRadius: "5px",
                     margin: "12px",
                     marginLeft: "2px",
                     marginRight:"1px",
