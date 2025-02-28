@@ -15,6 +15,8 @@ const GameUserData = () => {
   const [error, setError] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [showUserData, setShowUserData] = useState(false);
+
+  
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -45,15 +47,14 @@ const GameUserData = () => {
   };
 
   const handleSearchChange = (e) => {
-    const query = e.target.value.trim();
+    const query = e.target.value
     setSearch(query);
     // Filter the data based on search query
     if (query) {
       setFilteredData(
         data.filter(
           (item) =>
-            (item.MobileNo && item.MobileNo.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.UserName && item.UserName.toLowerCase().startsWith(query.toLowerCase()))
+            (item.MobileNo && item.MobileNo.toLowerCase().startsWith(query.toLowerCase()))
         )
       );
     } else {
@@ -63,9 +64,9 @@ const GameUserData = () => {
   };
 
   const handleClearSearch = () => {
-    setSearch(""); // Clear search field
+    setSearch("");
     setFilteredData(data); // Show all data again
-    navigate("/UserData"); // Navigate to the /UserData path
+    navigate("/UserData");
   };
 
   if (loading) {
@@ -80,15 +81,36 @@ const GameUserData = () => {
     return <UserData user={selectedUser} handleClose={handleCloseUserData} />;
   }
 
+    const handleUpdate = async (id, updatedData) => {
+      try {
+        const response = await axios.patch(`http://localhost:3001/gameuser/gameUsers/${id}`, updatedData);
+        if (response.status === 200) {
+          setFilteredData((prevData) =>
+            prevData.map((item) => (item._id === id ? { ...item, ...updatedData } : item))
+          );
+        }
+      } catch (err) {
+        console.error('Error updating data:', err);
+      }
+    };
 
-  const tabbleStylees={
-    width: "82vw",
-    borderCollapse: "collapse",
-    marginTop: "20px ",
-    marginBottom:"20px",
-    marginLeft:"230px",
-  }
-
+   
+  const buttonStyles = {
+    padding: "5px 8px",
+    textAlign: "center",
+    borderBottom: "1px solid #ddd",
+    color: "white",
+    borderRadius: "5px",
+    margin: "12px",
+    marginLeft: "10px",
+    fontSize:'15px',
+    minWidth: '28px',
+    cursor: "pointer",
+    transition: "background-color 0.3s ease",
+    whiteSpace: "nowrap",  // Prevent text wrapping
+    display: "inline-block",  // Ensure it's inline-block so the text stays in one line
+  
+  };
   return (
     <div className="neev">
       <h3 className="ug">Game User Details</h3>
@@ -135,92 +157,74 @@ const GameUserData = () => {
 
       {/* Display message if no users are found */}
       {search && filteredData.length === 0 && (
-        <p style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-          No users found matching your search.
-        </p>
-      )}
+          <p className="no-results">
+             No users found matching your search.
+          </p>
+         )}
 
       {/* Display message if results are found */}
       {search && filteredData.length > 0 && (
-        <p style={{ textAlign: "center", color: "green", marginTop: "10px", }}>
-          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"}. matching your search.
-        </p>
-      )}
+          <p className="search-result">
+          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
+          </p>
+       )}
 
-      <table style={tabbleStylees}>
+
+      <table className='table-styles '>
         <thead>
           <tr>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>Id</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>Username</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>MobileNo</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>State</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>Mobile_Verified</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>Bank_Verified</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>Level</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}>B-Remarks</th>
-            <th style={{ backgroundColor: "black", color: "white", padding: "10px", textAlign: "left", borderBottom: "2px solid #ddd" }}></th>
-          </tr>
-        </thead>
+      <th className="table-header">Id</th>
+      <th className="table-header">Username</th>
+      <th className="table-header">MobileNo</th>
+      <th className="table-header">State</th>
+      <th className="table-header">isPanVerified</th>
+      <th className="table-header">isAadharVerified</th>
+      <th className="table-header">Bank_Verified</th>
+      <th className="table-header">_isBlock</th>
+      <th className="table-header"></th>
+      <th className="table-header"></th>
+    </tr>
+  </thead>
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
-              <tr key={item.Id} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item._id}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.UserName}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>{item.MobileNo}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.State}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isMobileVerified ? 'Yes' : 'No'}</td>
-                <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isBankVerified ? 'Yes' : 'No'}</td>
-                <td style={{ padding: "px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.level}</td>
-                <td className='table-data'> 
-                <button
-  style={{
-    backgroundColor: item.BlockRemarks === "Yes" ? 'green' : 'red',
-    color: 'white',
-    padding: '3px 8px',
-    borderRadius: '5px',
-    textAlign: 'center',
-    width: '48px', 
-    minWidth: '28px',
-    display: 'inline-block',
-    fontSize: '15px',
-    margin: '12px',
-    borderBottom: '1px solid #ddd',
-  }}
->
-  {item.BlockRemarks}
-</button>
-
-                </td>
-               <td className='table-data '>
-               <button
-                  style={{
-                    padding: "4px",
-                    width:"7vw",
-                    textAlign: "center",
-                    borderBottom: "1px solid #ddd",
-                    color: "white",
-                    borderRadius: "9px",
-                    margin: "12px",
-                    marginLeft: "2px",
-                    marginRight:"1px",
-                    cursor: "pointer",
-                    transition: "background-color 0.3s ease"
-                  }}
-                  onClick={() => handleMoreInfo(item)}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
-                >
-                  More Info
-                </button>
-               </td>
+              <tr key={item.Id} className="table-row">
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item._id}</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.un}</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd",whiteSpace:"nowrap" }}>{item.MobileNo}</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd",whiteSpace:"nowrap" }}>{item.State}</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isPanVerified }</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isAadharVerified }</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.isBankVerified}</td>
+               <td style={{ padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }}>{item.flags._isBlock}</td>
+    
                 
+<td className='table-data'>
+  <button
+    style={buttonStyles}
+    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
+    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
+    onClick={() => handleMoreInfo(item)}
+  >
+    More Info
+  </button>
+</td>
+                <td className='table-data'>  
+               <button
+                    style={buttonStyles}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
+                    onClick={() => handleUpdate(item)} 
+              >
+               Update
+              </button>
+              </td>   
               </tr>
             ))
           ) : (
-            <tr>
-              <td colSpan="8" style={{ padding: "10px", textAlign: "center" }}>No results found.</td>
-            </tr>
+          <tr>
+            <td colSpan="8" class="no-results">No results found.</td>
+          </tr>
           )}
         </tbody>
       </table>
@@ -229,4 +233,9 @@ const GameUserData = () => {
 };
 
 export default GameUserData;
+
+
+
+
+
 

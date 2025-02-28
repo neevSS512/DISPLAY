@@ -33,7 +33,7 @@ const WithdrawData = () => {
 
   // Handle search query change
   const handleSearchChange = (e) => {
-    const query = e.target.value;
+    const query = e.target.value.trim()
     setSearch(query);
 
     // Filter data based on search query
@@ -41,9 +41,9 @@ const WithdrawData = () => {
       setFilteredData(
         data.filter(
           (item) =>
-            item.phn.toLowerCase().includes(query.toLowerCase()) ||   // Filter by Mobile No
-            item.bankAccount.toLowerCase().includes(query.toLowerCase()) ||  // Filter by Bank Account
-            item.ifsc.toLowerCase().includes(query.toLowerCase())  // Filter by IFSC
+            item.phn.toLowerCase().startsWith(query.toLowerCase()) ||   // Filter by Mobile No
+            item.bankAccount.toLowerCase().startsWith(query.toLowerCase()) || 
+            item.transferid.toLowerCase().startsWith(query.toLowerCase())
         )
       );
     } else {

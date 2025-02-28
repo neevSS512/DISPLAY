@@ -8,7 +8,7 @@ const UserData = ({ user, handleClose }) => {
 
   useEffect(() => {
     if (user) {
-      setLoading(false);  // Set loading to false once user data is available
+      setLoading(false);  
     } else {
       setError('No user data available');
       setLoading(false);
@@ -28,35 +28,6 @@ const UserData = ({ user, handleClose }) => {
     return <div>{error}</div>;
   }
 
-  // Styling for table and columns
-  const tableStyles = {
-    width: "82vw",
-    borderCollapse: "collapse",
-    marginTop: "20px ",
-    marginBottom:"20px",
-    marginLeft:"230px"
-  };
-
-  const thStyles = {
-    backgroundColor: "black",
-    color: "white",
-    padding: "10px",
-    textAlign: "left",
-    borderBottom: "2px solid #ddd",
-  };
-
-  const tdStyles = {
-    padding: "4px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd"
-  };
-
-  const tdsStyles = {
-    padding: "8px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd",
-    color: "rgb(103, 103, 249)"
-  };
 
   return (
     <div className='neev'>
@@ -71,29 +42,31 @@ const UserData = ({ user, handleClose }) => {
         </button>
       </h3>
 
-      <table style={tableStyles}>
+      <table className='table-stylegm'>
         <thead>
           <tr>
-            <th style={thStyles}>Deposit</th>
-            <th style={thStyles}>Winning</th>
-            <th style={thStyles}>Bonus</th>
-            <th style={thStyles}>Total_Cash</th>
-            <th style={thStyles}>Payment_Counter</th>
-            <th style={thStyles}>Withdraw_Counter</th>
-            <th style={thStyles}>Referal_Count</th>
-            <th style={thStyles}>Total_Referal_Earning</th>
+            <th className="th-stylegm">Deposit</th>
+            <th className="th-stylegm">Winning</th>
+            <th className="th-stylegm">Bonus</th>
+            <th className="th-stylegm">Total_Cash</th>
+            <th className="th-stylegm">Payment_Counter</th>
+            <th className="th-stylegm">Withdraw_Counter</th>
+            <th className="th-stylegm">Referal_Count</th>
+            <th className="th-stylegm">Total_Referal_Earning</th>
+
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={tdStyles}>{user.deposit || 'N/A'}</td>
-            <td style={tdStyles}>{user.Winning || 'N/A'}</td>
-            <td style={tdsStyles}>{user.Bonus || 'N/A'}</td>
-            <td style={tdStyles}>{user.totalcash || 'N/A'}</td>
-            <td style={tdStyles}>{user.PaymentCounter || 'N/A'}</td>
-            <td style={tdStyles}>{user.WithdrawCounter || 'N/A'}</td>
-            <td style={tdStyles}>{user.referalCount || 'N/A'}</td>
-            <td style={tdStyles}>{user.totalReferalEarning || 'N/A'}</td>
+          <td className="td-styles">{user.deposit || 'N/A'}</td>
+          <td className="td-stylegm">{user.Winning || 'N/A'}</td>
+          <td className="tds-stylegm">{user.Bonus || 'N/A'}</td>
+          <td className="td-stylegm">{user.totalcash || 'N/A'}</td>
+          <td className="td-stylegm">{user.PaymentCounter || 'N/A'}</td>
+          <td className="td-stylegm">{user.WithdrawCounter || 'N/A'}</td>
+          <td className="td-stylegm">{user.referalCount || 'N/A'}</td>
+          <td className="td-stylegm">{user.totalReferalEarning || 'N/A'}</td>
+
           </tr>
         </tbody>
       </table>

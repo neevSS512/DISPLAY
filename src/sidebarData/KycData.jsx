@@ -36,15 +36,14 @@ export default function KycData() {
 
   // Handle Search input change
   const handleSearchChange = (e) => {
-    const query = e.target.value;
+    const query = e.target.value.trim()
     setSearch(query);
     if (query) {
       setFilteredData(
         data.filter((item) =>
-          (item?.phn && item.phn.toLowerCase().includes(query.toLowerCase())) ||
-          item.details.name_on_card.toLowerCase().includes(query.toLowerCase()) || 
-          item.details.fathers_name.toLowerCase().includes(query.toLowerCase()) || 
-          item.id_number.toLowerCase().includes(query.toLowerCase()) // Add any other search conditions here
+          (item?.phn && item.phn.toLowerCase().startsWith(query.toLowerCase())) ||
+          item.details.name_on_card.toLowerCase().startsWith(query.toLowerCase()) || 
+          item.id_number.toLowerCase().startsWith(query.toLowerCase()) // Add any other search conditions here
         )
       );
     } else {
@@ -66,52 +65,6 @@ export default function KycData() {
   if (error) {
     return <div className="error">{error}</div>;
   }
-
-  const tabbleStyles = {
-    width: "82vw",
-    borderCollapse: "collapse",
-    marginTop: "20px ",
-    marginBottom:"20px",
-    marginLeft:"230px"
-  };
-
-  const thStyyles = {
-    backgroundColor: "black",
-    color: "white",
-    padding: "4px",
-    textAlign: "left",
-    borderBottom: "2px solid #ddd",
-  };
-
-  const tdStyyles = {
-    padding: "18px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd",
-    verticalAlign: "middle",
-    wordWrap: "break-word",
-    whiteSpace: "nowrap",
-  };
-
-  const yesStyle = {
-    color: 'white',
-    backgroundColor:'green',
-    padding: '3px 8px',
-    borderRadius: '5px',
-    textAlign: 'center',
-    minWidth: '34px',
-    display: 'inline-block',
-   
-  };
-
-  const noStyle = {
-    color: 'white',
-    backgroundColor:'red',
-    padding: '3px 8px',
-    borderRadius: '5px',
-    textAlign: 'center',
-    minWidth: '34px',
-    display: 'inline-block',
-  };
 
   const evenRowStyle = {
     backgroundColor: "#f2f2f2",
@@ -174,33 +127,34 @@ export default function KycData() {
       </div>
       
 
-      {/* Display message if no users are found */}
-      {search && filteredData.length === 0 && (
-        <p style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-          No users found matching your search.
-        </p>
-      )}
+    {/* Display message if no users are found */}
+    {search && filteredData.length === 0 && (
+          <p className="no-results-k">
+             No users found matching your search.
+          </p>
+         )}
 
       {/* Display message if results are found */}
       {search && filteredData.length > 0 && (
-        <p style={{ textAlign: "center", color: "green", marginTop: "10px" }}>
+          <p className="search-result-k">
           Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
-        </p>
-      )}
+          </p>
+       )}
 
       {/* KYC data table */}
-      <table style={tabbleStyles}>
+      <table className='table-style-k' >
         <thead>
           <tr>
-            <th style={thStyyles}>Id</th>
-            <th style={thStyyles}>Mobile No</th>
-            <th style={thStyyles}>Type</th>
-            <th style={thStyyles}>Name On Card</th>
-            <th style={thStyyles}>Father's Name</th>
-            <th style={thStyyles}>Id Number</th>
-            <th style={thStyyles}>CD IST</th>
-            <th style={thStyyles}>Is Verified</th>
-            <th style={thStyyles}>Is Rejected</th>
+          <th class="th-style-k">Id</th>
+          <th class="th-style-k">Mobile No</th>
+<th class="th-style-k">Type</th>
+<th class="th-style-k">Name On Card</th>
+<th class="th-style-k">Father's Name</th>
+<th class="th-style-k">Id Number</th>
+<th class="th-style-k">CD IST</th>
+<th class="th-style-k">Is Verified</th>
+<th class="th-style-k">Is Rejected</th>
+
           </tr>
         </thead>
         <tbody>
@@ -210,28 +164,28 @@ export default function KycData() {
                 key={index}
                 style={index % 2 === 0 ? evenRowStyle : oddRowStyle}
               >
-                <td style={tdStyyles}>{item.id || 'N/A'}</td>
-                <td style={tdStyyles}>{item.phn || 'N/A'}</td>
-                <td style={tdStyyles}>{item.type || 'N/A'}</td>
-                <td style={tdStyyles}>{item.details.name_on_card || 'N/A'}</td>
-                <td style={tdStyyles}>{item.details.fathers_name || 'N/A'}</td>
-                <td style={tdStyyles}>{item.id_number || 'N/A'}</td>
-                <td style={tdStyyles}>{item.cd_ist || 'N/A'}</td>
-                <td style={tdStyyles}>
-                  <span style={item.isVerified ? yesStyle : noStyle}>
-                    {item.isVerified ? 'Yes' : 'No'}
-                  </span>
-                </td>
-                <td style={tdStyyles}>
-                  <span style={item.isRejected ? yesStyle : noStyle}>
-                    {item.isRejected ? 'Yes' : 'No'}
-                  </span>
-                </td>
+               <td className="td-style-k">{item.id || 'N/A'}</td>
+<td className="td-style-k">{item.phn || 'N/A'}</td>
+<td className="td-style-k">{item.type || 'N/A'}</td>
+<td className="td-style-k">{item.details.name_on_card || 'N/A'}</td>
+<td className="td-style-k">{item.details.fathers_name || 'N/A'}</td>
+<td className="td-style-k">{item.id_number || 'N/A'}</td>
+<td className="td-style-k">{item.cd_ist || 'N/A'}</td>
+<td className="td-style-k">
+  <span className={item.isVerified ? 'yes-style' : 'no-style'}>
+    {item.isVerified ? 'Yes' : 'No'}
+  </span>
+</td>
+<td className="td-style-k">
+  <span className={item.isRejected ? 'yes-style' : 'no-style'}>
+    {item.isRejected ? 'Yes' : 'No'}
+  </span>
+</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="8" style={{ padding: "10px", textAlign: "center" }}>
+              <td className='no-results-cell-k '>
                 No results found.
               </td>
             </tr>

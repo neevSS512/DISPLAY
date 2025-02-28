@@ -66,3 +66,90 @@ h3 {
   .navbar_search{
     margin-left: 200px;
   }
+
+  .no-results-cell-r {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table-row-even-r {
+    background-color: #f2f2f2;
+  }
+  
+  .table-row-odd-r {
+    background-color: #ffffff;
+  }
+  /* Table styles */
+.table-styles-r {
+  width: 82vw;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 230px;
+}
+
+/* Table header styles */
+.th-styles-r {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table data cell styles (general) */
+.tds-styles-r {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: rgb(103, 103, 249);
+}
+
+/* Table data cell styles (specific) */
+.td-styles-r {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+/* Custom button styles */
+.ctc-styles-r {
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 28px;
+  display: inline-block;
+  font-size: 15px;
+  margin: 12px;
+  border-bottom: 1px solid #ddd;
+  background-color: rgb(101, 216, 101);
+}
+
+
+.search-result-r{
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+  margin-left: 195px;
+}
+
+.no-results-r {
+  text-align: center;
+  color: gray;
+  margin-top: 10px;
+  margin-left: 195px;
+}
+.pending-status {
+  background-color: red;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 28px;
+  display: inline-block;
+  font-size: 15px;
+  margin: 12px;
+  border-bottom: 1px solid #ddd;
+}

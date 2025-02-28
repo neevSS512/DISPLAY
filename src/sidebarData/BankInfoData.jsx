@@ -12,7 +12,7 @@ const BankInfoData = () => {
   const [filteredData, setFilteredData] = useState([]); // Store filtered data
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [search, setSearch] = useState(""); // The search query
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const BankInfoData = () => {
 
 
   const handleClearSearch = () => {
-    setSearch(""); // Clear search field
+    setSearch(""); 
     setFilteredData(data); // Show all data again
     navigate("/BankData"); // Navigate to the /BankData path
   };
@@ -85,6 +85,7 @@ const BankInfoData = () => {
             color: "#333",
             borderRadius: "20px",
             border: "1px solid #ddd",
+
           }}
         />
 
@@ -112,19 +113,21 @@ const BankInfoData = () => {
         </IconButton>
       </div>
 
-      {/* Display message when no matching users are found */}
-      {search && filteredData.length === 0 && (
-        <p style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-          No users found matching your search.
-        </p>
-      )}
+     {/* Display message when no results are found */}
+           {search && filteredData.length === 0 && (
+           <p className="no-results-message-b">
+              No users found matching your search.
+          </p>
+          )}
+
 
       {/* Display message when results are found */}
-      {search && filteredData.length > 0 && (
-        <p style={{ textAlign: "center", color: "green", marginTop: "10px" }}>
+        {search && filteredData.length > 0 && (
+         <p className="found-message-b">
           Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
         </p>
-      )}
+        )}
+
 
       {/* Table for Bank Info Data */}
       <table className="table-container">
@@ -143,7 +146,7 @@ const BankInfoData = () => {
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
-              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
+              <tr key={index} className={index % 2 === 0 ? "table-row-even-b" : "table-row-odd-b"}>
                 <td className="table-data">{item.idNumber || 'N/A'}</td>
                 <td className="table-data">{item.verificationDetails?.phn || 'N/A'}</td>
                 <td className="table-data">{item.verificationDetails?.accountHolderName || 'N/A'}</td>

@@ -159,8 +159,8 @@ const TransactionData = () => {
             <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Previous Cash</th>
             <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Amount</th>
             <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>transection_purpose</th>
-            <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>TDS Track</th>
-            <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Total Cash</th>
+            <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>contact_support</th>
+            {/* <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Total Cash</th> */}
             <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Cd_Ist</th>
             <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Transaction Status</th>
           </tr>
@@ -173,11 +173,11 @@ const TransactionData = () => {
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.previous_cash}</td>
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.amount}</td>
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.transection_purpose}</td>
-               <td className="table-data">
+               {/* <td className="table-data">
                   <span className={item.tds_track ? 'yes-status' : 'no-status'}>
                     {item.tds_track ? 'Yes' : 'No'}
                   </span>
-                </td>
+                </td> */}
               <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.current_total_cash}</td>
               <td style={{ padding: '7px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.cd_ist}</td>
               <td className='table-data'>

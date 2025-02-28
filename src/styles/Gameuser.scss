@@ -70,6 +70,7 @@ h3 {
 
   
   .navbar_search {
+    position: relative;
     border: 1px solid $grey;
     border-radius: 30px;
     height: 50px;
@@ -93,13 +94,112 @@ h3 {
       display: none;
     }
   }
+
+  
+  .navbar_search_input {
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #333;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .clear-icon {
+    position: absolute;
+    right: 81px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .search-icon {
+    margin-left: 8px;
+  }
+  .table-styles {
+    width: 82vw;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 230px;
+  }
+  
   .table-data {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+  .table-header {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+  }
+  .table-cell {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
   
+  .table-row:nth-child(even) {
+    background-color: #f2f2f2;  /* Color for even rows */
+  }
+  
+  .table-row:nth-child(odd) {
+    background-color: #ffffff;  /* Color for odd rows */
+  }
+  
+  .button-block {
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-align: center;
+    width: 48px;
+    min-width: 28px;
+    display: inline-block;
+    font-size: 15px;
+    margin: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .button-block-green {
+    background-color: green;
+  }
+  
+  .button-block-red {
+    background-color: red;
+  }
+  
+  .button-more-info {
+    padding: 4px;
+    width: 7vw;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    border-radius: 9px;
+    margin: 12px;
+    margin-left: 2px;
+    margin-right: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-more-info:hover {
+    background-color: rgb(70, 70, 72);
+  }
+  
+  .button-more-info:active {
+    background-color: rgb(16, 28, 52);
+  }
 
+  .no-results {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
   .yes-status {
     background-color: green;
     color: white;
@@ -116,4 +216,24 @@ h3 {
     text-align: center;
   }
 
+  .search-result {
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+    margin-left: 195px;
+  }
+  
+  .no-results {
+    text-align: center;
+    color: gray;
+    margin-top: 10px;
+    margin-left: 195px;
+  }
+  
 
+  
+.table-data {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

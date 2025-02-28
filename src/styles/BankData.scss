@@ -1,61 +1,4 @@
-// .neev{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-//     margin-left: 280px;
-//     margin-right: 280px;
-//     font-family: Arial, Helvetica, sans-serif;
-//     font-size: 14px;
-//     background-color: rgb(255, 251, 251);
-    
-// }
-// .neevs{
-//     font-size: 11px;
-// }
 
-
-
-// h3{
-//     display:inline-block;
-//     border: 1px solid black;
-//     border-radius: 9px;
-//     background-color: rgb(221, 221, 221);
-//     width: 100%;
-//     height: 50px;
-//     margin-bottom: 12px;
-//     margin-top: 12px;
-// }
-
-// .ctr{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .withdraw-container {
-//     margin-bottom: 20px;
-//     border: 1px solid #ddd;
-//     padding: 15px;
-//   }
-  
-//   .withdraw-table {
-//     width: 100%;
-//     border-collapse: collapse;
-//     background-color: rgb(164, 173, 181);
-//   }
-  
-//   .withdraw-table th, .withdraw-table td {
-//     padding: 10px;
-//     text-align: left;
-//     border: 1px solid #ddd;
-//   }
-
-//   .btn-mi{
-//     cursor: pointer;
-//   }
-
-/* Styling for the table */
 .table-container {
   width: 82vw;
   border-collapse: collapse;
@@ -153,5 +96,25 @@ h3 {
   padding-top: 2px;         // Adjust the padding if needed
   width: 82vw;          // Set specific width if necessary
   margin-left: 230px;       // Adjust margin based on your layout
+}
 
+.table-row-even-b {
+  background-color: #f2f2f2;
+}
+
+.table-row-odd-b {
+  background-color: #ffffff;
+}
+
+.found-message-b {
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+  margin-left: 195px;
+}
+.no-results-message-b {
+  text-align: center;
+  color: gray;
+  margin-top: 10px;
+  margin-left: 195px;
 }

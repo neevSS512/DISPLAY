@@ -135,7 +135,7 @@ const isValidURL = (value) => {
                       onChange={(e) => handleInputChange(e, index, 'action')}
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "action")}>{item.action || 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "action")}>{item.action || '_'}</span>
                   )}
                 </td>
                 
@@ -158,7 +158,7 @@ const isValidURL = (value) => {
           {item.value}
         </a>
       ) : (
-        item.value || 'N/A'  // If no value, show 'N/A'
+        item.value || '_'  // If no value, show 'N/A'
       )}
     </span>
   )}
@@ -187,7 +187,7 @@ const isValidURL = (value) => {
       onChange={(e) => handleInputChange(e, index, 'sDate')}
     />
   ) : (
-    <span onClick={() => handleEdit(index, "sDate")}>{item.sDate ? item.sDate.split('T')[0] : 'N/A'}</span>
+    <span onClick={() => handleEdit(index, "sDate")}>{item.sDate ? item.sDate.split('T')[0] : '_'}</span>
   )}
 </td>
 
@@ -200,7 +200,7 @@ const isValidURL = (value) => {
       onChange={(e) => handleInputChange(e, index, 'eDate')}
     />
   ) : (
-    <span onClick={() => handleEdit(index, "eDate")}>{item.eDate ? item.eDate.substring(0, 10) : 'N/A'}</span>
+    <span onClick={() => handleEdit(index, "eDate")}>{item.eDate ? item.eDate.substring(0, 10) : '_'}</span>
   )}
    </td>             
             
@@ -214,7 +214,7 @@ const isValidURL = (value) => {
                       onChange={(e) => handleInputChange(e, index, 'player')}
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "player")}>{item.player || 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "player")}>{item.player || '_'}</span>
                   )}
                 </td>
                           
@@ -237,7 +237,7 @@ const isValidURL = (value) => {
           <div key={idx} className="state-item">{state}</div> // Each state value appears on its own line
         ))
       ) : (
-        'N/A'  // If the state array is empty, show 'N/A'
+        '_'  // If the state array is empty, show 'N/A'
       )}
     </span>
   )}
@@ -255,7 +255,7 @@ const isValidURL = (value) => {
                   
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "bonus_type")}>{item.bonus_type|| 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "bonus_type")}>{item.bonus_type|| '_'}</span>
                   )}
                 </td>
                 <td style={tdStyles}>
@@ -267,7 +267,7 @@ const isValidURL = (value) => {
                   
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "increment_counter")}>{item.increment_counter|| 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "increment_counter")}>{item.increment_counter|| '_'}</span>
                   )}
                 </td>
                 <td style={tdStyles}>
@@ -278,7 +278,7 @@ const isValidURL = (value) => {
                       onChange={(e) => handleInputChange(e, index, 'final_counter')}
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "final_counter")}>{item.final_counter|| 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "final_counter")}>{item.final_counter|| '_'}</span>
                   )}
                 </td>
                   <td style={tdStyles}>
@@ -289,7 +289,7 @@ const isValidURL = (value) => {
                       onChange={(e) => handleInputChange(e, index, 'cash')}
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "cash")}>{item.cash || 'N/A'}</span>
+                    <span onClick={() => handleEdit(index, "cash")}>{item.cash || '_'}</span>
                   )}
                 </td>
             <td className='table-data '>

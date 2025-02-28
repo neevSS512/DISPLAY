@@ -8,10 +8,10 @@ import variables from "../styles/variables.scss";
 
 const RechargeData = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]); // Store filtered data
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [search, setSearch] = useState(""); // The search query
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -19,7 +19,7 @@ const RechargeData = () => {
       try {
         const response = await axios.get('http://localhost:3001/recharge/rechargeData');
         setData(response.data); 
-        setFilteredData(response.data); // Initially set filtered data to all data
+        setFilteredData(response.data); 
       } catch (err) {
         setError('Error fetching recharge data');
       } finally {
@@ -31,27 +31,28 @@ const RechargeData = () => {
   }, []); 
 
   const handleSearchChange = (e) => {
-    const query = e.target.value;
+    const query = e.target.value.trim()
     setSearch(query);
-    // Filter the data based on search query
+   
     if (query) {
       setFilteredData(
         data.filter(
           (item) =>
-            (item.username && item.username.toLowerCase().includes(query.toLowerCase())) ||
-            (item.mobile_no && item.mobile_no.toLowerCase().includes(query.toLowerCase()))
+            (item.orderId && item.orderId.toLowerCase().startsWith(query.toLowerCase())) ||
+            (item.mobile_no && item.mobile_no.toLowerCase().startsWith(query.toLowerCase()))||
+            (item.txStatus && item.txStatus.toLowerCase().startsWith(query.toLowerCase()))
         )
       );
     } else {
-      // If search is cleared, reset to show all data
+   
       setFilteredData(data);
     }
   };
 
   const handleClearSearch = () => {
-    setSearch(""); // Clear search field
+    setSearch(""); 
     setFilteredData(data); // Show all data again
-    navigate("/Recharge"); // Navigate to the /RechargeData path
+    navigate("/Recharge");
   };
 
   if (loading) {
@@ -61,50 +62,6 @@ const RechargeData = () => {
   if (error) {
     return <div>{error}</div>;
   }
-
-  const tableStylees = {
-    width: "82vw",
-    borderCollapse: "collapse",
-    marginTop: "20px ",
-    marginBottom:"20px",
-    marginLeft:"230px"
-  };
-
-  const thStylees = {
-    backgroundColor: "black",
-    color: "white",
-    padding: "10px",
-    textAlign: "left",
-    borderBottom: "2px solid #ddd"
-  };
-
-  const tdsStylees = {
-    padding: "8px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd",
-    color: "rgb(103, 103, 249)"
-  };
-
-  const tdStylees = {
-    padding: "8px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd",
-    whiteSpace:"nowrap"
-  };
-
-  const ctcStyles = {
-    
-    color: 'white',
-    padding: '3px 8px',
-    borderRadius: '5px',
-    textAlign: 'center',
-    minWidth: '28px',
-    display: 'inline-block',
-    fontSize:'15px',
-    margin: '12px',
-    borderBottom: '1px solid #ddd',
-    backgroundColor: 'rgb(101, 216, 101)',
-  };
 
   return (
     <div className='neev'>
@@ -152,58 +109,68 @@ const RechargeData = () => {
         </IconButton>
       </div>
 
-      {/* Display message if no users are found */}
-      {search && filteredData.length === 0 && (
-        <p style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-          No users found matching your search.
-        </p>
-      )}
+     {/* Display message if no users are found */}
+     {search && filteredData.length === 0 && (
+          <p className="no-results-r">
+             No users found matching your search.
+          </p>
+         )}
 
       {/* Display message if results are found */}
       {search && filteredData.length > 0 && (
-        <p style={{ textAlign: "center", color: "green", marginTop: "10px" }}>
-          {/* {filteredData.length} user(s) found matching your search. */}
-          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"}. matching your search.
-        </p>
-      )}
+          <p className="search-result-r">
+          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
+          </p>
+       )}
+
 
       {/* Recharge data table */}
-      <table style={tableStylees}>
-        <thead>
-          <tr>
-            <th style={thStylees}>Order Id</th>
-            <th style={thStylees}>UserName</th>
-            <th style={thStylees}>Mobile No</th>
-            <th style={thStylees}>Amount</th>
-            <th style={thStylees}>Amount After GSt</th>
-            <th style={thStylees}>Inclusive GSt</th>
-            <th style={thStylees}>Previous Cash</th>
-            <th style={thStylees}>Total Cash</th>
-            <th style={thStylees}>cd_ist</th>
-            <th style={thStylees}>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((item, index) => (
-              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
-                <td style={tdStylees}>{item.orderId}</td>
-                <td style={tdStylees}>{item.username}</td>
-                <td style={tdStylees}>{item.mobile_no}</td>
-                <td style={tdsStylees}>{item.amount}</td>
-                <td style={tdsStylees}>{item.amountAfterGst}</td>
-                <td style={tdsStylees}>{item.InclusiveGst}</td>
-                <td style={tdStylees}>{item.previous_cash}</td>
-                <td style={tdStylees}>{item.after_cash}</td>
-                <td style={tdStylees}>{item.cd_ist}</td>
-                <td className='table-data'><button style={ctcStyles}>{item.txStatus}</button></td>
-           
-              </tr>
+<table className="table-styles-r">
+  <thead>
+    <tr>
+      <th className="th-styles-r">Order Id</th>
+      <th className="th-styles-r">UserName</th>
+      <th className="th-styles-r">Mobile No</th>
+      <th className="th-styles-r">Amount</th>
+      <th className="th-styles-r">Amount After GSt</th>
+      <th className="th-styles-r">Inclusive GSt</th>
+      <th className="th-styles-r">Previous Cash</th>
+      <th className="th-styles-r">Total Cash</th>
+      <th className="th-styles-r">cd_ist</th>
+      <th className="th-styles-r">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {filteredData.length > 0 ? (
+      filteredData.map((item, index) => (
+        <tr key={index} className={index % 2 === 0 ? "table-row-even-r" : "table-row-odd-r"}>
+          <td className="td-styles-r">{item.orderId}</td>
+          <td className="td-styles-r">{item.username}</td>
+          <td className="td-styles-r">{item.mobile_no}</td>
+          <td className="tds-styles-r">{item.amount}</td>
+          <td className="tds-styles-r">{item.amountAfterGst}</td>
+          <td className="tds-styles-r">{item.InclusiveGst}</td>
+          <td className="td-styles-r">{item.previous_cash}</td>
+          <td className="td-styles-r">{item.after_cash}</td>
+          <td className="td-styles-r">{item.cd_ist}</td>
+          <td className="table-data">
+            {/* <button className="ctc-styles-r">{item.txStatus}</button> */}
+            <button
+  className={`ctc-styles-r ${item.txStatus.toLowerCase() === "pending" ? "pending-status" : ""}`}
+>
+  {item.txStatus}
+</button>
+
+          </td>
+        </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="7" style={{ padding: "10px", textAlign: "center" }}>No results found.</td>
-            </tr>
+  <td colSpan="7" className="no-results-cell-r">
+    No results found.
+  </td>
+</tr>
+
           )}
         </tbody>
       </table>

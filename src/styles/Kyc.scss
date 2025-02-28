@@ -64,3 +64,67 @@ h3 {
   .btn-mi{
     cursor: pointer;
   }
+
+  .search-result-k {
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+    margin-left: 195px;
+  }
+  
+  .no-results-k {
+    text-align: center;
+    color: gray;
+    margin-top: 10px;
+    margin-left: 195px;
+  }
+  .table-style-k {
+    width: 82vw;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 230px;
+  }
+  .th-style-k {
+    background-color: black;
+    color: white;
+    padding: 4px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+  }
+  .td-style-k {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: nowrap;
+  }
+  
+  .yes-style {
+    color: white;
+    background-color: green;
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 34px;
+    display: inline-block;
+  }
+  
+  .no-style {
+    color: white;
+    background-color: red;
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 34px;
+    display: inline-block;
+  }
+  
+  
+  .no-results-cell-k {
+    padding: 10px;
+    text-align: center;
+  }
+  
+ 

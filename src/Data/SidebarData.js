@@ -108,7 +108,7 @@ export const SidebarData = [
                   ],
             },
             {
-                title: 'PCTG',
+                title: 'Point',
                 icon: <IoLogoPlaystation style={{ marginRight: '9px' }} />,
                 path: '/PlayingData',
             },

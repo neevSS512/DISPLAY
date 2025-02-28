@@ -36,6 +36,34 @@ h3 {
 
 }
 
+.table-stylegm{
+  width: 82vw;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 230px;
+}
+.th-stylegm {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+.td-stylegm{
+  padding: 4px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.tds-stylegm {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: rgb(103, 103, 249);
+}
+
+
+
 .withdraw-container {
     margin-bottom: 20px;
     border: 1px solid #ddd;
