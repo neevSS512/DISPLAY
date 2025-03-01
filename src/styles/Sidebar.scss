@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 236px;
+  width: 246px;
   height: 100%;
   background-color: #0b151f;
   color: #fff;
@@ -49,88 +49,6 @@
 
 .arrow.right {
   transform: rotate(135deg); /* Arrow pointing right when closed */
-}
-
-.admin {
-  display: flex;
-  flex-direction: row;  // Default horizontal layout when sidebar is open
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  min-height: 1vh;
-  color: #ffffff;  // White text color for contrast
-  margin: 18px;
-  padding: 10px 16px;  // Default padding when sidebar is open
-  border-radius: 5px;
-  background-color: #5c54ff; // Admin background color
-  transition: all 0.3s ease-in-out; // Smooth transition for all styles
-
-  // When sidebar is closed, stack vertically and adjust padding
-  &.closed {
-    flex-direction: column;  // Stack items vertically when the sidebar is closed
-    align-items: center;     // Center items vertically and horizontally
-    font-size: 0.875rem;     // Smaller font size when sidebar is closed
-    padding: 15px 10px;      // Adjust padding for vertical layout (enough space)
-    text-align: center;      // Center text when collapsed
-  }
-
-  // When sidebar is open, keep horizontal layout
-  &.open {
-    flex-direction: row;    // Keep horizontal layout when the sidebar is open
-    align-items: center;
-    font-size: 1rem;     // Default font size when sidebar is open
-    padding: 10px 20px;     // More padding when the sidebar is open
-  }
-
-  // Icon styles
-  .icon {
-    // margin-right: 10px;  // Space between the icon and text when sidebar is open
-    padding: 5px;
-    border-radius: 50%;  // Circular icon
-    background-color: #ffffff; // Icon background color (white)
-    color: #4CAF50;      // Icon color matches the background color of admin section
-  }
-
-  // Optional hover effect to make it interactive
-  &:hover {
-    background-color: #c2c9c2;  // Darker background on hover
-    cursor: pointer;  // Show a pointer cursor on hover
-    color:black;
-    .hki {
-      color: black;
-    }
-    .separator{
-      color: black;
-    }
-  }
-
-  // Text styling
-  .title {
-    white-space: nowrap;  // Prevent text from breaking into new lines in open state
-  }
-}
-  
-.sidebar .title {
-  transition: margin-left 0.3s ease; /* Smooth transition for margin */
-}
-
-.sidebar.open .title {
-  margin-left: 18px; /* Adjust this value to your desired margin */
-}
-
-
-.hki {
-  // margin-left: 10px;  // Space between Admin text and HKI when open
-  font-size: 1rem;    // Ensure the font size of HKI is readable but not too big
-  color: #ffffff;    // White text color for HKI
-  
-}
-
-
-.separator {
-  margin-left: 5px; // Space between Admin text and the separator
-  margin-right: 5px; // Space between separator and HKI text
-  color: #ffffff; // Make the separator white
 }
 
 .nav-menu {
