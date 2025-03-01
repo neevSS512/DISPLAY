@@ -42,6 +42,7 @@ h3 {
 
 }
 
+
 .withdraw-container {
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -236,4 +237,16 @@ h3 {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+}
+
+
+.bg-focus{
+  border: 1px solid rgb(95, 95, 95);
+  width: 120px;  /* Fixed width */
+  height: 22px;  /* Fixed height */
+  padding: 2px 4px;  /* Adjusted padding for a more compact height */
+  box-sizing: border-box;  /* Ensures padding and border are inside the input's width/height */
+  font-size: 12px;  /* Smaller font size for a more compact input */
+  line-height: 18px;  /* Control line height to avoid extra vertical space */
+  text-align: left;
 }

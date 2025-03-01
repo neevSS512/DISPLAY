@@ -10,6 +10,7 @@
     background-color: rgb(255, 251, 251);
     
   }
+  
   .neevs{
     font-size: 11px;
   }
@@ -126,12 +127,14 @@
   white-space: pre-wrap;    /* Preserve line breaks and wrap the text */
   vertical-align: top;      /* Align the content at the top */
   padding: 8px;             /* Optional padding */
- 
 }
 
 .state-item {
   margin-bottom: 4px;       /* Space between each state value */
   word-wrap: break-word;    /* Ensure wrapping within the state item */
   white-space: normal;      /* Allow word wrapping if needed */
+  text-align: center; /* If you want to center each individual item within the "state" array cell */
   
 }
+
+

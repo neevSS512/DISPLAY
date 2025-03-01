@@ -10,6 +10,7 @@ const PlayingData = () => {
   const [error, setError] = useState('');                 // Error state
   const [editedRow, setEditedRow] = useState(null);       // Track which row is being edited
   const [editedField, setEditedField] = useState("");     // Track which field is being edited
+  const [editingBorder, setEditingBorder] = useState(null); // Track which input field has a border
 
   // Fetch data on component mount
   useEffect(() => {
@@ -242,7 +243,17 @@ const buttonStyles = {
     borderBottom: "1px solid #ddd"
   };
 
-;
+  const handleBlur = () => {
+    setEditedRow(null);
+    setEditedField("");
+    setEditingBorder(null);
+  };
+  
+  const handleMouseLeave = () => {
+    setEditedRow(null);
+    setEditedField(""); // Reset the edited field to null
+    setEditingBorder(null); // Reset the border
+  };
 
   return (
     <div className="neev">
@@ -280,7 +291,9 @@ const buttonStyles = {
                       type="number"
                       value={item.entryFee || ''}
                       onChange={(e) => handleInputChange(e, index, 'entryFee')}
-                      // onBlur={() => handleSave(index, 'entryFee')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "entryFee")}>{item.entryFee || 'N/A'}</span>
@@ -293,7 +306,9 @@ const buttonStyles = {
                       type="number"
                       value={item.reke || ''}
                       onChange={(e) => handleInputChange(e, index, 'reke')}
-                      // onBlur={() => handleSave(index, 'reke')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "reke")}>{item.reke || 'N/A'}</span>
@@ -305,7 +320,9 @@ const buttonStyles = {
                       type="number"
                       value={item.pCount || ''}
                       onChange={(e) => handleInputChange(e, index, 'pCount')}
-                      // onBlur={() => handleSave(index, 'pCount')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "pCount")}>{item.pCount || 'N/A'}</span>
@@ -318,7 +335,9 @@ const buttonStyles = {
                       type="number"
                       value={item.bonus || ''}
                       onChange={(e) => handleInputChange(e, index, 'bonus')}
-                      // onBlur={() => handleSave(index, 'bonus')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "bonus")}>{item.bonus || 'N/A'}</span>
@@ -328,10 +347,13 @@ const buttonStyles = {
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "mode" ? (
                     <input
-                      type="text"
+                      type="string"
                       value={item.mode || ''}
                       onChange={(e) => handleInputChange(e, index, 'mode')}
-                      // onBlur={() => handleSave(index, 'mode')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
+                      
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "mode")}>{item.mode || 'N/A'}</span>
@@ -361,7 +383,9 @@ const buttonStyles = {
                       type="number"
                       value={item.online_player || ''}
                       onChange={(e) => handleInputChange(e, index, 'online_player')}
-                      // onBlur={() => handleSave(index, 'online_player')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "online_player")}>{item.online_player || 'N/A'}</span>
@@ -374,7 +398,9 @@ const buttonStyles = {
                       type="number"
                       value={item.leaderBoardScore || ''}
                       onChange={(e) => handleInputChange(e, index, 'leaderBoardScore')}
-                      // onBlur={() => handleSave(index, 'leaderBoardScore')}
+                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
                     />
                   ) : (
                     <span onClick={() => handleEdit(index, "leaderBoardScore")}>{item.leaderBoardScore || 'N/A'}</span>

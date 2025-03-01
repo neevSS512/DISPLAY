@@ -1,22 +1,24 @@
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import "../styles/ConfigData.scss"; 
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../styles/ConfigData.scss";
 const ConfigData = () => {
-  const [filteredData, setFilteredData] = useState([]);  // Store filtered data
-  const [loading, setLoading] = useState(true);           // Loading state
-  const [error, setError] = useState('');                 // Error state
-  const [editedRow, setEditedRow] = useState(null);       // Track which row is being edited
-  const [editedField, setEditedField] = useState("");     // Track which field is being edited
+  const [filteredData, setFilteredData] = useState([]); // Store filtered data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(""); // Error state
+  const [editedRow, setEditedRow] = useState(null); // Track which row is being edited
+  const [editedField, setEditedField] = useState(""); // Track which field is being edited
+  const [editingBorder, setEditingBorder] = useState(null); // Track which input field has a border
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/gameconfigdata/gameconfigurations');
+        const response = await axios.get(
+          "http://localhost:3001/gameconfigdata/gameconfigurations"
+        );
         if (response.data) {
-          setFilteredData(response.data);  // Set the fetched data
+          setFilteredData(response.data); // Set the fetched data
         }
       } catch (err) {
-        setError('Error fetching data');
+        setError("Error fetching data");
       } finally {
         setLoading(false);
       }
@@ -28,48 +30,52 @@ const ConfigData = () => {
   // Handle row updates
   const handleUpdate = async (id, updatedData) => {
     try {
-      const response = await axios.patch(`http://localhost:3001/gameconfigdata/gameconfigurations/${id}`, updatedData);
+      const response = await axios.patch(
+        `http://localhost:3001/gameconfigdata/gameconfigurations/${id}`,
+        updatedData
+      );
       if (response.status === 200) {
         setFilteredData((prevData) =>
-          prevData.map((item) => (item._id === id ? { ...item, ...updatedData } : item))
+          prevData.map((item) =>
+            item._id === id ? { ...item, ...updatedData } : item
+          )
         );
       }
     } catch (err) {
-      console.error('Error updating data:', err);
+      console.error("Error updating data:", err);
     }
   };
-  
+
   const handleEdit = (index, field) => {
     setEditedRow(index);
     setEditedField(field);
   };
 
+  const handleInputChange = (event, index, field) => {
+    const updatedItem = {
+      ...filteredData[index],
+      [field]: event.target.value.trim(),
+    }; // Use trim to remove any hidden characters
 
+    // Handle the date conversion
+    if (field === "sDate" || field === "eDate") {
+      updatedItem[field] = new Date(event.target.value).toISOString(); // Convert to ISO string if needed
+    }
 
-const handleInputChange = (event, index, field) => {
-  const updatedItem = { ...filteredData[index], [field]: event.target.value.trim() }; // Use trim to remove any hidden characters
-
-  // Handle the date conversion
-  if (field === "sDate" || field === "eDate") {
-    updatedItem[field] = new Date(event.target.value).toISOString();  // Convert to ISO string if needed
-  }
-
-  const newFilteredData = [...filteredData];
-  newFilteredData[index] = updatedItem;
-  setFilteredData(newFilteredData);
-};
-const isValidURL = (value) => {
-  const regex = /^(ftp|http|https):\/\/[^ "]+$/;  // Basic URL regex
-  return regex.test(value);
-};
-
-
+    const newFilteredData = [...filteredData];
+    newFilteredData[index] = updatedItem;
+    setFilteredData(newFilteredData);
+  };
+  const isValidURL = (value) => {
+    const regex = /^(ftp|http|https):\/\/[^ "]+$/; // Basic URL regex
+    return regex.test(value);
+  };
 
   const handleSave = (index) => {
     const updatedItem = filteredData[index];
-    handleUpdate(updatedItem._id, updatedItem); 
-    setEditedRow(null);  // Exit edit mode
-    setEditedField(""); 
+    handleUpdate(updatedItem._id, updatedItem);
+    setEditedRow(null); // Exit edit mode
+    setEditedField("");
   };
 
   if (loading) {
@@ -85,7 +91,7 @@ const isValidURL = (value) => {
     marginTop: "20px",
     marginBottom: "20px",
     marginLeft: "230px",
-    tablelayout: "fixed", /* Ensure that the columns have a fixed width */
+    tablelayout: "fixed" /* Ensure that the columns have a fixed width */,
   };
 
   const thStyles = {
@@ -93,19 +99,29 @@ const isValidURL = (value) => {
     color: "white",
     padding: "10px",
     textAlign: "left",
-    borderBottom: "2px solid #ddd"
+    borderBottom: "2px solid #ddd",
   };
 
   const tdStyles = {
     padding: "8px",
     textAlign: "left",
-    borderBottom: "1px solid #ddd"
+    borderBottom: "1px solid #ddd",
   };
+  const handleBlur = () => {
+    setEditedRow(null);
+    setEditedField("");
+    setEditingBorder(null);
+  };
+
+  const handleMouseLeave = () => {
+    setEditedRow(null);
+    setEditedField(""); // Reset the edited field to null
+    setEditingBorder(null); // Reset the border
+  };
+
   return (
     <div className="neev">
-      <h3 className="ugc">
-        Game Configuration
-      </h3>
+      <h3 className="ugc">Game Configuration</h3>
 
       <table style={tableStyles}>
         <thead>
@@ -126,46 +142,64 @@ const isValidURL = (value) => {
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
-              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
+              <tr
+                key={index}
+                style={{
+                  backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff",
+                }}
+              >
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "action" ? (
                     <input
                       type="string"
-                      value={item.action || ''}
-                      onChange={(e) => handleInputChange(e, index, 'action')}
+                      value={item.action || ""}
+                      onChange={(e) => handleInputChange(e, index, "action")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "action")}>{item.action || '_'}</span>
+                    <span onClick={() => handleEdit(index, "action")}>
+                      {item.action || "_"}
+                    </span>
                   )}
                 </td>
-                
-<td style={tdStyles} className="table-cell">
-  {editedRow === index && editedField === "value" ? (
-    <input
-      type="text"
-      value={item.value || ''}  // Ensure value is bound to the state
-      onChange={(e) => handleInputChange(e, index, 'value')}  // Update filteredData when input changes
-    />
-  ) : (
-    <span onClick={() => handleEdit(index, "value")}>
-      {isValidURL(item.value) ? (
-        <a
-          href={item.value}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="table-link"
-        >
-          {item.value}
-        </a>
-      ) : (
-        item.value || '_'  // If no value, show 'N/A'
-      )}
-    </span>
-  )}
-</td>
 
-
-
+                <td style={tdStyles} className="table-cell">
+                  {editedRow === index && editedField === "value" ? (
+                    <input
+                      type="text"
+                      value={item.value || ""} // Ensure value is bound to the state
+                      onChange={(e) => handleInputChange(e, index, "value")} // Update filteredData when input changes
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
+                    />
+                  ) : (
+                    <span onClick={() => handleEdit(index, "value")}>
+                      {isValidURL(item.value) ? (
+                        <a
+                          href={item.value}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="table-link"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        item.value || "_" // If no value, show 'N/A'
+                      )}
+                    </span>
+                  )}
+                </td>
 
                 {/* <td style={tdStyles}>
   {editedRow === index && editedField === "sDate" ? (
@@ -179,142 +213,214 @@ const isValidURL = (value) => {
   )}
 </td> */}
 
-<td style={tdStyles}>
-  {editedRow === index && editedField === "sDate" ? (
-    <input
-      type="date"
-      value={item.sDate ? item.sDate.split('T')[0] : ''} // Extract the date portion only (YYYY-MM-DD)
-      onChange={(e) => handleInputChange(e, index, 'sDate')}
-    />
-  ) : (
-    <span onClick={() => handleEdit(index, "sDate")}>{item.sDate ? item.sDate.split('T')[0] : '_'}</span>
-  )}
-</td>
+                <td style={tdStyles}>
+                  {editedRow === index && editedField === "sDate" ? (
+                    <input
+                      type="date"
+                      value={item.sDate ? item.sDate.split("T")[0] : ""} // Extract the date portion only (YYYY-MM-DD)
+                      onChange={(e) => handleInputChange(e, index, "sDate")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
+                    />
+                  ) : (
+                    <span onClick={() => handleEdit(index, "sDate")}>
+                      {item.sDate ? item.sDate.split("T")[0] : "_"}
+                    </span>
+                  )}
+                </td>
 
-
-<td style={tdStyles}>
-  {editedRow === index && editedField === "eDate" ? (
-    <input
-      type="date"
-      value={item.eDate ? item.eDate.substring(0, 10) : ''}  // Ensure correct date format (YYYY-MM-DD)
-      onChange={(e) => handleInputChange(e, index, 'eDate')}
-    />
-  ) : (
-    <span onClick={() => handleEdit(index, "eDate")}>{item.eDate ? item.eDate.substring(0, 10) : '_'}</span>
-  )}
-   </td>             
-            
-
+                <td style={tdStyles}>
+                  {editedRow === index && editedField === "eDate" ? (
+                    <input
+                      type="date"
+                      value={item.eDate ? item.eDate.substring(0, 10) : ""} // Ensure correct date format (YYYY-MM-DD)
+                      onChange={(e) => handleInputChange(e, index, "eDate")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
+                    />
+                  ) : (
+                    <span onClick={() => handleEdit(index, "eDate")}>
+                      {item.eDate ? item.eDate.substring(0, 10) : "_"}
+                    </span>
+                  )}
+                </td>
 
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "player" ? (
                     <input
                       type="string"
-                      value={item.player || ''}
-                      onChange={(e) => handleInputChange(e, index, 'player')}
+                      value={item.player || ""}
+                      onChange={(e) => handleInputChange(e, index, "player")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "player")}>{item.player || '_'}</span>
+                    <span onClick={() => handleEdit(index, "player")}>
+                      {item.player || "_"}
+                    </span>
                   )}
                 </td>
-                          
-
-
-
 
                 <td style={tdStyles} className="state-cell">
-  {editedRow === index && editedField === "state" ? (
-    <input
-      type="text"
-      value={item.state.join(', ') || ''}  // Show the state array as a comma-separated string when editing
-      onChange={(e) => handleInputChange(e, index, 'state')}
-    />
-  ) : (
-    <span onClick={() => handleEdit(index, "state")}>
-      {/* Display each item of the state array on a new line */}
-      {item.state.length > 0 ? (
-        item.state.map((state, idx) => (
-          <div key={idx} className="state-item">{state}</div> // Each state value appears on its own line
-        ))
-      ) : (
-        '_'  // If the state array is empty, show 'N/A'
-      )}
-    </span>
-  )}
-</td>
-
-
-
+                  {editedRow === index && editedField === "state" ? (
+                    <input
+                      type="string"
+                      value={item.state.join(", ") || ""} // Show the state array as a comma-separated string when editing
+                      onChange={(e) => handleInputChange(e, index, "state")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
+                    />
+                  ) : (
+                    <span onClick={() => handleEdit(index, "state")}>
+                      {/* Display each item of the state array on a new line */}
+                      {
+                        item.state.length > 0
+                          ? item.state.map((state, idx) => (
+                              <div key={idx} className="state-item">
+                                {state}
+                              </div> // Each state value appears on its own line
+                            ))
+                          : "_" // If the state array is empty, show 'N/A'
+                      }
+                    </span>
+                  )}
+                </td>
 
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "bonus_type" ? (
                     <input
                       type="string"
-                      value={item.bonus_type || ''}
-                      onChange={(e) => handleInputChange(e, index,'bonus_type')}
-                  
+                      value={item.bonus_type || ""}
+                      onChange={(e) =>
+                        handleInputChange(e, index, "bonus_type")
+                      }
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "bonus_type")}>{item.bonus_type|| '_'}</span>
+                    <span onClick={() => handleEdit(index, "bonus_type")}>
+                      {item.bonus_type || "_"}
+                    </span>
                   )}
                 </td>
                 <td style={tdStyles}>
-                  {editedRow === index && editedField === "increment_counter" ? (
+                  {editedRow === index &&
+                  editedField === "increment_counter" ? (
                     <input
                       type="number"
-                      value={item.increment_counter|| ''}
-                      onChange={(e) => handleInputChange(e, index, 'increment_counter')}
-                  
+                      value={item.increment_counter || ""}
+                      onChange={(e) =>
+                        handleInputChange(e, index, "increment_counter")
+                      }
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "increment_counter")}>{item.increment_counter|| '_'}</span>
+                    <span
+                      onClick={() => handleEdit(index, "increment_counter")}
+                    >
+                      {item.increment_counter || "_"}
+                    </span>
                   )}
                 </td>
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "final_counter" ? (
                     <input
                       type="number"
-                      value={item.final_counter|| ''}
-                      onChange={(e) => handleInputChange(e, index, 'final_counter')}
+                      value={item.final_counter || ""}
+                      onChange={(e) =>
+                        handleInputChange(e, index, "final_counter")
+                      }
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "final_counter")}>{item.final_counter|| '_'}</span>
+                    <span onClick={() => handleEdit(index, "final_counter")}>
+                      {item.final_counter || "_"}
+                    </span>
                   )}
                 </td>
-                  <td style={tdStyles}>
+                <td style={tdStyles}>
                   {editedRow === index && editedField === "cash" ? (
                     <input
                       type="number"
-                      value={item.cash || ''}
-                      onChange={(e) => handleInputChange(e, index, 'cash')}
+                      value={item.cash || ""}
+                      onChange={(e) => handleInputChange(e, index, "cash")}
+                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
+                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
+                      style={
+                        editingBorder === index
+                          ? { border: "2px solid blue" }
+                          : {}
+                      }
                     />
                   ) : (
-                    <span onClick={() => handleEdit(index, "cash")}>{item.cash || '_'}</span>
+                    <span onClick={() => handleEdit(index, "cash")}>
+                      {item.cash || "_"}
+                    </span>
                   )}
                 </td>
-            <td className='table-data '>
-               <button
-                  style={{
-                    padding: "3px 8px",
-                    width:"5vw",
-                    textAlign: "center",
-                    borderBottom: "1px solid #ddd",
-                    color: "white",
-                    borderRadius: "5px",
-                    margin: "12px",
-                    marginLeft: "2px",
-                    marginRight:"1px",
-                    cursor: "pointer",
-                    transition: "background-color 0.3s ease"
-                  }}
-                  onClick={() =>handleSave(index)}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(70, 70, 72)'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(16, 28, 52)'}
-                >
-                  update
-                </button>
-               </td>
-
+                <td className="table-data ">
+                  <button
+                    style={{
+                      padding: "3px 8px",
+                      width: "5vw",
+                      textAlign: "center",
+                      borderBottom: "1px solid #ddd",
+                      color: "white",
+                      borderRadius: "5px",
+                      margin: "12px",
+                      marginLeft: "2px",
+                      marginRight: "1px",
+                      cursor: "pointer",
+                      transition: "background-color 0.3s ease",
+                    }}
+                    onClick={() => handleSave(index)}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "rgb(70, 70, 72)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "rgb(16, 28, 52)")
+                    }
+                  >
+                    update
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
@@ -331,6 +437,3 @@ const isValidURL = (value) => {
 };
 
 export default ConfigData;
-
-
-

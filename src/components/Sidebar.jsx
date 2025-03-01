@@ -1,8 +1,8 @@
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Sidebar.scss";
-import { SidebarData } from '../Data/SidebarData';
+import { SidebarData } from "../Data/SidebarData";
+// import { RiAdminFill } from "react-icons/ri";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
@@ -32,21 +32,33 @@ export default function Sidebar() {
   };
 
   return (
-    <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
+    <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
+
+
       <div className="sidebar-header">
         <button className="toggle-btn" onClick={toggleSidebar}>
-          <div className={`arrow ${isOpen ? 'left' : 'right'}`} />
+          <div className={`arrow ${isOpen ? "left" : "right"}`} />
         </button>
       </div>
+
+      {/* <div className={`admin ${isOpen ? "open" : "closed"}`}>
+        <RiAdminFill className="icon" />
+        <span className="title">Admin</span>
+        {isOpen && <span className="separator">|</span>}
+        <span className="hki">HKI</span>
+      </div> */}
+
 
       <nav className="nav-menu">
         <ul>
           {SidebarData.map((item, index) => (
-            <li key={index} className={activeItem === index ? 'active' : ''}>
+            <li key={index} className={activeItem === index ? "active" : ""}>
               <div>
                 <Link
                   to={item.path}
-                  onClick={() => item.subItems ? handleItemClick(index) : null} // Toggle subitems if item has them
+                  onClick={() =>
+                    item.subItems ? handleItemClick(index) : null
+                  } // Toggle subitems if item has them
                 >
                   <div className="icon">{item.icon}</div>
                   {isOpen && <span className="title">{item.title}</span>}
@@ -59,25 +71,41 @@ export default function Sidebar() {
                       <li key={subIndex}>
                         <Link
                           to={subItem.path}
-                          onClick={() => subItem.subItems ? handleSubItemClick(subIndex) : null} // Handle nested subitems
+                          onClick={() =>
+                            subItem.subItems
+                              ? handleSubItemClick(subIndex)
+                              : null
+                          } // Handle nested subitems
                         >
                           <div className="icon">{subItem.icon}</div>
-                          {isOpen && <span className="title">{subItem.title}</span>}
+                          {isOpen && (
+                            <span className="title">{subItem.title}</span>
+                          )}
                         </Link>
 
                         {/* Render nested subitems if any */}
-                        {subItem.subItems && activeSubItem === subIndex && isOpen && (
-                          <ul className="nested-sub-menu">
-                            {subItem.subItems.map((nestedSubItem, nestedSubIndex) => (
-                              <li key={nestedSubIndex}>
-                                <Link to={nestedSubItem.path}>
-                                  <div className="icon">{nestedSubItem.icon}</div>
-                                  {isOpen && <span className="title">{nestedSubItem.title}</span>}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                        {subItem.subItems &&
+                          activeSubItem === subIndex &&
+                          isOpen && (
+                            <ul className="nested-sub-menu">
+                              {subItem.subItems.map(
+                                (nestedSubItem, nestedSubIndex) => (
+                                  <li key={nestedSubIndex}>
+                                    <Link to={nestedSubItem.path}>
+                                      <div className="icon">
+                                        {nestedSubItem.icon}
+                                      </div>
+                                      {isOpen && (
+                                        <span className="title">
+                                          {nestedSubItem.title}
+                                        </span>
+                                      )}
+                                    </Link>
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          )}
                       </li>
                     ))}
                   </ul>
