@@ -1,3 +1,4 @@
+
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 // import "../styles/Sidebar.scss";
@@ -32,14 +33,11 @@
 
 //   return (
 //     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-
-
 //       <div className="sidebar-header">
 //         <button className="toggle-btn" onClick={toggleSidebar}>
 //           <div className={`arrow ${isOpen ? "left" : "right"}`} />
 //         </button>
 //       </div>
-
 
 //       <nav className="nav-menu">
 //         <ul>
@@ -112,13 +110,9 @@
 // }
 
 
-
-
-// Sidebar.js
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Sidebar.scss";
+import "../styles/Sidebar.scss"; // Ensure your CSS is imported
 import { SidebarData } from "../Data/SidebarData";
 
 export default function Sidebar() {
@@ -165,7 +159,8 @@ export default function Sidebar() {
                   to={item.path}
                   onClick={() =>
                     item.subItems ? handleItemClick(index) : null
-                  } // Toggle subitems if item has them
+                  }
+                  className={item.className} // Apply the class for Admin here
                 >
                   <div className="icon">{item.icon}</div>
                   {isOpen && <span className="title">{item.title}</span>}
@@ -179,40 +174,28 @@ export default function Sidebar() {
                         <Link
                           to={subItem.path}
                           onClick={() =>
-                            subItem.subItems
-                              ? handleSubItemClick(subIndex)
-                              : null
-                          } // Handle nested subitems
+                            subItem.subItems ? handleSubItemClick(subIndex) : null
+                          }
                         >
                           <div className="icon">{subItem.icon}</div>
-                          {isOpen && (
-                            <span className="title">{subItem.title}</span>
-                          )}
+                          {isOpen && <span className="title">{subItem.title}</span>}
                         </Link>
 
                         {/* Render nested subitems if any */}
-                        {subItem.subItems &&
-                          activeSubItem === subIndex &&
-                          isOpen && (
-                            <ul className="nested-sub-menu">
-                              {subItem.subItems.map(
-                                (nestedSubItem, nestedSubIndex) => (
-                                  <li key={nestedSubIndex}>
-                                    <Link to={nestedSubItem.path}>
-                                      <div className="icon">
-                                        {nestedSubItem.icon}
-                                      </div>
-                                      {isOpen && (
-                                        <span className="title">
-                                          {nestedSubItem.title}
-                                        </span>
-                                      )}
-                                    </Link>
-                                  </li>
-                                )
-                              )}
-                            </ul>
-                          )}
+                        {subItem.subItems && activeSubItem === subIndex && isOpen && (
+                          <ul className="nested-sub-menu">
+                            {subItem.subItems.map((nestedSubItem, nestedSubIndex) => (
+                              <li key={nestedSubIndex}>
+                                <Link to={nestedSubItem.path}>
+                                  <div className="icon">{nestedSubItem.icon}</div>
+                                  {isOpen && (
+                                    <span className="title">{nestedSubItem.title}</span>
+                                  )}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -225,6 +208,3 @@ export default function Sidebar() {
     </div>
   );
 }
-
-
-

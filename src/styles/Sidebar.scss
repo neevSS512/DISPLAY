@@ -207,3 +207,97 @@
 
 
 
+
+
+/* Base styles for all sidebar items (unchanged) */
+.nav-menu ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.nav-menu ul li a .icon {
+  margin-right: 10px; /* Standard margin */
+  font-size: 1.3rem;
+}
+
+.nav-menu ul li a .title {
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  margin-left: 0px; /* Standard margin for title */
+}
+
+/* Styling only for the Admin menu item */
+.nav-menu ul li a.admin-item {
+  background-color: #398fff; /* Darker background color for Admin item */
+  color: #323027; /* Default text color for Admin item */
+  font-weight: bold; /* Make Admin item text bold */
+  // border-radius: 8px; /* Apply border-radius to all corners */
+  border-radius: 28px 0px 18px 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition */
+  margin-bottom: 50px; /* Space between Admin item and other items */
+  padding: 8px 15px; /* Reduced padding to make the item narrower */
+  display: flex;
+  align-items: center; /* Vertically align the icon and title */
+  min-width: 150px; /* Reduced width */
+}
+
+/* Hover effect for the Admin item */
+.nav-menu ul li a.admin-item:hover {
+  background-color: #a4a6a7; /* Slightly lighter on hover */
+  transform: scale(1.05); /* Zoom effect when hovered */
+  color: #000000; /* Change text color to black when hovered */
+}
+
+/* Icon styling for the Admin item */
+.nav-menu ul li a.admin-item .icon {
+  font-size: 1.2rem; /* Smaller icon size */
+  background-color: #ffffffe2; /* Icon circle background color */
+  border-radius: 50%; /* Make the icon circular */
+  padding: 8px; /* Reduced padding inside the circle */
+  margin-right: 10px; /* Space between icon and title */
+  transition: background-color 0.3s ease; /* Smooth transition for icon color */
+  display: inline-flex; /* Center the icon within the circle */
+  align-items: center;
+  justify-content: center; /* Ensure the icon is centered */
+}
+
+/* Hover effect for the Admin item's icon */
+.nav-menu ul li a.admin-item:hover .icon {
+  background-color: #34495e; /* Darker background for icon on hover */
+}
+
+/* Title styling for the Admin item */
+.nav-menu ul li a.admin-item .title {
+  font-size: 0.9rem; /* Smaller title text size */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  transition: font-weight 0.3s ease, color 0.3s ease; /* Smooth transition for text weight and color */
+}
+
+/* Active state for Admin item */
+.nav-menu ul li a.admin-item.active {
+  background-color: #1abc9c; /* Change background when Admin item is active */
+  color: #fff; /* White text color for active Admin item */
+}
+
+/* Active state for Admin item's icon */
+.nav-menu ul li a.admin-item.active .icon {
+  color: #fff; /* White icon when active */
+  background-color: #16a085; /* Change icon background to a lighter color when active */
+}
+
+/* Active state for Admin item's title */
+.nav-menu ul li a.admin-item.active .title {
+  font-weight: bold; /* Make the title bold when active */
+  color: #fff; /* White title when active */
+}

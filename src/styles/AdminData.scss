@@ -1,0 +1,424 @@
+
+// /* Card Container */
+// .card-container {
+//     display: flex;
+//     justify-content: center;
+//     gap: 30px;
+//     margin-top: 50px;
+//     flex-wrap: wrap; /* Allow wrapping on smaller screens */
+//   }
+  
+//   /* Individual Card Styling */
+//   .card {
+//     background: linear-gradient(135deg, #000a4d, #120055); 
+//     color: white;
+//     border-radius: 20px;
+//     width: 300px;
+//     height: 280px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+//     cursor: pointer;
+//     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+//     text-align: center;
+//     padding: 20px;
+//     margin: 10px;
+//   }
+  
+//   /* Hover Effects */
+//   .card:hover {
+//     transform: scale(1.05);
+//     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+//     background: linear-gradient(135deg, #000a4d, #120055); 
+//   }
+  
+//   /* Icon Container */
+//   .icon-container {
+//     font-size: 60px;
+//     color: #ffffff; /* Set initial icon color to white */
+//     margin-bottom: 15px; 
+//     transition: color 0.3s ease-in-out;
+//   }
+  
+//   /* Hover Icon Color Change */
+//   .card:hover .icon-container {
+//     color: #f7f7f7; /* Lighter color on hover */
+//   }
+  
+//   /* Heading Style */
+//   .card h3 {
+//     margin-top: 10px;
+//     font-size: 26px;
+//     font-weight: 600;
+//     margin-bottom: 8px;
+//     line-height: 1.4;
+//     letter-spacing: 0.5px;
+//   }
+  
+//   /* Paragraph Style */
+//   .card p {
+//     font-size: 24px;
+//     margin-right: 160px;
+//     color: rgba(255, 255, 255, 0.7);
+//     margin-top: 5px;
+//     letter-spacing: 0.3px;
+//     text-decoration: none;
+//   }
+  
+//   /* Title Section */
+//   h2 {
+//     background-color: #b7bbc5;
+//     color: rgb(255, 255, 255);
+//     padding: 18px;
+//     border-radius: 15px;
+//     width: 80%;
+//     margin: 0 auto 50px;
+//     font-size: 1.4rem;
+//     font-weight: 700;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//     text-align: center;
+//     letter-spacing: 1px;
+//   }
+  
+//   /* Responsive Design */
+//   @media (max-width: 1024px) {
+//     .card-container {
+//       flex-direction: row;
+//       justify-content: space-around;
+//     }
+  
+//     .card {
+//       width: 220px;
+//       height: 220px;
+//     }
+//   }
+  
+//   @media (max-width: 768px) {
+//     .card-container {
+//       flex-direction: column;
+//       gap: 20px;
+//     }
+  
+//     .card {
+//       width: 80%;
+//       height: auto;
+//       padding: 20px;
+//     }
+  
+//     h2 {
+//       width: 100%;
+//       font-size: 1.2rem;
+//     }
+//   }
+  
+
+// //   h3 {
+// //     display: inline-block;          /* Makes the h3 behave like a block element */
+// //     padding: 20px 40px;             /* Adds padding to make the circle bigger */
+// //     background-color: #858f95;      /* Set a background color */
+// //     color: white;                   /* White text color */
+// //     border-radius: 50%;             /* Makes it a circle */
+// //     font-size: 24px;                /* Set the font size */
+// //     text-align: center;             /* Centers the text horizontally */
+// //     line-height: 1.2;               /* Adjusts line height for better text centering */
+// //     width: 200px;                   /* Defines the width */
+// //     height: 200px;                  /* Defines the height to make it a perfect circle */
+// //     display: flex;                  /* Use flex to center the text */
+// //     justify-content: center;        /* Centers text horizontally */
+// //     align-items: center;            /* Centers text vertically */
+// //   }
+  
+
+
+
+
+// /* Card Container */
+// .card-container {
+//   display: flex;
+//   justify-content: center;
+//   gap: 30px;
+//   margin-top: 50px;
+//   flex-wrap: wrap; /* Allow wrapping on smaller screens */
+// }
+
+// /* Individual Card Styling */
+// .card {
+//   background: linear-gradient(135deg, #6a5acd, #4b0082); /* Soft gradient */
+//   color: white;
+//   border-radius: 20px;
+//   width: 200px;
+//   height: 180px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+//   cursor: pointer;
+//   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+//   text-align: center;
+//   padding: 20px;
+//   margin: 15px;
+// }
+
+// /* Hover Effects */
+// .card:hover {
+//   transform: scale(1.05);
+//   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+//   background: linear-gradient(135deg, #4b0082, #6a5acd); 
+// }
+
+// /* Icon Container */
+// .icon-container {
+//   font-size: 50px;
+//   color: #ffffff;
+//   margin-bottom: 15px; 
+//   transition: color 0.3s ease-in-out;
+// }
+
+// /* Hover Icon Color Change */
+// .card:hover .icon-container {
+//   color: #f7f7f7; /* Lighter color on hover */
+// }
+
+// /* Heading Style */
+// .card h3 {
+//   margin-top: 10px;
+//   font-size: 28px;
+//   font-weight: 700;
+//   margin-bottom: 10px;
+//   line-height: 1.4;
+//   letter-spacing: 0.5px;
+// }
+
+// /* Paragraph Style */
+// .card p {
+//   font-size: 1rem; /* Relative units for better scaling */
+//   color: rgba(255, 255, 255, 0.7);
+//   margin-bottom: 15px;
+//   letter-spacing: 0.2px;
+//   white-space: nowrap;
+//   text-decoration: none;
+// }
+
+// /* Title Section */
+// h2 {
+//   background-color: #b7bbc5;
+//   color: rgb(0, 0, 0);
+//   padding: 18px;
+//   border-radius: 15px;
+//   width: 60%;
+//   margin: 0 auto 50px;
+//   font-size: 1.4rem;
+//   font-weight: 700;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   text-align: center;
+//   letter-spacing: 1px;
+// }
+
+// /* Responsive Design */
+// @media (max-width: 1024px) {
+//   .card-container {
+//       flex-direction: row;
+//       justify-content: space-around;
+//   }
+//   .card {
+//       width: 220px;
+//       height: 220px;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .card-container {
+//       flex-direction: column;
+//       gap: 20px;
+//   }
+//   .card {
+//       width: 80%;
+//       height: auto;
+//       padding: 20px;
+//   }
+//   h2 {
+//       width: 100%;
+//       font-size: 1.2rem;
+//   }
+// }
+
+// /* Circle Styling */
+// .circle {
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 50px; /* Adjust size */
+//   height: 50px; /* Adjust size */
+//   border-radius: 50%; /* Perfect circle */
+//   background-color: #ffb6c1; /* Soft pink */
+//   color: rgb(0, 0, 0);
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   transition: background-color 0.3s ease; /* Smooth transition */
+// }
+
+// @media (max-width: 768px) {
+//   .circle {
+//       width: 55px; /* Adjust for smaller screens */
+//       height: 55px; /* Adjust for smaller screens */
+//       font-size: 1.2rem; /* Adjust font size */
+//   }
+// }
+
+
+.admin-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  width: 1100px;
+  border-radius: 8px;
+  height: 52px;
+  margin-left: 250px;
+  margin-bottom: 20px;
+  background-color: #031930;
+}
+
+// .card-container {
+//   display: flex;
+//   justify-content: space-evenly; /* Reduced space between cards */
+//   margin-top: 30px;
+// }
+
+// .card {
+//   background-color: #c4c4c4;
+//   border-radius: 15px;
+//   padding: 20px;
+//   width:300px;
+//   text-align: center;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   transition: all 0.3s ease;
+//   cursor: pointer;
+//   margin: 0 4px; /* Reduced margin between cards */
+// }
+
+// .card:hover {
+//   transform: translateY(-10px);
+//   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+// }
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  gap: 20px; /* Space between cards */
+  margin-top: 30px;
+}
+
+.card-first {
+  background-color: #c4c4c4;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: 385px;
+}
+.card-second {
+  background-color: #c4c4c4;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+}
+.card-third {
+  background-color: #c4c4c4;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: 385px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background-color: #e0e0e0;
+}
+
+.icon-container {
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-right: 150px;
+  display: inline-block;
+  width: 34px;
+  height: 28px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 1px;
+  margin-right: 20px;
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin-left: 180px;
+  text-decoration: none;
+
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+
+
+
+
+.status-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  margin-right: 120px;
+}
+
+.status-info p {
+  margin: 5px 0;
+}
+
+
+.s-d{
+  color:green;
+}
+
+.s-p{
+  color:red;
+}
