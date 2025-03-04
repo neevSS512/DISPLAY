@@ -1,39 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/Withdraw.scss";
 import { Search, Clear } from "@mui/icons-material"; // Import both Search and Clear icons
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import variables from "../styles/variables.scss";
 
 const WithdrawData = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);  // Store filtered data
+  const [filteredData, setFilteredData] = useState([]); // Store filtered data
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [search, setSearch] = useState("");  // The search query
+  const [error, setError] = useState("");
+  const [search, setSearch] = useState(""); // The search query
   const navigate = useNavigate();
 
   // Fetch withdraw data from the server
   useEffect(() => {
     const fetchTransactionData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/withdraw/withdrawData');
-        setData(response.data); 
-        setFilteredData(response.data);  // Set the filtered data to all data initially
+        const response = await axios.get(
+          "http://localhost:3001/withdraw/withdrawData"
+        );
+        setData(response.data);
+        setFilteredData(response.data); // Set the filtered data to all data initially
       } catch (err) {
-        setError('Error fetching withdraw data');
+        setError("Error fetching withdraw data");
       } finally {
         setLoading(false);
       }
     };
 
     fetchTransactionData();
-  }, []); 
+  }, []);
 
   // Handle search query change
   const handleSearchChange = (e) => {
-    const query = e.target.value.trim()
+    const query = e.target.value.trim();
     setSearch(query);
 
     // Filter data based on search query
@@ -41,8 +43,8 @@ const WithdrawData = () => {
       setFilteredData(
         data.filter(
           (item) =>
-            item.phn.toLowerCase().startsWith(query.toLowerCase()) ||   // Filter by Mobile No
-            item.bankAccount.toLowerCase().startsWith(query.toLowerCase()) || 
+            item.phn.toLowerCase().startsWith(query.toLowerCase()) || // Filter by Mobile No
+            item.bankAccount.toLowerCase().startsWith(query.toLowerCase()) ||
             item.transferid.toLowerCase().startsWith(query.toLowerCase())
         )
       );
@@ -72,8 +74,8 @@ const WithdrawData = () => {
     width: "82vw",
     borderCollapse: "collapse",
     marginTop: "20px ",
-    marginBottom:"20px",
-    marginLeft:"230px"
+    marginBottom: "20px",
+    marginLeft: "230px",
   };
 
   const tthStyles = {
@@ -81,31 +83,18 @@ const WithdrawData = () => {
     color: "white",
     padding: "10px",
     textAlign: "left",
-    borderBottom: "2px solid #ddd"
+    borderBottom: "2px solid #ddd",
   };
 
   const ttdStyles = {
     padding: "8px",
     textAlign: "left",
-    borderBottom: "1px solid #ddd"
-  };
-
-  const cttStyles = {
-    color: 'white',
-    padding: '3px 8px',
-    borderRadius: '5px',
-    textAlign: 'center',
-    minWidth: '28px',
-    display: 'inline-block',
-    fontSize:'15px',
-    margin: '12px',
-    borderBottom: '1px solid #ddd',
-    backgroundColor: 'rgb(101, 216, 101)',
+    borderBottom: "1px solid #ddd",
   };
 
   return (
-    <div className='neev'>
-      <h3 className='uw'>Withdraw details</h3>
+    <div className="neev">
+      <h3 className="uw">Withdraw details</h3>
 
       {/* Search bar (same as RechargeData) */}
       <div className="navbar_search" style={{ position: "relative" }}>
@@ -115,16 +104,16 @@ const WithdrawData = () => {
           value={search}
           onChange={handleSearchChange}
           style={{
-            padding: "10px 12px",  
-            fontSize: "14px",      
-            width: "100%",         
-            backgroundColor: "#f4f4f4", 
-            color: "#333",        
-            borderRadius: "20px",   
-            border: "1px solid #ddd", 
+            padding: "10px 12px",
+            fontSize: "14px",
+            width: "100%",
+            backgroundColor: "#f4f4f4",
+            color: "#333",
+            borderRadius: "20px",
+            border: "1px solid #ddd",
           }}
         />
-        
+
         {/* Clear Icon positioned at the end */}
         <IconButton
           disabled={search === ""}
@@ -142,7 +131,9 @@ const WithdrawData = () => {
         {/* Search Icon */}
         <IconButton
           disabled={search === ""}
-          onClick={() => { navigate(`/properties/search/${search}`); }}
+          onClick={() => {
+            navigate(`/properties/search/${search}`);
+          }}
           style={{ marginLeft: "8px" }}
         >
           <Search sx={{ color: variables.pinkred }} />
@@ -160,7 +151,8 @@ const WithdrawData = () => {
       {search && filteredData.length > 0 && (
         <p style={{ textAlign: "center", color: "green", marginTop: "10px" }}>
           {/* {filteredData.length} user(s) found matching your search. */}
-          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"}. matching your search.
+          Found {filteredData.length}{" "}
+          {filteredData.length === 1 ? "user" : "users"}. matching your search.
         </p>
       )}
 
@@ -181,7 +173,12 @@ const WithdrawData = () => {
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
-              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
+              <tr
+                key={index}
+                style={{
+                  backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff",
+                }}
+              >
                 <td style={ttdStyles}>{item.Id}</td>
                 <td style={ttdStyles}>{item.phn}</td>
                 <td style={ttdStyles}>{item.bankAccount}</td>
@@ -189,13 +186,24 @@ const WithdrawData = () => {
                 <td style={ttdStyles}>{item.bank}</td>
                 <td style={ttdStyles}>{item.amount}</td>
                 <td style={ttdStyles}>{item.transferid}</td>
-                <td className='table-data'> <button style={cttStyles}>{item.status}</button></td>
-               
+                <td className="table-data">
+                  <button
+                    className={`ctc-styles-r ${
+                      item.status.toLowerCase() === "pending"
+                        ? "pending-status"
+                        : ""
+                    }`}
+                  >
+                    {item.status}
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="8" style={{ padding: "10px", textAlign: "center" }}>No results found.</td>
+              <td colSpan="8" style={{ padding: "10px", textAlign: "center" }}>
+                No results found.
+              </td>
             </tr>
           )}
         </tbody>

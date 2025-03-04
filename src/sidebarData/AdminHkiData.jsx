@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react';
 import { FaUsers, FaMoneyBillWave, FaArrowAltCircleDown } from 'react-icons/fa';
 import '../styles/AdminData.scss';

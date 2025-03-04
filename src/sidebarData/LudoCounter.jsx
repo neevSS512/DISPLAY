@@ -1,6 +1,5 @@
 
 
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LudoCounterM from "../moreInfo/LudoCounterM";
@@ -325,7 +324,8 @@ const tableStyles = {
         <tbody>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
-              <tr key={item.Id} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
+            
+  <tr key={item._id} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
             
             <td style={tdStyles}>
 

@@ -145,15 +145,15 @@ export default function KycData() {
       <table className='table-style-k' >
         <thead>
           <tr>
-          <th class="th-style-k">Id</th>
-          <th class="th-style-k">Mobile No</th>
-<th class="th-style-k">Type</th>
-<th class="th-style-k">Name On Card</th>
-<th class="th-style-k">Father's Name</th>
-<th class="th-style-k">Id Number</th>
-<th class="th-style-k">CD IST</th>
-<th class="th-style-k">Is Verified</th>
-<th class="th-style-k">Is Rejected</th>
+          <th className="th-style-k">Id</th>
+          <th className="th-style-k">Mobile No</th>
+<th className="th-style-k">Type</th>
+<th className="th-style-k">Name On Card</th>
+<th className="th-style-k">Father's Name</th>
+<th className="th-style-k">Id Number</th>
+<th className="th-style-k">CD IST</th>
+<th className="th-style-k">Is Verified</th>
+<th className="th-style-k">Is Rejected</th>
 
           </tr>
         </thead>
