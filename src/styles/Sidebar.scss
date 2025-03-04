@@ -12,11 +12,11 @@
   transition: all 0.3s ease;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
-  padding-bottom: 30px; /* Add some padding for the bottom */
+  padding-bottom: 30px; 
 }
 
 .sidebar.closed {
-  width: 80px; /* Narrow width when closed */
+  width: 80px;
 }
 
 .sidebar-header {
@@ -44,17 +44,17 @@
 }
 
 .arrow.left {
-  transform: rotate(-45deg); /* Arrow pointing left when open */
+  transform: rotate(-45deg); 
 }
 
 .arrow.right {
-  transform: rotate(135deg); /* Arrow pointing right when closed */
+  transform: rotate(135deg);
 }
 
 .nav-menu {
   flex-grow: 1;
   padding-top: 30px;
-  overflow-y: auto; /* Allow vertical scrolling for the menu if needed */
+  overflow-y: auto; 
 }
 
 .nav-menu ul {
@@ -69,24 +69,24 @@
 .nav-menu ul li a {
   display: flex;
   align-items: center;
-  padding: 10px 20px; /* Use 20px padding to maintain uniformity */
+  padding: 10px 20px; 
   text-decoration: none;
   color: #ecf0f1;
   font-size: 1.1rem;
   transition: background-color 0.3s ease, padding 0.3s ease;
   border-radius: 4px;
-  width: 100%; /* Ensure the item takes the full width of the container */
+  width: 100%;
 }
 
 .nav-menu ul li a:hover {
   background-color: #34495e;
-  padding: 8px 20px; /* Reduced padding on hover */
+  padding: 8px 20px;
   border-radius: 18px;
   width:65%;
 }
 
 .nav-menu ul li a .icon {
-  margin-right: 10px; /* Reduced margin-right between icon and title */
+  margin-right: 10px; 
   font-size: 1.3rem;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .nested-sub-menu li a .icon {
-  margin-left: 110px; /* Adjust icon position */
+  margin-left: 90px; /* Adjust icon position */
 }
 
 .nested-sub-menu li a .title {

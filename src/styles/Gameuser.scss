@@ -25,20 +25,19 @@ h3 {
   border: 1px solid black;
   border-radius: 9px;
   background-color: rgb(221, 221, 221);
-  width: 100%;              // Full width of the parent container
-  height: 50px;             // Fixed height for the element
+  width: 100%;          
+  height: 50px;            
   margin-bottom: 12px;
   margin-top: 12px;
-  text-align: center;       // Text alignment for fallback
+  text-align: center;       
 }
-
 .ug{
   display: flex;
-  justify-content: center;  // Center horizontally
-  align-items: center;      // Center vertically
-  padding-top: 2px;         // Adjust the padding if needed
-  width: 82vw;          // Set specific width if necessary
-  margin-left: 230px;       // Adjust margin based on your layout
+  justify-content: center;  
+  align-items: center;    
+  padding-top: 2px;      
+  width: 82vw;         
+  margin-left: 230px;      
 
 }
 
@@ -141,15 +140,15 @@ h3 {
     padding: 16px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap; 
   }
   
   .table-row:nth-child(even) {
-    background-color: #f2f2f2;  /* Color for even rows */
+    background-color: #f2f2f2; 
   }
   
   .table-row:nth-child(odd) {
-    background-color: #ffffff;  /* Color for odd rows */
+    background-color: #ffffff;
   }
   
   .button-block {
@@ -242,11 +241,11 @@ h3 {
 
 .bg-focus{
   border: 1px solid rgb(95, 95, 95);
-  width: 120px;  /* Fixed width */
-  height: 22px;  /* Fixed height */
-  padding: 2px 4px;  /* Adjusted padding for a more compact height */
-  box-sizing: border-box;  /* Ensures padding and border are inside the input's width/height */
-  font-size: 12px;  /* Smaller font size for a more compact input */
-  line-height: 18px;  /* Control line height to avoid extra vertical space */
+  width: 120px; 
+  height: 22px;  
+  padding: 2px 4px; 
+  box-sizing: border-box; 
+  font-size: 12px;
+  line-height: 18px;
   text-align: left;
 }

@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 280px;
+    margin-left: 300px;
     margin-right: 280px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -83,20 +83,20 @@
   }
   
 .table-cell {
-  word-wrap: break-word;  /* Allow long URLs to wrap to the next line */
-  word-break: break-word; /* Break long words (URLs) into multiple lines if necessary */
-  max-width: 150px; /* Limit the width of the cell */
-  overflow: hidden;   /* Hide content that overflows the cell */
-  text-overflow: ellipsis; /* Add an ellipsis (...) when the text overflows */
-  white-space: normal; /* Allow the text to wrap to the next line */
-  border: none; /* Ensure no border */
+  word-wrap: break-word; 
+  word-break: break-word; 
+  max-width: 150px; 
+  overflow: hidden;   
+  text-overflow: ellipsis;
+  white-space: normal; 
+  border: none; 
   padding: 8px;
   
 
 }
 
 .table-link {
-  display: block;  /* Make the link a block element to help with wrapping */
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -116,24 +116,20 @@
   
 }
 
-
-
-
-
 /* State column specific styles */
 .state-cell {
-  max-width: 150px;         /* Set a reasonable width for the state column */
-  word-wrap: break-word;    /* Allow wrapping for text */
-  white-space: pre-wrap;    /* Preserve line breaks and wrap the text */
-  vertical-align: top;      /* Align the content at the top */
-  padding: 8px;             /* Optional padding */
+  max-width: 150px;        
+  word-wrap: break-word;  
+  white-space: pre-wrap;   
+  vertical-align: top;   
+  padding: 8px;           
 }
 
 .state-item {
-  margin-bottom: 4px;       /* Space between each state value */
-  word-wrap: break-word;    /* Ensure wrapping within the state item */
-  white-space: normal;      /* Allow word wrapping if needed */
-  text-align: center; /* If you want to center each individual item within the "state" array cell */
+  margin-bottom: 4px;     
+  word-wrap: break-word; 
+  white-space: normal;    
+  text-align: center;
   
 }
 

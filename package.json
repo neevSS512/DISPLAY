@@ -18,6 +18,7 @@
     "chart.js": "^4.4.8",
     "display": "file:",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^6.3.0",
     "nodemon": "^3.1.9",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
@@ -31,6 +32,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "homepage": "https://neevSS512.github.io/DISPLAY",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

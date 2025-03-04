@@ -28,7 +28,6 @@
   color: rgb(103, 103, 249);
 }
 
-/* Styles for 'Yes' and 'No' verification */
 .yes-status {
   background-color: green;
   color: white;
@@ -49,7 +48,6 @@
   display: inline-block;
 }
 
-/* Navbar search styles */
 .navbar-search {
   position: relative;
 }
@@ -82,20 +80,20 @@ h3 {
   border: 1px solid black;
   border-radius: 9px;
   background-color: rgb(221, 221, 221);
-  width: 100%;              // Full width of the parent container
-  height: 50px;             // Fixed height for the element
+  width: 100%;             
+  height: 50px;            
   margin-bottom: 12px;
   margin-top: 12px;
-  text-align: center;       // Text alignment for fallback
+  text-align: center;    
 }
 
 .ub{
   display: flex;
-  justify-content: center;  // Center horizontally
-  align-items: center;      // Center vertically
-  padding-top: 2px;         // Adjust the padding if needed
-  width: 82vw;          // Set specific width if necessary
-  margin-left: 230px;       // Adjust margin based on your layout
+  justify-content: center;
+  align-items: center;      
+  padding-top: 2px;       
+  width: 82vw;          
+  margin-left: 230px;       
 }
 
 .table-row-even-b {
