@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IconButton } from "@mui/material";
 import { Clear, Search } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import variables from "../styles/variables.scss";
 import "../styles/transaction.scss";
 
@@ -15,7 +15,7 @@ const TransactionData = () => {
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
   const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Fetch game user data
   useEffect(() => {
@@ -91,14 +91,11 @@ const TransactionData = () => {
           placeholder="Search User by Mobile No     or Username..."
           value={search}
           onChange={handleSearchChange}
+          className="input-std-t"
           style={{
-            padding: "10px 12px",
-            fontSize: "14px",
-            width: "100%",
-            backgroundColor: "#f4f4f4",
-            color: "#333",
-            borderRadius: "20px",
-            border: "1px solid #ddd",
+            border: "2px solid #ccc", // Light gray border color
+            borderRadius: "20px", // Optional: rounded corners for the border
+            padding: "8px 12px", // Optional: for better padding inside the input
           }}
         />
 
@@ -117,9 +114,9 @@ const TransactionData = () => {
 
         <IconButton
           disabled={search === ""}
-          onClick={() => {
-            navigate(`/properties/search/${search}`);
-          }}
+          // onClick={() => {
+          //   navigate(`/UserData`);
+          // }}
           style={{ marginLeft: "8px" }}
         >
           <Search sx={{ color: variables.pinkred }} />

@@ -103,14 +103,11 @@ const WithdrawData = () => {
           placeholder="Search Game Users..."
           value={search}
           onChange={handleSearchChange}
+          className="input-std-w"
           style={{
-            padding: "10px 12px",
-            fontSize: "14px",
-            width: "100%",
-            backgroundColor: "#f4f4f4",
-            color: "#333",
-            borderRadius: "20px",
-            border: "1px solid #ddd",
+            border: "2px solid #ccc", // Light gray border color
+            borderRadius: "20px", // Optional: rounded corners for the border
+            padding: "8px 12px", // Optional: for better padding inside the input
           }}
         />
 
@@ -132,7 +129,7 @@ const WithdrawData = () => {
         <IconButton
           disabled={search === ""}
           onClick={() => {
-            navigate(`/properties/search/${search}`);
+            // navigate(`/properties/search/${search}`);
           }}
           style={{ marginLeft: "8px" }}
         >
@@ -160,7 +157,6 @@ const WithdrawData = () => {
       <table style={ttableStyles}>
         <thead>
           <tr>
-            <th style={tthStyles}>Id</th>
             <th style={tthStyles}>Mobile No</th>
             <th style={tthStyles}>Bank Account</th>
             <th style={tthStyles}>IFSC Code</th>
@@ -179,7 +175,6 @@ const WithdrawData = () => {
                   backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff",
                 }}
               >
-                <td style={ttdStyles}>{item.Id}</td>
                 <td style={ttdStyles}>{item.phn}</td>
                 <td style={ttdStyles}>{item.bankAccount}</td>
                 <td style={ttdStyles}>{item.ifsc}</td>

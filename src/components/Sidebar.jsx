@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Sidebar.scss"; // Ensure your CSS is imported
+import "../styles/Sidebar.scss"; 
 import { SidebarData } from "../Data/SidebarData";
 
 export default function Sidebar() {

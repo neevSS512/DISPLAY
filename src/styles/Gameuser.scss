@@ -249,3 +249,64 @@ h3 {
   line-height: 18px;
   text-align: left;
 }
+
+
+.btn-stg{
+    padding: 5px 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    border-radius: 5px;
+    margin: 12px;
+    margin-left: 10px;
+    font-size: 15px;
+    min-width: 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.stg-td{
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.stg-tds{
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.input-std{
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+  background-color:#efefef;
+  color: #333;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+
+.yes-status {
+  background-color: green;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 34px;
+  display: inline-block;
+}
+
+.no-status {
+  background-color: red;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 34px;
+  display: inline-block;
+}

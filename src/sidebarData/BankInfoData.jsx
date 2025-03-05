@@ -77,15 +77,11 @@ const BankInfoData = () => {
           placeholder="Search Bank Users..."
           value={search}
           onChange={handleSearchChange}
+          className='input-std-b'
           style={{
-            padding: "10px 12px",
-            fontSize: "14px",
-            width: "100%",
-            backgroundColor: "#f4f4f4",
-            color: "#333",
-            borderRadius: "20px",
-            border: "1px solid #ddd",
-
+            border: "2px solid #ccc", // Light gray border color
+            borderRadius: "20px", // Optional: rounded corners for the border
+            padding: "8px 12px", // Optional: for better padding inside the input
           }}
         />
 
@@ -133,7 +129,6 @@ const BankInfoData = () => {
       <table className="table-container">
         <thead>
           <tr>
-            <th className="table-header">Id</th>
             <th className="table-header">Mobile No</th>
             <th className="table-header">Account Holder Name</th>
             <th className="table-header">Account Number</th>
@@ -147,7 +142,6 @@ const BankInfoData = () => {
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? "table-row-even-b" : "table-row-odd-b"}>
-                <td className="table-data">{item.idNumber || 'N/A'}</td>
                 <td className="table-data">{item.verificationDetails?.phn || 'N/A'}</td>
                 <td className="table-data">{item.verificationDetails?.accountHolderName || 'N/A'}</td>
                 <td className="table-data">{item.verificationDetails?.accountNumber || 'N/A'}</td>

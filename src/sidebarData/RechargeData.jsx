@@ -1,3 +1,183 @@
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import "../styles/RechargeData.scss";
+// import { Search, Clear } from "@mui/icons-material"; 
+// import { useNavigate } from "react-router-dom"; 
+// import { IconButton } from "@mui/material";
+// import variables from "../styles/variables.scss";
+
+// const RechargeData = () => {
+//   const [data, setData] = useState([]);
+//   const [filteredData, setFilteredData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState('');
+//   const [search, setSearch] = useState("");
+//   const navigate = useNavigate();
+  
+//   useEffect(() => {
+//     const fetchRechargeData = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:3001/recharge/rechargeData');
+//         setData(response.data); 
+//         setFilteredData(response.data); 
+//       } catch (err) {
+//         setError('Error fetching recharge data');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchRechargeData();
+//   }, []); 
+
+//   const handleSearchChange = (e) => {
+//     const query = e.target.value.trim()
+//     setSearch(query);
+   
+//     if (query) {
+//       setFilteredData(
+//         data.filter(
+//           (item) =>
+//             (item.orderId && item.orderId.toLowerCase().startsWith(query.toLowerCase())) ||
+//             (item.mobile_no && item.mobile_no.toLowerCase().startsWith(query.toLowerCase()))||
+//             (item.txStatus && item.txStatus.toLowerCase().startsWith(query.toLowerCase()))
+//         )
+//       );
+//     } else {
+   
+//       setFilteredData(data);
+//     }
+//   };
+
+//   const handleClearSearch = () => {
+//     setSearch(""); 
+//     setFilteredData(data); // Show all data again
+//     navigate("/Recharge");
+//   };
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div>{error}</div>;
+//   }
+
+//   return (
+//     <div className='neev'>
+//       <h3 className='ur'>Recharge Details</h3>
+
+//       {/* Search bar with clear and search icons */}
+//       <div className="navbar_search" style={{ position: "relative" }}>
+//         <input
+//           type="text"
+//           placeholder="Search Game Users..."
+//           value={search}
+//           onChange={handleSearchChange}
+//           className='input-std-r'
+//           style={{
+//             border: "2px solid #ccc", // Light gray border color
+//             borderRadius: "20px", // Optional: rounded corners for the border
+//             padding: "8px 12px", // Optional: for better padding inside the input
+//           }}
+//         />
+        
+//         {/* Clear Icon positioned at the end */}
+//         <IconButton
+//           disabled={search === ""}
+//           onClick={handleClearSearch}
+//           style={{
+//             position: "absolute",
+//             right: "81px",
+//             top: "50%",
+//             transform: "translateY(-50%)",
+//           }}
+//         >
+//           <Clear sx={{ color: variables.pinkred }} />
+//         </IconButton>
+
+//         {/* Search Icon */}
+//         <IconButton
+//           disabled={search === ""}
+//           // onClick={() => { navigate(`/properties/search/${search}`); }}
+//           style={{ marginLeft: "8px" }}
+//         >
+//           <Search sx={{ color: variables.pinkred }} />
+//         </IconButton>
+//       </div>
+
+//      {/* Display message if no users are found */}
+//      {search && filteredData.length === 0 && (
+//           <p className="no-results-r">
+//              No users found matching your search.
+//           </p>
+//          )}
+
+//       {/* Display message if results are found */}
+//       {search && filteredData.length > 0 && (
+//           <p className="search-result-r">
+//           Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
+//           </p>
+//        )}
+
+
+//       {/* Recharge data table */}
+// <table className="table-styles-r">
+//   <thead>
+//     <tr>
+//       <th className="th-styles-r">Order Id</th>
+//       <th className="th-styles-r">UserName</th>
+//       <th className="th-styles-r">Mobile No</th>
+//       <th className="th-styles-r">Amount</th>
+//       <th className="th-styles-r">Wallet Amount</th>
+//       <th className="th-styles-r">Inclusive GSt</th>
+//       <th className="th-styles-r">Previous Cash</th>
+//       <th className="th-styles-r">Updated Cash</th>
+//       <th className="th-styles-r">Cd_Ist</th>
+//       <th className="th-styles-r">Status</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     {filteredData.length > 0 ? (
+//       filteredData.map((item, index) => (
+//         <tr key={index} className={index % 2 === 0 ? "table-row-even-r" : "table-row-odd-r"}>
+//           <td className="td-styles-r">{item.orderId}</td>
+//           <td className="td-styles-r">{item.username}</td>
+//           <td className="td-styles-r">{item.mobile_no}</td>
+//           <td className="tds-styles-r">{item.amount}</td>
+//           <td className="tds-styles-r">{item.amountAfterGst}</td>
+//           <td className="tds-styles-r">{item.InclusiveGst}</td>
+//           <td className="td-styles-r">{item.previous_cash}</td>
+//           <td className="td-styles-r">{item.after_cash}</td>
+//           <td className="td-styles-r">{item.cd_ist}</td>
+//           <td className="table-data">
+//             {/* <button className="ctc-styles-r">{item.txStatus}</button> */}
+//             <button
+//   className={`ctc-styles-r ${item.txStatus.toLowerCase() === "pending" ? "pending-status" : ""}`}
+// >
+//   {item.txStatus}
+// </button>
+
+//           </td>
+//         </tr>
+//             ))
+//           ) : (
+//             <tr>
+//   <td colSpan="7" className="no-results-cell-r">
+//     No results found.
+//   </td>
+// </tr>
+
+//           )}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default RechargeData;
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/RechargeData.scss";
@@ -12,6 +192,7 @@ const RechargeData = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [search, setSearch] = useState("");
+  const [expandedOrderId, setExpandedOrderId] = useState(null); // State for toggling orderId view
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -31,7 +212,7 @@ const RechargeData = () => {
   }, []); 
 
   const handleSearchChange = (e) => {
-    const query = e.target.value.trim()
+    const query = e.target.value.trim();
     setSearch(query);
    
     if (query) {
@@ -39,12 +220,11 @@ const RechargeData = () => {
         data.filter(
           (item) =>
             (item.orderId && item.orderId.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.mobile_no && item.mobile_no.toLowerCase().startsWith(query.toLowerCase()))||
+            (item.mobile_no && item.mobile_no.toLowerCase().startsWith(query.toLowerCase())) ||
             (item.txStatus && item.txStatus.toLowerCase().startsWith(query.toLowerCase()))
         )
       );
     } else {
-   
       setFilteredData(data);
     }
   };
@@ -53,6 +233,22 @@ const RechargeData = () => {
     setSearch(""); 
     setFilteredData(data); // Show all data again
     navigate("/Recharge");
+  };
+
+  const handleToggleOrderId = (orderId) => {
+    if (expandedOrderId === orderId) {
+      setExpandedOrderId(null); // Collapse the orderId if already expanded
+    } else {
+      setExpandedOrderId(orderId); // Expand to show full orderId
+    }
+  };
+
+  const getTruncatedOrderId = (orderId) => {
+    if (orderId.length > 10) { // Check if the orderId is long enough to truncate
+      const firstHalf = orderId.slice(0, orderId.length / 2);
+      return `${firstHalf}...`;
+    }
+    return orderId; // If the orderId is short, no need to truncate
   };
 
   if (loading) {
@@ -74,14 +270,11 @@ const RechargeData = () => {
           placeholder="Search Game Users..."
           value={search}
           onChange={handleSearchChange}
+          className='input-std-r'
           style={{
-            padding: "10px 12px",  
-            fontSize: "14px",      
-            width: "100%",         
-            backgroundColor: "#f4f4f4", 
-            color: "#333",        
-            borderRadius: "20px",   
-            border: "1px solid #ddd", 
+            border: "2px solid #ccc", // Light gray border color
+            borderRadius: "20px", // Optional: rounded corners for the border
+            padding: "8px 12px", // Optional: for better padding inside the input
           }}
         />
         
@@ -102,75 +295,78 @@ const RechargeData = () => {
         {/* Search Icon */}
         <IconButton
           disabled={search === ""}
-          onClick={() => { navigate(`/properties/search/${search}`); }}
           style={{ marginLeft: "8px" }}
         >
           <Search sx={{ color: variables.pinkred }} />
         </IconButton>
       </div>
 
-     {/* Display message if no users are found */}
-     {search && filteredData.length === 0 && (
-          <p className="no-results-r">
-             No users found matching your search.
-          </p>
-         )}
+      {/* Display message if no users are found */}
+      {search && filteredData.length === 0 && (
+        <p className="no-results-r">
+          No users found matching your search.
+        </p>
+      )}
 
       {/* Display message if results are found */}
       {search && filteredData.length > 0 && (
-          <p className="search-result-r">
+        <p className="search-result-r">
           Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
-          </p>
-       )}
-
+        </p>
+      )}
 
       {/* Recharge data table */}
-<table className="table-styles-r">
-  <thead>
-    <tr>
-      <th className="th-styles-r">Order Id</th>
-      <th className="th-styles-r">UserName</th>
-      <th className="th-styles-r">Mobile No</th>
-      <th className="th-styles-r">Amount</th>
-      <th className="th-styles-r">Amount After GSt</th>
-      <th className="th-styles-r">Inclusive GSt</th>
-      <th className="th-styles-r">Previous Cash</th>
-      <th className="th-styles-r">Total Cash</th>
-      <th className="th-styles-r">cd_ist</th>
-      <th className="th-styles-r">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    {filteredData.length > 0 ? (
-      filteredData.map((item, index) => (
-        <tr key={index} className={index % 2 === 0 ? "table-row-even-r" : "table-row-odd-r"}>
-          <td className="td-styles-r">{item.orderId}</td>
-          <td className="td-styles-r">{item.username}</td>
-          <td className="td-styles-r">{item.mobile_no}</td>
-          <td className="tds-styles-r">{item.amount}</td>
-          <td className="tds-styles-r">{item.amountAfterGst}</td>
-          <td className="tds-styles-r">{item.InclusiveGst}</td>
-          <td className="td-styles-r">{item.previous_cash}</td>
-          <td className="td-styles-r">{item.after_cash}</td>
-          <td className="td-styles-r">{item.cd_ist}</td>
-          <td className="table-data">
-            {/* <button className="ctc-styles-r">{item.txStatus}</button> */}
-            <button
-  className={`ctc-styles-r ${item.txStatus.toLowerCase() === "pending" ? "pending-status" : ""}`}
->
-  {item.txStatus}
-</button>
-
-          </td>
-        </tr>
+      <table className="table-styles-r">
+        <thead>
+          <tr>
+            <th className="th-styles-r">Order Id</th>
+            <th className="th-styles-r">UserName</th>
+            <th className="th-styles-r">Mobile No</th>
+            <th className="th-styles-r">Amount</th>
+            <th className="th-styles-r">Wallet Amount</th>
+            <th className="th-styles-r">Inclusive GST</th>
+            <th className="th-styles-r">Previous Cash</th>
+            <th className="th-styles-r">Updated Cash</th>
+            <th className="th-styles-r">cd_ist</th>
+            <th className="th-styles-r">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData.length > 0 ? (
+            filteredData.map((item, index) => (
+              <tr key={index} className={index % 2 === 0 ? "table-row-even-r" : "table-row-odd-r"}>
+                <td className="td-styles-r">
+                  {/* Render the truncated or full orderId without styling */}
+                  <span
+                    onClick={() => handleToggleOrderId(item.orderId)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {expandedOrderId === item.orderId ? item.orderId : getTruncatedOrderId(item.orderId)}
+                  </span>
+                </td>
+                <td className="td-styles-r">{item.username}</td>
+                <td className="td-styles-r">{item.mobile_no}</td>
+                <td className="tds-styles-r">{item.amount}</td>
+                <td className="tds-styles-r">{item.amountAfterGst}</td>
+                <td className="tds-styles-r">{item.InclusiveGst}</td>
+                <td className="td-styles-r">{item.previous_cash}</td>
+                <td className="td-styles-r">{item.after_cash}</td>
+                <td className="td-styles-r">{item.cd_ist}</td>
+                <td className="table-data">
+                  <button
+                    className={`ctc-styles-r ${item.txStatus.toLowerCase() === "pending" ? "pending-status" : ""}`}
+                  >
+                    {item.txStatus}
+                  </button>
+                </td>
+              </tr>
             ))
           ) : (
             <tr>
-  <td colSpan="7" className="no-results-cell-r">
-    No results found.
-  </td>
-</tr>
-
+              <td colSpan="10" className="no-results-cell-r">
+                No results found.
+              </td>
+            </tr>
           )}
         </tbody>
       </table>
@@ -179,7 +375,5 @@ const RechargeData = () => {
 };
 
 export default RechargeData;
-
-
 
 

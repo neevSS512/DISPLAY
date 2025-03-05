@@ -22,8 +22,6 @@ import SnakeScore from './sidebarData/SnakeScore';
 import SnakePublic from './sidebarData/SnakePublic';
 import TransactionData from './sidebarData/TransactionData';
 import ConfigData from './sidebarData/ConfigData';
-// import { NotFoundPage } from './pages/NotFoundPage'; // Assuming you have a NotFoundPage component
-
 function App() {
   const user = useSelector((state) => state.user); // Get the user data from Redux
 
@@ -68,8 +66,6 @@ function App() {
             {/* Admin route */}
             <Route path="/Admin" element={<AdminHkiData />} />
             
-            {/* 404 Route */}
-            {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </div>
       </React.Fragment>
