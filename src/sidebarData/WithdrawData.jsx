@@ -140,21 +140,21 @@ const WithdrawData = () => {
         </IconButton>
       </div>
 
-      {/* Display message if no users are found */}
-      {search && filteredData.length === 0 && (
-        <p style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-          No users found matching your search.
-        </p>
-      )}
+         {/* Display message when no results are found */}
+         {search && filteredData.length === 0 && (
+           <p className="no-results-message-i">
+              No users found matching your search.
+          </p>
+          )}
 
-      {/* Display message if results are found */}
-      {search && filteredData.length > 0 && (
-        <p style={{ textAlign: "center", color: "green", marginTop: "10px" }}>
-          {/* {filteredData.length} user(s) found matching your search. */}
-          Found {filteredData.length}{" "}
-          {filteredData.length === 1 ? "user" : "users"}. matching your search.
+
+      {/* Display message when results are found */}
+        {search && filteredData.length > 0 && (
+         <p className="found-message-x">
+          Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
         </p>
-      )}
+        )}
+
 
       {/* Withdraw data table */}
       <table style={ttableStyles}>

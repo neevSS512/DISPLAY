@@ -53,7 +53,7 @@ const GameUserData = () => {
   };
 
   const handleSearchChange = (e) => {
-    const query = e.target.value;
+    const query = e.target.value.trim()
     setSearch(query);
     // Filter the data based on search query
     if (query) {
