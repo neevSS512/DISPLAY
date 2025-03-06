@@ -55,8 +55,8 @@ const GameUserData = () => {
       setFilteredData(
         data.filter(
           (item) =>
-            item.MobileNo &&
-            item.MobileNo.toLowerCase().startsWith(query.toLowerCase())
+            item.mobile_no &&
+            item.mobile_no.toLowerCase().startsWith(query.toLowerCase())
         )
       );
     } else {
@@ -105,6 +105,9 @@ const GameUserData = () => {
     }
   };
 
+
+
+
   const showAlert = (message) => {
     // Create a div for the alert message
     const alertDiv = document.createElement("div");
@@ -151,13 +154,14 @@ const GameUserData = () => {
     const currentBlockStatus = updatedItem.flags._isBlock;
   
     // Toggle the value between 'Yes' and 'No'
-    updatedItem.flags._isBlock = currentBlockStatus === "Yes" ? "No" : "Yes";
+    updatedItem.flags._isBlock = currentBlockStatus === 1 ? 0 : 1;
   
     // Update the filtered data in the state (but not the backend yet)
     const newFilteredData = [...filteredData];
     newFilteredData[index] = updatedItem;
     setFilteredData(newFilteredData);
   };
+ 
   
   
   return (
@@ -231,20 +235,20 @@ const GameUserData = () => {
               <tr key={item.Id} className="table-row">
                 <td className="stg-td">{item.un}</td>
 
-                <td className="stg-td">{item.MobileNo}</td>
+                <td className="stg-td">{item.mobile_no}</td>
 
-                <td className="stg-td">{item.state}</td>
-                <td className="stg-td">{item.panNumber}</td>
+                <td className="stg-td">{item.state || '_'}</td>
+                <td className="stg-td">{item.panNumber  || '_'}</td>
 
-                <td className="stg-tds">{item.aadharNumber}</td>
+                <td className="stg-tds">{item.aadharNumber  || '_'}</td>
 
-<td className="stg-td">
+                <td className="stg-td">
   <span
-    className={item.flags._isBlock === "Yes" ? "yes-status" : "no-status"}
+    className={item.flags._isBlock === 1 ? "yes-status" : "no-status"}
     onClick={() => handleToggleBlock(index)}
     style={{ cursor: 'pointer', fontWeight: 'bold' }}
   >
-    {item.flags._isBlock || "N/A"} 
+    {item.flags._isBlock === 1 ? "Yes" : "No"}
   </span>
 </td>
 

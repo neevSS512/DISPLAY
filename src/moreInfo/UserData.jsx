@@ -58,14 +58,14 @@ const UserData = ({ user, handleClose }) => {
         </thead>
         <tbody>
           <tr>
-          <td className="td-styles">{user.deposit || 'N/A'}</td>
-          <td className="td-stylegm">{user.Winning || 'N/A'}</td>
-          <td className="tds-stylegm">{user.Bonus || 'N/A'}</td>
-          <td className="td-stylegm">{user.totalcash || 'N/A'}</td>
-          <td className="td-stylegm">{user.PaymentCounter || 'N/A'}</td>
-          <td className="td-stylegm">{user.WithdrawCounter || 'N/A'}</td>
-          <td className="td-stylegm">{user.referalCount || 'N/A'}</td>
-          <td className="td-stylegm">{user.totalReferalEarning || 'N/A'}</td>
+          <td className="td-stylegm">{user.deposit || '_'}</td>
+          <td className="td-stylegm">{user.Winning || '_'}</td>
+          <td className="tds-stylegm">{user.Bonus || '_'}</td>
+          <td className="td-stylegm">{user.totalcash || '_'}</td>
+          <td className="td-stylegm">{user.counters.paymnetcounter || '_'}</td>
+          <td className="td-stylegm">{user.counters.withdrawCounter || '_'}</td>
+          <td className="td-stylegm">{user.totalGameOfReferedUser || '_'}</td>
+          <td className="td-stylegm">{user.totalReferalEarning || '_'}</td>
 
           </tr>
         </tbody>

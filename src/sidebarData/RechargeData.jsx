@@ -324,7 +324,6 @@ const RechargeData = () => {
             <th className="th-styles-r">Mobile No</th>
             <th className="th-styles-r">Amount</th>
             <th className="th-styles-r">Wallet Amount</th>
-            <th className="th-styles-r">Inclusive GST</th>
             <th className="th-styles-r">Previous Cash</th>
             <th className="th-styles-r">Updated Cash</th>
             <th className="th-styles-r">cd_ist</th>
@@ -344,14 +343,31 @@ const RechargeData = () => {
                     {expandedOrderId === item.orderId ? item.orderId : getTruncatedOrderId(item.orderId)}
                   </span>
                 </td>
-                <td className="td-styles-r">{item.username}</td>
+                {/* <td className="td-styles-r">{item.username}</td> */}
+                <td className="td-styles-r">
+                  {/* Render the truncated or full orderId without styling */}
+                  <span
+                    onClick={() => handleToggleOrderId(item.username)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {expandedOrderId === item.username ? item.username : getTruncatedOrderId(item.username)}
+                  </span>
+                </td>
                 <td className="td-styles-r">{item.mobile_no}</td>
                 <td className="tds-styles-r">{item.amount}</td>
                 <td className="tds-styles-r">{item.amountAfterGst}</td>
-                <td className="tds-styles-r">{item.InclusiveGst}</td>
                 <td className="td-styles-r">{item.previous_cash}</td>
+       
                 <td className="td-styles-r">{item.after_cash}</td>
-                <td className="td-styles-r">{item.cd_ist}</td>
+                <td className="td-styles-r">
+                  {/* Render the truncated or full orderId without styling */}
+                  <span
+                    onClick={() => handleToggleOrderId(item.cd_ist)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {expandedOrderId === item.cd_ist ? item.cd_ist : getTruncatedOrderId(item.cd_ist)}
+                  </span>
+                </td>
                 <td className="table-data">
                   <button
                     className={`ctc-styles-r ${item.txStatus.toLowerCase() === "pending" ? "pending-status" : ""}`}
