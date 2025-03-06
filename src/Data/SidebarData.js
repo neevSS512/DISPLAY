@@ -19,6 +19,7 @@ import { MdTimer } from "react-icons/md";
 import { FaWrench } from "react-icons/fa";
 import "../styles/sidebarData.scss"
 import { RiAdminFill } from 'react-icons/ri';
+import { GiCardRandom } from 'react-icons/gi';
 
 
 
@@ -114,21 +115,29 @@ export const SidebarData = [
           }
         ],
       },
+
       {
-        title: 'Point',
-        icon: <IoLogoPlaystation />,
-        path: '/PlayingData',
+        title: 'Rummy',
+        icon: <GiCardRandom   />,
+        path: '#Rummy',
+        subItems: [
+          {
+            title: 'Point',
+            icon: <IoLogoPlaystation />,
+            path: '/PlayingData',
+          },
+          {
+            title: 'Pool',
+            icon: <GiPoolDive />,
+            path: '/PoolData',
+          },
+          {
+            title: 'Deal',
+            icon: <FaIdeal />,
+            path: '/DealData',
+          }
+        ],
       },
-      {
-        title: 'Pool',
-        icon: <GiPoolDive />,
-        path: '/PoolData',
-      },
-      {
-        title: 'Deal',
-        icon: <FaIdeal />,
-        path: '/DealData',
-      }
     ],
   },
   {
