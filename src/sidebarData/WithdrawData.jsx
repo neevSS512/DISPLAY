@@ -157,10 +157,10 @@ const WithdrawData = () => {
       <table style={ttableStyles}>
         <thead>
           <tr>
+            <th style={tthStyles}>UserName</th>
             <th style={tthStyles}>Mobile No</th>
             <th style={tthStyles}>Bank Account</th>
             <th style={tthStyles}>IFSC Code</th>
-            <th style={tthStyles}>Bank</th>
             <th style={tthStyles}>Amount</th>
             <th style={tthStyles}>Transaction ID</th>
             <th style={tthStyles}>Status</th>
@@ -175,10 +175,11 @@ const WithdrawData = () => {
                   backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff",
                 }}
               >
+
+                <td style={ttdStyles}>{item.un}</td>
                 <td style={ttdStyles}>{item.phn}</td>
                 <td style={ttdStyles}>{item.bankAccount}</td>
                 <td style={ttdStyles}>{item.ifsc}</td>
-                <td style={ttdStyles}>{item.bank}</td>
                 <td style={ttdStyles}>{item.amount}</td>
                 <td style={ttdStyles}>{item.transferid}</td>
                 <td className="table-data">

@@ -13,6 +13,7 @@ export default function AdminHkiData() {
     totalWithdraw: 0,
     totalSuccess: 0,
     totalPending: 0,  // Added these two values
+    totalFailed: 0,  // Added these two values
     totalSuccessW: 0,
     totalPendingW: 0,  // Added these two values
   });
@@ -55,6 +56,7 @@ export default function AdminHkiData() {
             totalWithdraw: withdrawData.totalWithdraw,
             totalSuccess: txStatusData.totalSuccess,  // Set totalSuccess
             totalPending: txStatusData.totalPending,  // Set totalPending
+            totalFailed: txStatusData.totalFailed,  // Set totalPending
             totalSuccessW:StatusDataW.totalSuccessW,
             totalPendingW:StatusDataW.totalPendingW
 
@@ -99,6 +101,7 @@ export default function AdminHkiData() {
             <div className="status-info">
               <p className='s-d'> Successful Deposit: {transactionData.totalSuccess}</p>
               <p className='s-p'>Pending Deposit: {transactionData.totalPending}</p>
+              <p className='s-p'>Failed Deposit: {transactionData.totalFailed}</p>
             </div>
           </div>
           <div className="card-third">

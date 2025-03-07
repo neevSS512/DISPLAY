@@ -39,10 +39,9 @@ const BankInfoData = () => {
       setFilteredData(
         data.filter(
           (item) =>
-            (item.verificationDetails?.phn && item.verificationDetails.phn.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.verificationDetails?.accountHolderName && item.verificationDetails.accountHolderName.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.verificationDetails?.accountNumber && item.verificationDetails.accountNumber.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.verificationDetails?.bankName && item.verificationDetails.bankName.toLowerCase().startsWith(query.toLowerCase()))
+           
+            (item.details.number&& item.details.number.toLowerCase().startsWith(query.toLowerCase()))
+           
         )
       );
     } else {
@@ -129,10 +128,10 @@ const BankInfoData = () => {
       <table className="table-container">
         <thead>
           <tr>
-            <th className="table-header">Mobile No</th>
+            
+            <th className="table-header">Type</th>
             <th className="table-header">Account Holder Name</th>
             <th className="table-header">Account Number</th>
-            <th className="table-header">Bank Name</th>
             <th className="table-header">IFSC Code</th>
             <th className="table-header">Is Verified</th>
             <th className="table-header">Is Rejected</th>
@@ -142,19 +141,20 @@ const BankInfoData = () => {
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? "table-row-even-b" : "table-row-odd-b"}>
-                <td className="table-data">{item.verificationDetails?.phn || 'N/A'}</td>
-                <td className="table-data">{item.verificationDetails?.accountHolderName || 'N/A'}</td>
-                <td className="table-data">{item.verificationDetails?.accountNumber || 'N/A'}</td>
-                <td className="table-data">{item.verificationDetails?.bankName || 'N/A'}</td>
-                <td className="table-data">{item.verificationDetails?.IFSCCode || 'N/A'}</td>
+                <td className="table-data">{item.type|| 'N/A'}</td>
+                <td className="table-data">{item.details.a_h_name || 'N/A'}</td>
+                <td className="table-data">{item.details.number || 'N/A'}</td>
+                <td className="table-data">{item.details.IFSC || 'N/A'}</td>
+          
+            
                 <td className="table-data">
-                  <span className={item.isVerified ? 'yes-status' : 'no-status'}>
-                    {item.isVerified ? 'Yes' : 'No'}
+                  <span className={item.isVerify ? 'yes-status' : 'no-status'}>
+                    {item.isVerify ? 'Yes' : 'No'}
                   </span>
                 </td>
                 <td className="table-data">
-                  <span className={item.isRejected ? 'yes-status' : 'no-status'}>
-                    {item.isRejected ? 'Yes' : 'No'}
+                  <span className={item.isRejected? 'yes-status' : 'no-status'}>
+                    {item.isRejected? 'Yes' : 'No'}
                   </span>
                 </td>
               </tr>

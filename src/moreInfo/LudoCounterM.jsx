@@ -135,7 +135,6 @@ const LudoCounterM = ({ user, handleClose }) => {
         <tr>
             <th style={thStyles}>Type</th>
             <th style={thStyles}>Online Player</th>
-            <th style={thStyles}>targetScore</th>
             <th style={thStyles}>isdelete</th>
             <th style={thStyles}>_ip</th>
             <th style={thStyles}>gst</th>
@@ -155,20 +154,18 @@ const LudoCounterM = ({ user, handleClose }) => {
             
             <td style={tdStyles}>
 
-<input
+            <input
   type="text"
   name="type"
-  value={updatedUser.type || ''}
+  value={updatedUser.type || "_"}
   onChange={handleChange}
   style={{
-    border: 'none',
-    outline: 'none',
-    transition: 'border 0.3s ease',
+    border: "none",
+    outline: "none",
+    transition: "border 0.3s ease",
   }}
-  autoFocus // Automatically focus this input when the component is rendered
-  onBlur={(e) => e.target.style.border = 'none'}
+  onBlur={(e) => (e.target.style.border = "none")}
 />
-
 
             </td>
              
@@ -176,7 +173,7 @@ const LudoCounterM = ({ user, handleClose }) => {
             <input
                 type="text"
                 name="online_player"
-                value={updatedUser.online_player|| ''}
+                value={updatedUser.online_player|| '_'}
                 onChange={handleChange}
                 style={{
                 border: 'none',
@@ -190,23 +187,6 @@ const LudoCounterM = ({ user, handleClose }) => {
 
             </td>
           
-
-
-
-<td style={tdStyles}>
-  <input
-    type="text"
-    name="targetScore"
-    value={updatedUser.targetScore}  // No need to check if undefined, just use default value
-    onChange={handleChange}
-    style={{
-      border: 'none',
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onBlur={(e) => e.target.style.border = 'none'} 
-  />
-</td>
 
 
 

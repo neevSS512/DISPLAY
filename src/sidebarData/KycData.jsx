@@ -150,7 +150,6 @@ export default function KycData() {
       <table className="table-style-k">
         <thead>
           <tr>
-            <th className="th-style-k">Mobile No</th>
             <th className="th-style-k">Type</th>
             <th className="th-style-k">Name On Card</th>
             <th className="th-style-k">Father's Name</th>
@@ -167,7 +166,6 @@ export default function KycData() {
                 key={index}
                 style={index % 2 === 0 ? evenRowStyle : oddRowStyle}
               >
-                <td className="td-style-k">{item.phn || "N/A"}</td>
                 <td className="td-style-k">{item.type || "N/A"}</td>
                 <td className="td-style-k">
                   {item.details.name_on_card || "N/A"}
@@ -178,8 +176,8 @@ export default function KycData() {
                 <td className="td-style-k">{item.id_number || "N/A"}</td>
                 <td className="td-style-k">{item.cd_ist || "N/A"}</td>
                 <td className="td-style-k">
-                  <span className={item.isVerified ? "yes-style" : "no-style"}>
-                    {item.isVerified ? "Yes" : "No"}
+                  <span className={item.isVerify ? "yes-style" : "no-style"}>
+                    {item.isVerify  ? "Yes" : "No"}
                   </span>
                 </td>
                 <td className="td-style-k">

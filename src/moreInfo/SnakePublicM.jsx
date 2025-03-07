@@ -134,7 +134,6 @@ const SnakePublicM = ({ user, handleClose }) => {
         <tr>
             <th style={thStyles}>Type</th>
             <th style={thStyles}>Online Player</th>
-            <th style={thStyles}>targetScore</th>
             <th style={thStyles}>isdelete</th>
             <th style={thStyles}>_ip</th>
             <th style={thStyles}>gst</th>
@@ -153,20 +152,18 @@ const SnakePublicM = ({ user, handleClose }) => {
             
             <td style={tdStyles}>
 
-<input
+            <input
   type="text"
   name="type"
-  value={updatedUser.type || ''}
+  value={updatedUser.type || "_"}
   onChange={handleChange}
   style={{
-    border: 'none',
-    outline: 'none',
-    transition: 'border 0.3s ease',
+    border: "none",
+    outline: "none",
+    transition: "border 0.3s ease",
   }}
-  autoFocus // Automatically focus this input when the component is rendered
-  onBlur={(e) => e.target.style.border = 'none'}
+  onBlur={(e) => (e.target.style.border = "none")}
 />
-
 
             </td>
              
@@ -174,7 +171,7 @@ const SnakePublicM = ({ user, handleClose }) => {
             <input
                 type="text"
                 name="online_player"
-                value={updatedUser.online_player|| ''}
+                value={updatedUser.online_player || '_'}
                 onChange={handleChange}
                 style={{
                 border: 'none',
@@ -182,31 +179,16 @@ const SnakePublicM = ({ user, handleClose }) => {
                 transition: 'border 0.3s ease',
                  }}
            
-                // onFocus={(e) => e.target.style.border = '2px solid #3498db'} // Add border on focus
-                onBlur={(e) => e.target.style.border = 'none'} // Remove border when focus is lost
+               
+                onBlur={(e) => e.target.style.border = 'none'} 
                 />
-
             </td>
           
-            <td style={tdStyles}>
-  <input
-    type="text"
-    name="targetScore"
-    value={updatedUser.targetScore}  // No need to check if undefined, just use default value
-    onChange={handleChange}
-    style={{
-      border: 'none',
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onBlur={(e) => e.target.style.border = 'none'} 
-  />
-</td>
 <td style={tdStyles}>
   <input
     type="text"
     name="isdelete"
-    value={updatedUser.isdelete !== undefined ? updatedUser.isdelete : ''}  // Make sure isdelete is a number or a string
+    value={updatedUser.isdelete !== undefined ? updatedUser.isdelete : ''}
     onChange={handleChange}
     style={{
       border: 'none',
@@ -233,12 +215,11 @@ const SnakePublicM = ({ user, handleClose }) => {
       height: "25px",
       borderRadius:"6px",
       textAlign: 'center',
-      backgroundColor: updatedUser._ip ? 'green' : 'red', // Set background color based on value
+      backgroundColor: updatedUser._ip ? 'green' : 'red', 
       outline: 'none',
       transition: 'border 0.3s ease',
     }}
     onClick={handleToggle }
-    // onFocus={(e) => e.target.style.border = '2px solid #3498db'}
     onBlur={(e) => e.target.style.border = 'none'}
   />
 </td>

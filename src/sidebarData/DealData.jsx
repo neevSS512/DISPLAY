@@ -86,9 +86,11 @@ const DealData = () => {
         })
       );
   
-      alert('Data saved successfully');
+      // alert('Data saved successfully');
+      showAlert('Data created successfully');
     } catch (err) {
       console.error('Error saving data:', err);
+      showAlert('Failed to delete data');
     }
   };
 
@@ -99,12 +101,10 @@ const DealData = () => {
   
     if (isConfirmed) {
       try {
-        console.log(`Deleting row with id: ${id}`);
+        // console.log(`Deleting row with id: ${id}`);
         
-        // Send the delete request to the backend
         const response = await axios.delete(`http://localhost:3001/dealctg/dealctgData/${id}`);
   
-        // Log the response to check if the request was successful
         console.log('Delete Response:', response);
   
         // Update the state to remove the deleted item from the table
@@ -114,11 +114,10 @@ const DealData = () => {
           return updatedData;
         });
   
-        // Show a success alert
-        showAlert('Row deleted successfully');
+
+        showAlert('Data deleted successfully');
       } catch (err) {
         console.error('Error deleting data:', err);
-        // Show an error alert
         showAlert('Failed to delete row');
       }
     } else {
@@ -283,8 +282,6 @@ const handleMouseLeave = () => {
             <th style={thStyles}>Mode</th>
             <th style={thStyles}>Deals</th>
             <th style={thStyles}>Use Bot</th>
-            <th style={thStyles}>Online Players</th>
-            <th style={thStyles}>Leaderboard Score</th>
             <th style={thStyles}>Play Store</th>
             <th style={thStyles}>IP</th>
             <th style={thStyles}>Free Win Game</th>
@@ -395,38 +392,7 @@ const handleMouseLeave = () => {
                   </span>
                 </td>
 
-                <td style={tdStyles}>
-                  {editedRow === index && editedField === "online_player" ? (
-                    <input
-                      type="number"
-                      value={item.online_player || ''}
-                      onChange={(e) => handleInputChange(e, index, 'online_player')}
-                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
-                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
-                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
-                    />
-                  ) : (
-                    <span onClick={() => handleEdit(index, "online_player")}>{item.online_player || 'N/A'}</span>
-                  )}
-                </td>
-
-                <td style={tdStyles}>
-                  {editedRow === index && editedField === "leaderBoardScore" ? (
-                    <input
-                      type="number"
-                      value={item.leaderBoardScore || ''}
-                      onChange={(e) => handleInputChange(e, index, 'leaderBoardScore')}
-                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
-                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
-                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
-                    />
-                  ) : (
-                    <span onClick={() => handleEdit(index, "leaderBoardScore")}>{item.leaderBoardScore || 'N/A'}</span>
-                  )}
-                </td>
-
-            
-
+          
 
                 <td style={tdStyles}>
                   <span

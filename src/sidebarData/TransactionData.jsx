@@ -15,8 +15,6 @@ const TransactionData = () => {
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
   const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page
 
-  // const navigate = useNavigate();
-
   // Fetch game user data
   useEffect(() => {
     const fetchGameuserData = async () => {
@@ -101,7 +99,11 @@ const TransactionData = () => {
 
         <IconButton
           disabled={search === ""}
-          onClick={() => setSearch("")}
+          onClick={() => {
+            setSearch(""); // Clear search query
+            setFilteredData(data); // Show all data
+            setCurrentPage(1); // Reset pagination to the first page
+          }}
           style={{
             position: "absolute",
             right: "81px",
@@ -169,7 +171,7 @@ const TransactionData = () => {
                 borderBottom: "2px solid #ddd",
               }}
             >
-              Mobile No
+              Mobile_No
             </th>
             <th
               style={{
@@ -226,7 +228,7 @@ const TransactionData = () => {
             >
               contact_support
             </th>
-            {/* <th style={{ backgroundColor: 'black', color: 'white', padding: '10px', textAlign: 'left', borderBottom: '2px solid #ddd' }}>Total Cash</th> */}
+           
             <th
               style={{
                 backgroundColor: "black",
@@ -339,6 +341,27 @@ const TransactionData = () => {
                 >
                   {item.transaction_status}
                 </button>
+
+                  {/* <button
+                    className={transactionStatusClass} // Apply dynamic class here
+                    style={{
+                      color: "white",
+                      padding: "3px 8px",
+                      borderRadius: "5px",
+                      textAlign: "center",
+                      minWidth: "28px",
+                      display: "inline-block",
+                      fontSize: "15px",
+                      margin: "12px",
+                      borderBottom: "1px solid #ddd",
+                      backgroundColor:
+                        transactionStatusClass === "pending"
+                          ? "rgb(255, 165, 0)" // Orange for pending
+                          : "rgb(101, 216, 101)", // Green for completed
+                    }}
+                  >
+                    {item.transaction_status}
+                  </button> */}
               </td>
             </tr>
           ))}
@@ -397,45 +420,3 @@ export default TransactionData;
 
 
 
-
-
-
-
-
-
-// <tbody>
-// {currentRows.map((item, index) => (
-//   <tr key={item.Id} style={{ backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#ffffff' }}>
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.mobile_no}</td>
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.tbid}</td>
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.previous_cash}</td>
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.amount}</td>
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.transection_purpose}</td>
-//      {/* <td className="table-data">
-//         <span className={item.tds_track ? 'yes-status' : 'no-status'}>
-//           {item.tds_track ? 'Yes' : 'No'}
-//         </span>
-//       </td> */}
-//     <td style={{ padding: '16px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.current_total_cash}</td>
-//     <td style={{ padding: '7px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>{item.cd_ist}</td>
-//     <td className='table-data'>
-//       <button
-//         style={{
-//           color: 'white',
-//           padding: '3px 8px',
-//           borderRadius: '5px',
-//           textAlign: 'center',
-//           minWidth: '28px',
-//           display: 'inline-block',
-//           fontSize:'15px',
-//           margin: '12px',
-//           borderBottom: '1px solid #ddd',
-//           backgroundColor: 'rgb(101, 216, 101)',
-//         }}
-//       >
-//         {item.transaction_status}
-//       </button>
-//     </td>
-//   </tr>
-// ))}
-// </tbody>

@@ -1,25 +1,21 @@
-
 // import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 // import "../styles/ludopublicmoredata.scss";
 
 // const LudoPublicM = ({user, handleClose }) => {
-//   const [filteredData, setFilteredData] = useState([]); 
-//   const [loading, setLoading] = useState(true);   
-//   const [error, setError] = useState('');     
-//   const [editedRow, setEditedRow] = useState(null); 
-//   const [editedField, setEditedField] = useState(""); 
-//   const [localChanges, setLocalChanges] = useState({}); 
-  
-  
-
+//   const [filteredData, setFilteredData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState('');
+//   const [editedRow, setEditedRow] = useState(null);
+//   const [editedField, setEditedField] = useState("");
+//   const [localChanges, setLocalChanges] = useState({});
 
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
 //         const response = await axios.get('http://localhost:3001/ludopublic/ludopublicctg');
 //         if (response.data) {
-//           setFilteredData(response.data); 
+//           setFilteredData(response.data);
 //         }
 //       } catch (err) {
 //         setError('Error fetching data');
@@ -31,9 +27,6 @@
 //     fetchData();
 //   }, []);
 
-  
-
-  
 //     // useEffect(() => {
 //     //   if (user) {
 //     //     setLoading(false);  // Set loading to false once user data is available
@@ -42,19 +35,15 @@
 //     //     setLoading(false);
 //     //   }
 //     // }, [user]);
-  
+
 //     // // If no user or closed, don't render
 //     // if (!user) {
-//     //   return null; 
+//     //   return null;
 //     // }
-  
-
-
-  
 
 //   const handleUpdate = async (id, updatedData) => {
 //     try {
-      
+
 //       const response = await axios.patch(`http://localhost:3001/ludopublic/ludopublicctg/${id}`, updatedData);
 
 //       if (response.status === 200) {
@@ -145,12 +134,9 @@
 //     <div className="neev">
 //       <h3 className="ctr">More Info About the Ludo Public
 
-
-
-
-//       <button 
+//       <button
 //            className='go-back-btn'
-//            style={{ marginLeft: '510px' }} 
+//            style={{ marginLeft: '510px' }}
 //            onClick={() => handleClose()}
 //         >
 //         Go Back
@@ -178,7 +164,7 @@
 //           {filteredData.length > 0 ? (
 //             filteredData.map((item, index) => (
 //               <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
-                
+
 //                 {/* type */}
 //                 <td style={tdStyles}>
 //                   {editedRow === index && editedField === "type" ? (
@@ -205,8 +191,6 @@
 //                   )}
 //                 </td>
 
-
-                  
 //                 {/*targetScore*/}
 //                 <td style={tdStyles}>
 //                   {editedRow === index && editedField === "targetScore" ? (
@@ -263,7 +247,6 @@
 //                   )}
 //                 </td>
 
-                
 //                 {/* Play Store */}
 //                 <td style={tdStyles}>
 //                   <span
@@ -343,10 +326,6 @@
 //                   </span>
 //                 </td>
 
-
-
-            
-
 //                 {/* Update Button */}
 //                 <td style={tdStyles}>
 //                   <button
@@ -383,74 +362,66 @@
 
 // export default LudoPublicM;
 
-
-
-
-
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/ludopublicm.scss";
 
 const LudoPublicM = ({ user, handleClose }) => {
-   const [filteredData, setFilteredData] = useState([]); // Store filtered data based on search
+  const [filteredData, setFilteredData] = useState([]); // Store filtered data based on search
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   
+
   // State to manage the updated user data
   const [updatedUser, setUpdatedUser] = useState(user);
-
-
 
   const handleGoBack = () => {
     localStorage.setItem("updatedUser", JSON.stringify(updatedUser));
     handleClose(); // Perform the close action
   };
-  
 
-    useEffect(() => {
+  useEffect(() => {
     if (user) {
       setUpdatedUser(user); // Set initial values from the user props
       setLoading(false);
     } else {
-      setError('No user data available');
+      setError("No user data available");
       setLoading(false);
     }
   }, [user]);
-  
-
-
-
-  
 
   // Update field values when user changes the inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUpdatedUser(prevState => ({
+    setUpdatedUser((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
-    // Toggle function for Yes/No fields
-    const handleToggle = (e) => {
-      const { name } = e.target;
-      setUpdatedUser(prevState => ({
-        ...prevState,
-        [name]: !prevState[name]
-      }));
-    };
-  
+  // Toggle function for Yes/No fields
+  const handleToggle = (e) => {
+    const { name } = e.target;
+    setUpdatedUser((prevState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  };
+
   // Handle Update Data button click
   const handleUpdate = async (updatedUser) => {
     try {
       // Update the user data on the backend
-      const response = await axios.patch(`http://localhost:3001/ludopublic/ludopublicctg/${updatedUser._id}`, updatedUser);
-  
+      const response = await axios.patch(
+        `http://localhost:3001/ludopublic/ludopublicctg/${updatedUser._id}`,
+        updatedUser
+      );
+
       if (response.status === 200) {
-        alert('Data updated successfully!');
-        
+        alert("Data updated successfully!");
+
         // Update localStorage with the latest data after a successful update
         localStorage.setItem("updatedUser", JSON.stringify(updatedUser));
-        
+
         // Update the filteredData state
         const updatedData = response.data;
         const updatedList = filteredData.map((data) =>
@@ -459,14 +430,11 @@ const LudoPublicM = ({ user, handleClose }) => {
         setFilteredData(updatedList);
       }
     } catch (error) {
-      console.error('Error updating data:', error);
-      alert('Error updating data');
-      setError('Error updating data'); 
+      console.error("Error updating data:", error);
+      alert("Error updating data");
+      setError("Error updating data");
     }
   };
-
-
-
 
   if (loading) {
     return <div>Loading...</div>;
@@ -483,9 +451,8 @@ const LudoPublicM = ({ user, handleClose }) => {
     marginTop: "20px",
     marginBottom: "20px",
     marginLeft: "230px",
-    tableLayout: "fixed", // Ensure the table layout is fixed
+    tableLayout: "fixed",
   };
-  
 
   const thStyles = {
     backgroundColor: "black",
@@ -493,23 +460,24 @@ const LudoPublicM = ({ user, handleClose }) => {
     padding: "10px",
     textAlign: "left",
     borderBottom: "2px solid #ddd",
-    width: "10%",  // Set a fixed width for the header cells
-  };
+    width: "10%", // Set a fixed width for the header cells
   
+   };
+
   const tdStyles = {
     padding: "1px",
     textAlign: "left",
     borderBottom: "1px solid #ddd",
-    width: "10%", // Set a fixed width for the table data cells
+    width: "15%", // Ensure this width matches <th> width
   };
-  
+
   return (
     <div className="neev">
       <h3 className="lpm">
         More Info About The Ludo Public
-        <button 
+        <button
           className="go-back-btn"
-          style={{ marginLeft: '510px' }} 
+          style={{ marginLeft: "510px" }}
           // onClick={() => handleClose()}
           onClick={handleGoBack}
         >
@@ -519,10 +487,10 @@ const LudoPublicM = ({ user, handleClose }) => {
 
       <table style={tableStyles}>
         <thead>
-        <tr>
+          <tr>
             <th style={thStyles}>Type</th>
             <th style={thStyles}>Online Player</th>
-            <th style={thStyles}>targetScore</th>
+
             <th style={thStyles}>isdelete</th>
             <th style={thStyles}>_ip</th>
             <th style={thStyles}>gst</th>
@@ -536,240 +504,205 @@ const LudoPublicM = ({ user, handleClose }) => {
         </thead>
         <tbody>
           <tr>
-
-
-            
             <td style={tdStyles}>
-
-<input
+            <input
   type="text"
   name="type"
-  value={updatedUser.type || ''}
+  value={updatedUser.type || "_"}
   onChange={handleChange}
   style={{
-    border: 'none',
-    outline: 'none',
-    transition: 'border 0.3s ease',
+    border: "none",
+    outline: "none",
+    transition: "border 0.3s ease",
   }}
-  autoFocus // Automatically focus this input when the component is rendered
-  onBlur={(e) => e.target.style.border = 'none'}
+  onBlur={(e) => (e.target.style.border = "none")}
 />
 
-
             </td>
-             
             <td style={tdStyles}>
             <input
+  type="text"
+  name="type"
+  value={updatedUser.online_player || "_"}
+  onChange={handleChange}
+  style={{
+    border: "none",
+    outline: "none",
+    transition: "border 0.3s ease",
+  }}
+  onBlur={(e) => (e.target.style.border = "none")}
+/>
+
+            </td>
+
+            <td style={tdStyles}>
+              <input
                 type="text"
-                name="online_player"
-                value={updatedUser.online_player|| ''}
+                name="isdelete"
+                value={
+                  updatedUser.isdelete !== undefined ? updatedUser.isdelete : ""
+                } // Make sure isdelete is a number or a string
                 onChange={handleChange}
                 style={{
-                border: 'none',
-                outline: 'none',
-                transition: 'border 0.3s ease',
-                 }}
-           
-                // onFocus={(e) => e.target.style.border = '2px solid #3498db'} // Add border on focus
-                onBlur={(e) => e.target.style.border = 'none'} // Remove border when focus is lost
-                />
-
+                  border: "none",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
             </td>
-          
+
             <td style={tdStyles}>
-  <input
-    type="text"
-    name="targetScore"
-    value={updatedUser.targetScore}  // No need to check if undefined, just use default value
-    onChange={handleChange}
-    style={{
-      border: 'none',
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onBlur={(e) => e.target.style.border = 'none'} 
-  />
-</td>
-<td style={tdStyles}>
-  <input
-    type="text"
-    name="isdelete"
-    value={updatedUser.isdelete !== undefined ? updatedUser.isdelete : ''}  // Make sure isdelete is a number or a string
-    onChange={handleChange}
-    style={{
-      border: 'none',
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onBlur={(e) => e.target.style.border = 'none'} 
-  />
-</td>
+              <input
+                type="text"
+                name="_ip"
+                value={updatedUser._ip ? "Yes" : "No"} // Convert to string
+                style={{
+                  border: "none",
+                  width: "60px",
+                  height: "25px",
+                  borderRadius: "6px",
+                  textAlign: "center",
+                  backgroundColor: updatedUser._ip ? "green" : "red", // Set background color based on value
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onClick={handleToggle}
+                // onFocus={(e) => e.target.style.border = '2px solid #3498db'}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
+            </td>
 
-
-
-
-
-<td style={tdStyles}>
-  <input
-    type="text"
-    name="_ip"
-    value={updatedUser._ip ? 'Yes' : 'No'}  // Convert to string
- 
-    style={{
-      border: 'none',
-      width: '60px',
-      height: "25px",
-      borderRadius:"6px",
-      textAlign: 'center',
-      backgroundColor: updatedUser._ip ? 'green' : 'red', // Set background color based on value
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onClick={handleToggle }
-    // onFocus={(e) => e.target.style.border = '2px solid #3498db'}
-    onBlur={(e) => e.target.style.border = 'none'}
-  />
-</td>
-
-           
             <td style={tdStyles}>
-            <input
+              <input
                 type="text"
                 name="gst"
-                value={updatedUser.gst || ''}
+                value={updatedUser.gst || ""}
                 onChange={handleChange}
                 style={{
-                border: 'none',
-                outline: 'none',
-                transition: 'border 0.3s ease',
-                 }}
+                  border: "none",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
                 // onFocus={(e) => e.target.style.border = '2px solid #3498db'} // Add border on focus
-                onBlur={(e) => e.target.style.border = 'none'} // Remove border when focus is lost
-                />
-
+                onBlur={(e) => (e.target.style.border = "none")} // Remove border when focus is lost
+              />
             </td>
-           
+
             <td style={tdStyles}>
-  <input
-    type="text"
-    name="play_store"
-    value={updatedUser.play_store ? 'Yes' : 'No'}  // Convert to string
-   
-    style={{
-      border: 'none',
-      width: '60px',
-      height: "25px",
-      borderRadius:"6px",
-      textAlign: 'center',
-      backgroundColor: updatedUser.play_store ? 'green' : 'red', // Set background color based on value
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onClick={handleToggle }
-    onBlur={(e) => e.target.style.border = 'none'}
-  />
-</td>
-          
- 
-<td style={tdStyles}>
-  <input
-    type="text"
-    name="first_game"
-    value={updatedUser.first_game ? 'Yes' : 'No'}  // Convert to string
-   
-    style={{
-      border: 'none',
-      width: '60px',
-      height: "25px",
-      borderRadius:"6px",
-      textAlign: 'center',
-      backgroundColor: updatedUser.first_game ? 'green' : 'red', // Set background color based on value
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onClick={handleToggle }
-    onBlur={(e) => e.target.style.border = 'none'}
-  />
-</td>
-           
+              <input
+                type="text"
+                name="play_store"
+                value={updatedUser.play_store ? "Yes" : "No"} // Convert to string
+                style={{
+                  border: "none",
+                  width: "60px",
+                  height: "25px",
+                  borderRadius: "6px",
+                  textAlign: "center",
+                  backgroundColor: updatedUser.play_store ? "green" : "red", // Set background color based on value
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onClick={handleToggle}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
+            </td>
+
             <td style={tdStyles}>
-            <input
+              <input
+                type="text"
+                name="first_game"
+                value={updatedUser.first_game ? "Yes" : "No"} // Convert to string
+                style={{
+                  border: "none",
+                  width: "60px",
+                  height: "25px",
+                  borderRadius: "6px",
+                  textAlign: "center",
+                  backgroundColor: updatedUser.first_game ? "green" : "red", // Set background color based on value
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onClick={handleToggle}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
+            </td>
+
+            <td style={tdStyles}>
+              <input
                 type="text"
                 name="order"
-                value={updatedUser.order|| ''}
+                value={updatedUser.order || ""}
                 onChange={handleChange}
                 style={{
-                border: 'none',
-                outline: 'none',
-                transition: 'border 0.3s ease',
-                 }}
+                  border: "none",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
                 // onFocus={(e) => e.target.style.border = '2px solid #3498db'} // Add border on focus
-                onBlur={(e) => e.target.style.border = 'none'} // Remove border when focus is lost
-                />
-
+                onBlur={(e) => (e.target.style.border = "none")} // Remove border when focus is lost
+              />
             </td>
-    
-
-<td style={tdStyles}>
-  <input
-    type="text"
-    name="winAmount"
-    value={updatedUser.winAmount !== undefined ? updatedUser.winAmount : ''}  // Make sure isdelete is a number or a string
-    onChange={handleChange}
-    style={{
-      border: 'none',
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onBlur={(e) => e.target.style.border = 'none'} 
-  />
-</td>
 
             <td style={tdStyles}>
-  <input
-    type="text"
-    name="freeWinGame"
-    value={updatedUser.freeWinGame? 'Yes' : 'No'}  // Convert to string
-   
-    style={{
-     
-      border: 'none',
-      width: '60px',
-      height: "25px",
-      borderRadius:"6px",
-      textAlign: 'center',
-      backgroundColor: updatedUser.freeWinGame ? 'green' : 'red', // Set background color based on value
-      outline: 'none',
-      transition: 'border 0.3s ease',
-    }}
-    onClick={handleToggle }
+              <input
+                type="text"
+                name="winAmount"
+                value={
+                  updatedUser.winAmount !== undefined
+                    ? updatedUser.winAmount
+                    : ""
+                } // Make sure isdelete is a number or a string
+                onChange={handleChange}
+                style={{
+                  border: "none",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
+            </td>
 
-    onBlur={(e) => e.target.style.border = 'none'}
-  />
-</td>
-<button
-  style={{
-    padding: "4px",
-    height: "30px",
-    textAlign: "left",
-    borderBottom: "1px solid #ddd",
-    color: "white",
-    borderRadius: "9px",
-    margin: "5px",
-    marginLeft: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease"
-  }}
-  onClick={() => handleUpdate(updatedUser)}  // Pass updatedUser, not the event
->
-  Update data
-</button>
-
-
+            <td style={tdStyles}>
+              <input
+                type="text"
+                name="freeWinGame"
+                value={updatedUser.freeWinGame ? "Yes" : "No"} // Convert to string
+                style={{
+                  border: "none",
+                  width: "60px",
+                  height: "25px",
+                  borderRadius: "6px",
+                  textAlign: "center",
+                  backgroundColor: updatedUser.freeWinGame ? "green" : "red", // Set background color based on value
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onClick={handleToggle}
+                onBlur={(e) => (e.target.style.border = "none")}
+              />
+            </td>
+            <button
+              style={{
+                padding: "4px",
+                height: "30px",
+                textAlign: "left",
+                borderBottom: "1px solid #ddd",
+                color: "white",
+                borderRadius: "9px",
+                margin: "5px",
+                marginLeft: "5px",
+                cursor: "pointer",
+                transition: "background-color 0.3s ease",
+              }}
+              onClick={() => handleUpdate(updatedUser)} // Pass updatedUser, not the event
+            >
+              Update data
+            </button>
           </tr>
         </tbody>
       </table>
-
     </div>
   );
 };

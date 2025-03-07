@@ -271,8 +271,6 @@ const buttonStyles = {
             <th style={thStyles}>pCount</th>
             <th style={thStyles}>Bonus</th>
             <th style={thStyles}>Mode</th>
-            <th style={thStyles}>Use Bot</th>
-            <th style={thStyles}>Online Players</th>
             <th style={thStyles}>Leaderboard Score</th>
             <th style={thStyles}>Play Store</th>
             <th style={thStyles}>IP</th>
@@ -376,37 +374,6 @@ const buttonStyles = {
                     {item.use_bot ? 'Yes' : 'No'}
                   </span>
                 </td>
-
-                <td style={tdStyles}>
-                  {editedRow === index && editedField === "online_player" ? (
-                    <input
-                      type="number"
-                      value={item.online_player || ''}
-                      onChange={(e) => handleInputChange(e, index, 'online_player')}
-                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
-                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
-                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
-                    />
-                  ) : (
-                    <span onClick={() => handleEdit(index, "online_player")}>{item.online_player || 'N/A'}</span>
-                  )}
-                </td>
-
-                <td style={tdStyles}>
-                  {editedRow === index && editedField === "leaderBoardScore" ? (
-                    <input
-                      type="number"
-                      value={item.leaderBoardScore || ''}
-                      onChange={(e) => handleInputChange(e, index, 'leaderBoardScore')}
-                      onBlur={handleBlur}  // Trigger handleBlur when the input loses focus
-                      onMouseLeave={handleMouseLeave}  // Trigger handleMouseLeave when the mouse leaves the input field
-                      style={editingBorder === index ? { border: "2px solid blue" } : {}}
-                    />
-                  ) : (
-                    <span onClick={() => handleEdit(index, "leaderBoardScore")}>{item.leaderBoardScore || 'N/A'}</span>
-                  )}
-                </td>
-
             
 
 

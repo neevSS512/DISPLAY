@@ -90,7 +90,7 @@ const GameUserData = () => {
           if (inputRefs.current[index]) {
             inputRefs.current[index].blur();
           }
-        }, 200);
+        }, 1500);
   
         // Show success alert
         showAlert("Row updated successfully");
@@ -104,7 +104,8 @@ const GameUserData = () => {
     }
   };
   
-
+  
+  
 
   const showAlert = (message) => {
     // Create a div for the alert message
@@ -147,7 +148,6 @@ const GameUserData = () => {
   if (showUserData && selectedUser) {
     return <UserData user={selectedUser} handleClose={handleCloseUserData} />;
   }
-
   const handleToggleBlock = (index) => {
     const updatedItem = { ...filteredData[index] };
     const currentBlockStatus = updatedItem.flags._isBlock;
@@ -155,19 +155,16 @@ const GameUserData = () => {
     // Toggle the value between 1 (blocked) and 0 (not blocked)
     updatedItem.flags._isBlock = currentBlockStatus === 1 ? 0 : 1;
   
-    // Update the filtered data in the state (but not the backend yet)
+    // Update the filtered data in the state (but don't make an API call here)
     const newFilteredData = [...filteredData];
     newFilteredData[index] = updatedItem;
     setFilteredData(newFilteredData);
-  
-    // Now make the API request to update the backend with the new _isBlock value
-    handleUpdate(updatedItem._id, {
-      flags: { _isBlock: updatedItem.flags._isBlock },
-    }, index); // Pass the index to handleUpdate so it can blur the input
   };
   
+
+
   
-  
+
   return (
     <div className="neev">
       <h3 className="ug">Game User Details</h3>
@@ -241,21 +238,26 @@ const GameUserData = () => {
 
                 <td className="stg-td">{item.mobile_no}</td>
 
-                <td className="stg-td">{item.state || '_'}</td>
-                <td className="stg-td">{item.panNumber  || '_'}</td>
+                <td className="stg-td">{item.state || "_"}</td>
+                <td className="stg-td">{item.panNumber || "_"}</td>
 
-                <td className="stg-tds">{item.aadharNumber  || '_'}</td>
+                <td className="stg-tds">{item.aadharNumber || "_"}</td>
 
                 <td className="stg-td">
   <span
-    className={item.flags._isBlock === 0 ? "yes-status" : "no-status"}
     onClick={() => handleToggleBlock(index)}
-    style={{ cursor: 'pointer', fontWeight: 'bold' }}
+    style={{
+      cursor: 'pointer',
+      fontWeight: 'bold',
+    }}
   >
-    {/* {item.flags._isBlock === 1 ? "Yes" : "No"} */}
     {item.flags._isBlock}
   </span>
-</td>
+</td> 
+
+
+
+
 
 
 
@@ -307,15 +309,3 @@ const GameUserData = () => {
 };
 
 export default GameUserData;
-
-
-
-
-
-
-
-
-
-
-
-

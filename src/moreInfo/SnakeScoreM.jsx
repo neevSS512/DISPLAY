@@ -147,18 +147,17 @@ const SnakeScoreM= ({ user, handleClose }) => {
           <tr>
             <td style={tdStyles}>
 
-<input
+            <input
   type="text"
   name="type"
-  value={updatedUser.type || ''}
+  value={updatedUser.type || "_"}
   onChange={handleChange}
   style={{
-    border: 'none',
-    outline: 'none',
-    transition: 'border 0.3s ease',
+    border: "none",
+    outline: "none",
+    transition: "border 0.3s ease",
   }}
-  autoFocus // Automatically focus this input when the component is rendered
-  onBlur={(e) => e.target.style.border = 'none'}
+  onBlur={(e) => (e.target.style.border = "none")}
 />
             </td>
              
@@ -166,7 +165,7 @@ const SnakeScoreM= ({ user, handleClose }) => {
             <input
                 type="text"
                 name="online_player"
-                value={updatedUser.online_player|| ''}
+                value={updatedUser.online_player|| '_'}
                 onChange={handleChange}
                 style={{
                 border: 'none',
@@ -174,7 +173,7 @@ const SnakeScoreM= ({ user, handleClose }) => {
                 transition: 'border 0.3s ease',
                  }}
            
-                // onFocus={(e) => e.target.style.border = '2px solid #3498db'} // Add border on focus
+      
                 onBlur={(e) => e.target.style.border = 'none'} // Remove border when focus is lost
                 />
 
