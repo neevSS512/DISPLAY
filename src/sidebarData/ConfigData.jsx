@@ -15,7 +15,12 @@ const ConfigData = () => {
           "http://localhost:3001/gameconfigdata/gameconfigurations"
         );
         if (response.data) {
-          setFilteredData(response.data); // Set the fetched data
+          // Ensure each item has a player field initialized as an empty object if not present
+          const updatedData = response.data.map((item) => ({
+            ...item,
+            player: item.player || {}, // Default to an empty object if player is undefined or null
+          }));
+          setFilteredData(updatedData); // Set the fetched data
         }
       } catch (err) {
         setError("Error fetching data");
@@ -51,21 +56,26 @@ const ConfigData = () => {
     setEditedField(field);
   };
 
-  const handleInputChange = (event, index, field) => {
-    const updatedItem = {
-      ...filteredData[index],
-      [field]: event.target.value.trim(),
-    }; // Use trim to remove any hidden characters
+  const handleInputChange = (event, index, field, subField) => {
+    const updatedItem = { ...filteredData[index] };
 
-    // Handle the date conversion
+    // If the field is 'player' and we are updating a subfield (like ludo_two_player)
+    if (field === "player" && subField) {
+      updatedItem.player[subField] = event.target.checked;
+    } else {
+      updatedItem[field] = event.target.value.trim();
+    }
+
+    // Handle date conversion if it's a date field (e.g., sDate, eDate)
     if (field === "sDate" || field === "eDate") {
-      updatedItem[field] = new Date(event.target.value).toISOString(); // Convert to ISO string if needed
+      updatedItem[field] = new Date(event.target.value).toISOString();
     }
 
     const newFilteredData = [...filteredData];
     newFilteredData[index] = updatedItem;
     setFilteredData(newFilteredData);
   };
+
   const isValidURL = (value) => {
     const regex = /^(ftp|http|https):\/\/[^ "]+$/; // Basic URL regex
     return regex.test(value);
@@ -254,24 +264,39 @@ const ConfigData = () => {
                     </span>
                   )}
                 </td>
-
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "player" ? (
-                    <input
-                      type="string"
-                      value={item.player || ""}
-                      onChange={(e) => handleInputChange(e, index, "player")}
-                      onBlur={handleBlur} // Trigger handleBlur when the input loses focus
-                      onMouseLeave={handleMouseLeave} // Trigger handleMouseLeave when the mouse leaves the input field
-                      style={
-                        editingBorder === index
-                          ? { border: "2px solid blue" }
-                          : {}
-                      }
-                    />
+                    <div>
+                      {item.player && Object.keys(item.player).length > 0 ? (
+                        Object.keys(item.player).map((key) => (
+                          <div key={key}>
+                            <label>
+                              {key}:{" "}
+                              <input
+                                type="checkbox"
+                                checked={item.player[key]}
+                                onChange={(e) =>
+                                  handleInputChange(e, index, "player", key)
+                                }
+                              />
+                            </label>
+                          </div>
+                        ))
+                      ) : (
+                        <span>_</span> // Default value when player object is empty or not defined
+                      )}
+                    </div>
                   ) : (
                     <span onClick={() => handleEdit(index, "player")}>
-                      {item.player || "_"}
+                      {item.player && Object.keys(item.player).length > 0 ? (
+                        Object.keys(item.player).map((key) => (
+                          <div key={key}>
+                            {key}: {item.player[key] ? "Enabled" : "Disabled"}
+                          </div>
+                        ))
+                      ) : (
+                        <span>_</span> // Default value when player object is empty or not defined
+                      )}
                     </span>
                   )}
                 </td>

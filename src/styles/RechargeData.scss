@@ -147,14 +147,25 @@ h3 {
   padding: 3px 8px;
   border-radius: 5px;
   text-align: center;
-  min-width: 28px;
+  min-width:35px;
   display: inline-block;
   font-size: 15px;
   margin: 12px;
   border-bottom: 1px solid #ddd;
 }
 
-
+.failed-status {
+  background-color: red;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 90px;
+  display: inline-block;
+  font-size: 15px;
+  margin: 12px;
+  border-bottom: 1px solid #ddd;
+}
 
 .input-std-r{
   padding: 10px 12px;

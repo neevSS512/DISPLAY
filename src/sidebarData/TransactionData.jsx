@@ -342,26 +342,6 @@ const TransactionData = () => {
                   {item.transaction_status}
                 </button>
 
-                  {/* <button
-                    className={transactionStatusClass} // Apply dynamic class here
-                    style={{
-                      color: "white",
-                      padding: "3px 8px",
-                      borderRadius: "5px",
-                      textAlign: "center",
-                      minWidth: "28px",
-                      display: "inline-block",
-                      fontSize: "15px",
-                      margin: "12px",
-                      borderBottom: "1px solid #ddd",
-                      backgroundColor:
-                        transactionStatusClass === "pending"
-                          ? "rgb(255, 165, 0)" // Orange for pending
-                          : "rgb(101, 216, 101)", // Green for completed
-                    }}
-                  >
-                    {item.transaction_status}
-                  </button> */}
               </td>
             </tr>
           ))}

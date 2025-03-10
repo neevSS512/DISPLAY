@@ -25,18 +25,18 @@ h2 {
   margin-top: 30px;
 }
 
-.card-first {
-  background-color: #c4c4c4;
-  border-radius: 15px;
-  padding: 20px;
-  width: 300px;
-  height: 170px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin-left: 385px;
-}
+// .card-first {
+//   background-color: #c4c4c4;
+//   border-radius: 15px;
+//   padding: 20px;
+//   width: 300px;
+//   height: 170px;
+//   text-align: center;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   transition: all 0.3s ease;
+//   cursor: pointer;
+//   margin-left: 385px;
+// }
 .card-second {
   background-color: #c4c4c4;
   border-radius: 15px;
@@ -101,6 +101,20 @@ h2 {
   text-align: center; /* Center the text horizontally */
   line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
 }
+.circle-two{
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: inline-block; /* Use inline-block to prevent expanding parent width */
+  padding: 0; 
+  font-size: 1.1rem;
+  margin-bottom: 1px;
+  margin-right: 12px;
+  width: 75px;  
+  height: 45px; 
+  text-align: center; /* Center the text horizontally */
+  line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
+}
 
 
 
@@ -112,6 +126,75 @@ h2 {
   text-decoration: none;
 
 }
+
+.card-text-two{
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin-left: 180px;
+  text-decoration: none;
+
+}
+.card-first {
+  background-color: #c4c4c4;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: 385px;  /* Retaining your original margin */
+  max-width: 300px; /* Ensures the card width doesn't exceed 300px */
+  overflow: hidden;  /* Prevent any overflow */
+}
+
+.card-first .circle {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 0;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  width: 75px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+.card-first .circle-two {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 0;
+  font-size: 1.1rem;
+  margin-left: 210px;
+  margin-top: 5px;
+  margin-bottom: 5px;  /* Adds space between the two circles */
+  width: 75px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+.card-first .card-text, .card-first .card-text-two {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin-left: 180px;  /* Keeping your original margin */
+  text-decoration: none;
+  word-wrap: break-word;  /* Ensures text breaks into the next line if too long */
+}
+
+/* Ensure that the "New Users in Last 7 Days" text stays inside */
+.card-first .new-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
 
 .loading {
   font-size: 1.2rem;

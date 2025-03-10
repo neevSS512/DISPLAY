@@ -108,7 +108,7 @@ const Navbar = () => {
         {/* Show alert message if the user is logged in */}
         {showAlert && user && (
           <div className="navbar_alert">
-            <p>Welcome back, {user.name}!</p>
+            <p>Welcome back!</p>
           </div>
         )}
 
