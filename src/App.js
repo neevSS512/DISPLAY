@@ -22,6 +22,7 @@ import SnakeScore from './sidebarData/SnakeScore';
 import SnakePublic from './sidebarData/SnakePublic';
 import TransactionData from './sidebarData/TransactionData';
 import ConfigData from './sidebarData/ConfigData';
+import WithdrawMore from './sidebarData/WithdrawMore'
 function App() {
   const user = useSelector((state) => state.user); // Get the user data from Redux
 
@@ -65,7 +66,9 @@ function App() {
             
             {/* Admin route */}
             <Route path="/Admin" element={<AdminHkiData />} />
-            
+            <Route path="/WithdrawMore" element={< WithdrawMore />} />
+
+           
           </Routes>
         </div>
       </React.Fragment>

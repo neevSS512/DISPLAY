@@ -1,0 +1,82 @@
+// .r-more {
+//     text-align: center;
+//     width: 120%;
+//     max-width: 820px;
+//     max-height: 25px;
+//     margin: 0 auto;
+//     font-size: 1.2rem;
+//     font-weight: bold;
+//     padding: 10px 0;
+//     margin-bottom: 20px; /* Default margin */
+//     margin-top: 20px;
+//   }
+  
+//   .table-r {
+//     width: 100%;
+//     border-collapse: collapse;
+//     white-space: nowrap;
+//   }
+  
+//   @media (max-width: 768px) {
+//     .w-more {
+//       font-size: 1.5rem;
+//       max-width: 100%;
+//       margin-bottom: 15px; /* Adjust margin for smaller screens */
+//     }
+//   }
+  
+
+.r-more {
+    text-align: center;
+    width: 100%;  /* Let it grow naturally */
+    max-width: 820px;
+    margin: 0 auto; /* Center the heading horizontally */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-bottom: 20px; /* Default margin */
+    margin-top: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+  }
+  
+  .table-r {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    margin: 0 auto; /* Center the table */
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+  }
+  
+  /* Add padding and background color to table headers */
+  .table-r th {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+  }
+  
+  .table-r td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  /* Make the table scrollable horizontally on smaller screens */
+  @media (max-width: 768px) {
+    .table-r {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    /* Adjusting the title */
+    .r-more {
+      font-size: 1.5rem;
+      max-width: 100%;
+      margin-bottom: 15px; /* Adjust margin for smaller screens */
+    }
+  
+    .table-r th, .table-r td {
+      padding: 8px 15px; /* Ensure some space around text */
+    }
+  }
+  

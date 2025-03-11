@@ -55,8 +55,9 @@ const GameUserData = () => {
       setFilteredData(
         data.filter(
           (item) =>
-            item.mobile_no &&
-            item.mobile_no.toLowerCase().startsWith(query.toLowerCase())
+            (item.mobile_no &&
+            item.mobile_no.toLowerCase().startsWith(query.toLowerCase()))|| 
+            (item.panNumber && item.panNumber.toLowerCase().startsWith(query.toLowerCase()))
         )
       );
     } else {
