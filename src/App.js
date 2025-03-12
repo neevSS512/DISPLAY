@@ -29,7 +29,8 @@ import ConfigData from "./sidebarData/ConfigData";
 import WithdrawMore from "./sidebarData/WithdrawMore";
 
 import LudoSnakePlay from "./sidebarData/LudoSnakePlay";
-import SnakePlayData from "./sidebarData/SnakePlayData"
+import SnakePlayData from "./sidebarData/SnakePlayData";
+import RummyPlayData from "./sidebarData/RummyPlayData";
 function App() {
   const user = useSelector((state) => state.user); // Get the user data from Redux
 
@@ -76,6 +77,7 @@ function App() {
             <Route path="/WithdrawMore" element={<WithdrawMore />} />
             <Route path="/LudoSnakePlay" element={<LudoSnakePlay />} />
             <Route path="/SnakePlayData" element={<SnakePlayData/>} />
+            <Route path="/RummyPlayData" element={<RummyPlayData/>} />
             
           </Routes>
         </div>

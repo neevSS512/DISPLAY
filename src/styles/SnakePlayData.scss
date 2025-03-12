@@ -1,4 +1,4 @@
-.neevss{
+.neevss-e{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,7 @@
     background-color: rgb(255, 251, 251);
     
 }
-.neevs{
+.neevs-e{
     font-size: 11px;
 }
 
@@ -25,60 +25,60 @@ h3 {
   text-align: center;      
 }
 
-.fii {
+.fii-e{
   display: flex;
   justify-content: center; 
   align-items: center;      
   padding-top: 2px;       
-  width: 82vw;        
+  width: 81vw;        
   margin-left: 230px;      
 
 }
 
-.ctr{
+.ctr-e{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.withdraw-container {
+.withdraw-container-e {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     padding: 15px;
   }
   
-  .withdraw-table {
+  .withdraw-table-e {
     width: 100%;
     border-collapse: collapse;
     background-color: rgb(164, 173, 181);
   }
   
-  .withdraw-table th, .withdraw-table td {
+  .withdraw-table th-e, .withdraw-table td-e {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
   }
 
-  .btn-mi{
+  .btn-mi-e{
     cursor: pointer;
   }
 
-  .table-style-k {
-    width: 82vw;
+  .table-style-k-e {
+    width: 81vw;
     border-collapse: collapse;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 230px;
   }
-  .th-style-k {
+  .th-style-k-e{
     background-color: black;
     color: white;
     padding: 4px;
     text-align: left;
     border-bottom: 2px solid #ddd;
   }
-  .td-style-k {
-    padding: 18px;
+  .td-style-k-e {
+    padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     vertical-align: middle;
@@ -87,8 +87,21 @@ h3 {
   }
 
   
-  .no-results-cell-k {
+  .no-results-cell-k-e {
     padding: 10px;
     text-align: center;
   }
 
+/* Truncation with ellipsis */
+/* Truncation with ellipsis */
+.winner-id {
+  max-width: 150px; /* You can adjust this width as necessary */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer; /* Indicate that it is clickable */
+}
+
+.winner-id:hover {
+  background-color: #f0f0f0; /* Optional: Add hover effect to highlight */
+}

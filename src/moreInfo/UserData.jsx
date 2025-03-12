@@ -469,6 +469,8 @@ import "../styles/userdatam.scss";
 import WithdrawMore from "../sidebarData/WithdrawMore";
 import DepositeMore from "../sidebarData/DepositeMore";
 import LudoSnakePlay from '../sidebarData/LudoSnakePlay';
+import SnakePlayData from "../sidebarData/SnakePlayData";
+import RummyPlayData from '../sidebarData/RummyPlayData';
 
 const UserData = ({ user, handleClose }) => {
   const [loading, setLoading] = useState(true);
@@ -478,6 +480,8 @@ const UserData = ({ user, handleClose }) => {
   const [showKycData, setShowKycData] = useState(false);
   const [showMoreData, setShowMoreData] = useState(false);
   const [showLudoPlay, setShowLudoPlay] = useState(false);
+  const [showSnakePlay, setShowSnakePlay] = useState(false);
+  const [showRummyPlay, setShowRummyPlay] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -492,8 +496,10 @@ const UserData = ({ user, handleClose }) => {
     setShowWithdrawTable(true);
     setShowRechargeTable(false);
     setShowKycData(false);
+    setShowRummyPlay(false);
     setShowMoreData(false);
     setShowLudoPlay(false);
+    setShowSnakePlay(false);
   };
 
   const toggleRechargeTable = () => {
@@ -502,6 +508,8 @@ const UserData = ({ user, handleClose }) => {
     setShowKycData(false);
     setShowMoreData(false);
     setShowLudoPlay(false);
+    setShowRummyPlay(false);
+    setShowSnakePlay(false);
   };
 
   const toggleKycData = () => {
@@ -510,6 +518,8 @@ const UserData = ({ user, handleClose }) => {
     setShowKycData(true);
     setShowMoreData(false);
     setShowLudoPlay(false);
+    setShowRummyPlay(false);
+    setShowSnakePlay(false);
   };
 
   const toggleMoreData = () => {
@@ -518,6 +528,8 @@ const UserData = ({ user, handleClose }) => {
     setShowMoreData(true);
     setShowKycData(false);
     setShowLudoPlay(false);
+    setShowSnakePlay(false);
+    setShowRummyPlay(false);
   };
 
   const toggleLudoPlayData = () => {
@@ -526,6 +538,26 @@ const UserData = ({ user, handleClose }) => {
     setShowMoreData(false);
     setShowKycData(false);
     setShowLudoPlay(true);
+    setShowSnakePlay(false);
+    setShowRummyPlay(false);
+  };
+  const toggleSnakePlayData = () => {
+    setShowWithdrawTable(false);
+    setShowRechargeTable(false);
+    setShowMoreData(false);
+    setShowKycData(false);
+    setShowLudoPlay(false);
+    setShowSnakePlay(true);
+    setShowRummyPlay(false);
+  };
+  const toggleRummyPlayData = () => {
+    setShowWithdrawTable(false);
+    setShowRechargeTable(false);
+    setShowMoreData(false);
+    setShowKycData(false);
+    setShowLudoPlay(false);
+    setShowSnakePlay(false);
+    setShowRummyPlay(true);
   };
 
   if (!user) {
@@ -598,11 +630,20 @@ const UserData = ({ user, handleClose }) => {
           <button onClick={toggleLudoPlayData} className="l-btn">
             Ludo Game Play
           </button>
+
+          <button onClick={toggleSnakePlayData} className="l-btn">
+            Snake Game Play
+          </button>
+          <button onClick={toggleRummyPlayData} className="l-btn">
+            Rummy Game Play
+          </button>
         </div>
 
         {showWithdrawTable && <WithdrawMore phoneNumber={user.mobile_no} />}
         {showRechargeTable && <DepositeMore user={user} />}
         {showLudoPlay && <LudoSnakePlay userId={user._id} />}
+        {showSnakePlay && <SnakePlayData userId={user._id} />}
+        {showRummyPlay && <RummyPlayData userId={user._id} />}
 
         {showKycData && (
           <div className="kyc-table">
@@ -611,6 +652,7 @@ const UserData = ({ user, handleClose }) => {
               <thead>
                 <tr>
                   <th className="th-stylegm">User KYC Name</th>
+                  <th className="th-stylegm">Bank Account</th>
                   <th className="th-stylegm">Pan Number</th>
                   <th className="th-stylegm">Pan Verified</th>
                   <th className="th-stylegm">Aadhar Number</th>
@@ -621,6 +663,7 @@ const UserData = ({ user, handleClose }) => {
               <tbody>
                 <tr>
                   <td className="td-stylegm">{user.user_kyc_name || '-'}</td>
+                  <td className="td-stylegm">{user.bankAccount || '-'}</td>
                   <td className="td-stylegm">{user.panNumber || '_'}</td>
                   <td className="td-stylegm">{user.isPanVerified ? 'Yes' : 'No'}</td>
                   <td className="td-stylegm">{user.aadharNumber || '_'}</td>

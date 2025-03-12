@@ -45,7 +45,8 @@ const WithdrawData = () => {
           (item) =>
             item.phn.toLowerCase().startsWith(query.toLowerCase()) || // Filter by Mobile No
             item.bankAccount.toLowerCase().startsWith(query.toLowerCase()) ||
-            item.transferid.toLowerCase().startsWith(query.toLowerCase())
+            item.transferid.toLowerCase().startsWith(query.toLowerCase()) ||
+            item.uid.toLowerCase().startsWith(query.toLowerCase()) 
         )
       );
     } else {
