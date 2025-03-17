@@ -31,6 +31,7 @@ import WithdrawMore from "./sidebarData/WithdrawMore";
 import LudoSnakePlay from "./sidebarData/LudoSnakePlay";
 import SnakePlayData from "./sidebarData/SnakePlayData";
 import RummyPlayData from "./sidebarData/RummyPlayData";
+import WalletData from "./sidebarData/WalletData";
 function App() {
   const user = useSelector((state) => state.user); // Get the user data from Redux
 
@@ -59,6 +60,7 @@ function App() {
             <Route path="/PoolData" element={<PoolData />} />
             <Route path="/DealData" element={<DealData />} />
             <Route path="/PlayingData" element={<PlayingData />} />
+            <Route path="/WalletData" element={<WalletData />} />
 
             {/* Ludo and Snake data routes */}
             <Route path="/LudoPublicMoreData" element={<LudoPublic />} />

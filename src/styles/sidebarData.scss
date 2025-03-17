@@ -3,7 +3,7 @@
   width: 207px;
   background-color: #012850; /* Dark background for the sidebar */
   padding: 20px;
-  height: 100vh;
+  height: 120vh;
 }
 
 /* Styling for individual sidebar items */
@@ -29,12 +29,12 @@
   border-radius: 50%;
   padding: 10px;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /* Styling for the titles in sidebar */
 .sidebar-item .title {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   flex: 1;
 }

@@ -1,7 +1,257 @@
 
+// .admin-container {
+//   text-align: center;
+//   margin-top: 30px;
+// }
+
+// h2 {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 1.1rem;
+//   color: #dbdbdb;
+//   width: 1100px;
+//   border-radius: 8px;
+//   height: 52px;
+//   margin-left: 250px;
+//   margin-bottom: 20px;
+//   background-color: #153252;
+// }
+
+// .card-container {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+//   gap: 20px; /* Space between cards */
+//   margin-top: 30px;
+// }
+
+// // .card-first {
+// //   background-color: #c4c4c4;
+// //   border-radius: 15px;
+// //   padding: 20px;
+// //   width: 300px;
+// //   height: 170px;
+// //   text-align: center;
+// //   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+// //   transition: all 0.3s ease;
+// //   cursor: pointer;
+// //   margin-left: 385px;
+// // }
+// .card-second {
+//   background-color: #c4c4c4;
+//   border-radius: 15px;
+//   padding: 20px;
+//   width: 300px;
+//   text-align: center;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   transition: all 0.3s ease;
+//   cursor: pointer;
+  
+// }
+// .card-third {
+//   background-color: #c4c4c4;
+//   border-radius: 15px;
+//   padding: 20px;
+//   width: 300px;
+//   text-align: center;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   transition: all 0.3s ease;
+//   cursor: pointer;
+//   margin-left: 385px;
+// }
+
+// .card:hover {
+//   transform: translateY(-10px);
+//   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+//   background-color: #e0e0e0;
+// }
+
+// .icon-container {
+//   background-color: #f0f0f0;
+//   border-radius: 50%;
+//   padding: 15px;
+//   margin-bottom: 5px;
+//   margin-right: 150px;
+//   display: inline-block;
+//   // width: 34px;
+//   // height: 28px;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+
+
+//   color: white;
+//   padding: 0; 
+//   width: 55px;  
+//   height: 48px; 
+//   text-align: center; /* Center the text horizontally */
+//   line-height: 55px;  /* Vertically center the text (matching the height of the circle) */
+// }
+
+// .circle {
+//   background-color: #007bff;
+//   color: white;
+//   border-radius: 50%;
+//   display: inline-block; /* Use inline-block to prevent expanding parent width */
+//   padding: 0; 
+//   font-size: 1.1rem;
+//   margin-bottom: 1px;
+//   margin-right: 12px;
+//   width: 75px;  
+//   height: 45px; 
+//   text-align: center; /* Center the text horizontally */
+//   line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
+// }
+// .circle-two{
+//   background-color: #007bff;
+//   color: white;
+//   border-radius: 50%;
+//   display: inline-block; /* Use inline-block to prevent expanding parent width */
+//   padding: 0; 
+//   font-size: 1.1rem;
+//   margin-bottom: 1px;
+//   margin-right: 12px;
+//   width: 75px;  
+//   height: 45px; 
+//   text-align: center; /* Center the text horizontally */
+//   line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
+// }
+
+
+
+// .card-text {
+//   font-size: 1rem;
+//   color: #333;
+//   font-weight: 500;
+//   margin-left: 180px;
+//   text-decoration: none;
+
+// }
+
+// .card-text-two{
+//   font-size: 1rem;
+//   color: #333;
+//   font-weight: 500;
+//   margin-left: 180px;
+//   text-decoration: none;
+
+// }
+// .card-first {
+//   background-color: #c4c4c4;
+//   border-radius: 15px;
+//   padding: 20px;
+//   text-align: center;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   transition: all 0.3s ease;
+//   cursor: pointer;
+//   margin-left: 385px;  /* Retaining your original margin */
+//   max-width: 300px; /* Ensures the card width doesn't exceed 300px */
+//   overflow: hidden;  /* Prevent any overflow */
+// }
+
+// .card-first .circle {
+//   background-color: #007bff;
+//   color: white;
+//   border-radius: 50%;
+//   display: inline-block;
+//   padding: 0;
+//   font-size: 1.1rem;
+//   margin-bottom: 5px;
+//   width: 75px;
+//   height: 45px;
+//   text-align: center;
+//   line-height: 45px;
+// }
+
+// .card-first .circle-two {
+//   background-color: #007bff;
+//   color: white;
+//   border-radius: 50%;
+//   display: inline-block;
+//   padding: 0;
+//   font-size: 1.1rem;
+//   margin-left: 210px;
+//   margin-top: 5px;
+//   margin-bottom: 5px;  /* Adds space between the two circles */
+//   width: 75px;
+//   height: 45px;
+//   text-align: center;
+//   line-height: 45px;
+// }
+
+// .card-first .card-text, .card-first .card-text-two {
+//   font-size: 1rem;
+//   color: #333;
+//   font-weight: 500;
+//   margin-left: 180px;  /* Keeping your original margin */
+//   text-decoration: none;
+//   word-wrap: break-word;  /* Ensures text breaks into the next line if too long */
+// }
+
+// /* Ensure that the "New Users in Last 7 Days" text stays inside */
+// .card-first .new-users {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin-top: 10px;
+// }
+
+
+// .loading {
+//   font-size: 1.2rem;
+//   color: #007bff;
+// }
+
+
+// .status-info {
+//   margin-top: 10px;
+//   font-size: 9px;
+//   color: #333;
+//   margin-right: 120px;
+// }
+
+// .status-info p {
+//   margin: 5px 0;
+// }
+
+
+// .s-d{
+//   color:rgb(2, 136, 2);
+//   font-size: 15px;
+// }
+
+// .s-p{
+//   color:red;
+//   font-size: 15px;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container for the admin data section */
+*{
+  // box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
 .admin-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
+
 }
 
 h2 {
@@ -12,216 +262,253 @@ h2 {
   color: #dbdbdb;
   width: 1100px;
   border-radius: 8px;
-  height: 52px;
-  margin-left: 250px;
-  margin-bottom: 20px;
+  height: 40px;
+  margin-left: 290px;
+  margin-bottom: 15px;
   background-color: #153252;
 }
 
+/* Card container, 3 cards per row */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
-  gap: 20px; /* Space between cards */
-  margin-top: 30px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  gap: 2px; /* Further reduced space between cards */
+  margin-top: 10px; /* Reduced margin */
 }
 
-// .card-first {
-//   background-color: #c4c4c4;
-//   border-radius: 15px;
-//   padding: 20px;
-//   width: 300px;
-//   height: 170px;
-//   text-align: center;
-//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-//   transition: all 0.3s ease;
-//   cursor: pointer;
-//   margin-left: 385px;
-// }
-.card-second {
+/* Common card style */
+.card {
+  box-sizing: border-box;
   background-color: #c4c4c4;
-  border-radius: 15px;
-  padding: 20px;
-  width: 300px;
+  border-radius: 12px;
+  padding: 8px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
-  
-}
-.card-third {
-  background-color: #c4c4c4;
-  border-radius: 15px;
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin-left: 385px;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  background-color: #e0e0e0;
-}
-
-.icon-container {
-  background-color: #f0f0f0;
-  border-radius: 50%;
-  padding: 15px;
-  margin-bottom: 5px;
-  margin-right: 150px;
-  display: inline-block;
-  // width: 34px;
-  // height: 28px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-
-
-  color: white;
-  padding: 0; 
-  width: 55px;  
-  height: 48px; 
-  text-align: center; /* Center the text horizontally */
-  line-height: 55px;  /* Vertically center the text (matching the height of the circle) */
-}
-
-.circle {
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: inline-block; /* Use inline-block to prevent expanding parent width */
-  padding: 0; 
-  font-size: 1.1rem;
-  margin-bottom: 1px;
-  margin-right: 12px;
-  width: 75px;  
-  height: 45px; 
-  text-align: center; /* Center the text horizontally */
-  line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
-}
-.circle-two{
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: inline-block; /* Use inline-block to prevent expanding parent width */
-  padding: 0; 
-  font-size: 1.1rem;
-  margin-bottom: 1px;
-  margin-right: 12px;
-  width: 75px;  
-  height: 45px; 
-  text-align: center; /* Center the text horizontally */
-  line-height: 45px;  /* Vertically center the text (matching the height of the circle) */
-}
-
-
-
-.card-text {
-  font-size: 1rem;
-  color: #333;
-  font-weight: 500;
-  margin-left: 180px;
-  text-decoration: none;
-
-}
-
-.card-text-two{
-  font-size: 1rem;
-  color: #333;
-  font-weight: 500;
-  margin-left: 180px;
-  text-decoration: none;
-
-}
-.card-first {
-  background-color: #c4c4c4;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin-left: 385px;  /* Retaining your original margin */
-  max-width: 300px; /* Ensures the card width doesn't exceed 300px */
-  overflow: hidden;  /* Prevent any overflow */
-}
-
-.card-first .circle {
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 0;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  width: 75px;
-  height: 45px;
-  text-align: center;
-  line-height: 45px;
-}
-
-.card-first .circle-two {
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 0;
-  font-size: 1.1rem;
-  margin-left: 210px;
-  margin-top: 5px;
-  margin-bottom: 5px;  /* Adds space between the two circles */
-  width: 75px;
-  height: 45px;
-  text-align: center;
-  line-height: 45px;
-}
-
-.card-first .card-text, .card-first .card-text-two {
-  font-size: 1rem;
-  color: #333;
-  font-weight: 500;
-  margin-left: 180px;  /* Keeping your original margin */
-  text-decoration: none;
-  word-wrap: break-word;  /* Ensures text breaks into the next line if too long */
-}
-
-/* Ensure that the "New Users in Last 7 Days" text stays inside */
-.card-first .new-users {
+  max-width: 270px;
+  min-height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  justify-content: space-between;
+  margin: 0; /* Remove any margin around the cards */
+  margin-left: 10px;
+}
+.card-gepo{
+
+  background-color: #c4c4c4;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 250px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0; /* Remove any margin around the cards */
+  margin-left: 350px;
+}
+.card-depo{
+  background-color: #c4c4c4;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 250px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0; /* Remove any margin around the cards */
+  margin-left: 87px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.card-depo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.card-gepo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon styling inside the card */
+.card .icon-container {
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  padding: 8px;
+  margin-bottom: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  width:40;
+  height: 40px;
+  // text-align: center;
+  line-height: 20px;
+  margin-left: 180px;
+}
+.card-depo .icon-container-depo{
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  padding: 8px;
+  margin-bottom: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  width:40;
+  height: 40px;
+  // text-align: center;
+  line-height: 20px;
+  margin-left: 180px;
+}
+.card-gepo .icon-container-gepo{
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  padding: 8px;
+  margin-bottom: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  width:40;
+  height: 40px;
+  // text-align: center;
+  line-height: 20px;
+  margin-left: 180px;
 }
 
 
+/* Text inside the card */
+.card-text {
+  font-size: 0.75rem;
+  color: #333;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 140px;
+  white-space: nowrap;
+}
+.card-text-depo{
+  font-size: 0.75rem;
+  color: #333;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  margin-right: 140px;
+  white-space: nowrap;
+}
+.card-text-gepo{
+  font-size: 0.75rem;
+  color: #333;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 140px;
+  white-space: nowrap;
+}
+
+/* Status info inside the card */
+.status-info,.status-info-w{
+  margin-top: 1px;
+  font-size: 3px;
+  color: #333;
+  text-decoration: none;
+}
+
+.s-d, .s-d-w {
+  color: green;
+}
+
+.s-p, .s-p-w {
+  color: #ffc107;
+}
+
+
+
+/* Loading text style */
 .loading {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: #007bff;
 }
 
 
-.status-info {
-  margin-top: 10px;
-  font-size: 9px;
-  color: #333;
-  margin-right: 120px;
+
+.circle-w{
+  background-color: #3a4653;
+  color: white;
+  // border-radius: 50%;
+  display: inline-block;
+  padding: 0;
+  font-size: 0.95rem;
+  width: 180px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  margin-bottom: 2px;
+}
+.circle-d{
+  background-color: #3a4653;
+  color: white;
+  // border-radius: 50%;
+  display: inline-block;
+  padding: 0;
+  font-size: 0.95rem;
+  width: 180px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  margin-bottom: 2px;
+}
+.circle-g{
+  background-color: #3a4653;
+  color: white;
+  // border-radius: 50%;
+  display: inline-block;
+  padding: 0;
+  font-size: 0.95rem;
+  width: 180px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  margin-bottom: 2px;
 }
 
-.status-info p {
-  margin: 5px 0;
+
+
+
+
+.s-d-w {
+  color: green;
+  margin-right: 50px;
+  font-size: 1rem;
+  
 }
 
-
-.s-d{
-  color:rgb(2, 136, 2);
-  font-size: 15px;
+.s-d-d {
+  color: green;
+  margin-right: 50px;
+  font-size: 1rem;
 }
 
-.s-p{
-  color:red;
-  font-size: 15px;
+.s-p {
+  color: #ef123b;
 }
 
-
+.s-p-w {
+  color: #ef123b;
+  margin-right: 50px;
+  font-size: 1rem;
+}
+.s-p-d{
+  color: #ef123b;
+  margin-right: 50px;
+  font-size: 1rem;
+}

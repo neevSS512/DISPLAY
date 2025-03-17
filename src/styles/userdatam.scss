@@ -25,7 +25,7 @@ width: 100%;              // Full width of the parent container
 height: 50px;             // Fixed height for the element
 margin-bottom: 12px;
 margin-top: 12px;
-text-align: center;       // Text alignment for fallback
+text-align: center;      
 }
 
 .ugm{
@@ -33,13 +33,13 @@ display: flex;
 justify-content: center;  // Center horizontally
 align-items: center;      // Center vertically
 padding-top: 2px;         // Adjust the padding if needed
-width: 82vw;          // Set specific width if necessary
+width: 81vw;          // 
 margin-left: 230px;       // Adjust margin based on your layout
 
 }
 
 .table-stylegm{
-width: 82vw;
+width: 81vw;
 border-collapse: collapse;
 margin-top: 20px;
 margin-bottom: 20px;
@@ -262,7 +262,7 @@ color: red;
   justify-content: center; /* Center buttons horizontally */
   gap: 20px;             /* Space between buttons */
   margin-top: 40px;      /* Adjust top margin if needed */
-  margin-left:125px ;
+  margin-left:143px ;
 }
 
 .w-btn, .r-btn {

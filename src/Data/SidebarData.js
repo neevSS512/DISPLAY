@@ -20,6 +20,7 @@ import { FaWrench } from "react-icons/fa";
 import "../styles/sidebarData.scss"
 import { RiAdminFill } from 'react-icons/ri';
 import { GiCardRandom } from 'react-icons/gi';
+import WalletIcon from '@mui/icons-material/Wallet';
 
 
 
@@ -55,6 +56,11 @@ export const SidebarData = [
     title: 'Withdraw',
     icon: <AccountBalanceWalletIcon />,
     path: '/Withdraw',
+  },
+  {
+    title: 'Wallet',
+    icon: <WalletIcon/>,
+    path: '/WalletData',
   },
   {
     title: 'Transaction',

@@ -258,10 +258,6 @@ const GameUserData = () => {
 
 
 
-
-
-
-
                 <td className="table-data">
                   <button
                     className="btn-stg"

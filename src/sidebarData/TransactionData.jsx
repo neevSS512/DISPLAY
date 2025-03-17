@@ -34,25 +34,45 @@ const TransactionData = () => {
   }, []);
 
   // Handle search input change
-  const handleSearchChange = (e) => {
-    const query = e.target.value.trim();
-    setSearch(query);
+  // const handleSearchChange = (e) => {
+  //   const query = e.target.value.trim();
+  //   setSearch(query);
 
-    if (query) {
-      setFilteredData(
-        data.filter(
-          (item) =>
-            (item.mobile_no &&
-              item.mobile_no.toLowerCase().startsWith(query.toLowerCase())) ||
-            (item.tbid &&
-              item.tbid.toLowerCase().startsWith(query.toLowerCase()))
-        )
-      );
-    } else {
-      setFilteredData(data);
-    }
-    setCurrentPage(1); // Reset to first page on new search
-  };
+  //   if (query) {
+  //     setFilteredData(
+  //       data.filter(
+  //         (item) =>
+  //           (item.mobile_no &&
+  //             item.mobile_no.toLowerCase().startsWith(query.toLowerCase())) ||
+  //           (item.tbid &&
+  //             item.tbid.toLowerCase().startsWith(query.toLowerCase()))
+  //       )
+  //     );
+  //   } else {
+  //     setFilteredData(data);
+  //   }
+  //   setCurrentPage(1); // Reset to first page on new search
+  // };
+
+// Handle search input change
+const handleSearchChange = (e) => {
+  const query = e.target.value.trim(); // Trim any extra spaces around the query
+  setSearch(query);
+
+  if (query) {
+    setFilteredData(
+      data.filter(
+        (item) =>
+          (item.mobile_no && item.mobile_no.trim().toLowerCase() === query.toLowerCase()) || // Normalize and compare exactly
+          (item.tbid && item.tbid.trim().toLowerCase() === query.toLowerCase()) // Normalize and compare exactly
+      )
+    );
+  } else {
+    setFilteredData(data); // Show all data if no search query
+  }
+  setCurrentPage(1); // Reset to first page on new search
+};
+
 
   // Handle pagination navigation
   const handleNextPage = () => {
@@ -366,7 +386,7 @@ const TransactionData = () => {
             Previous
           </button>
         )}
-        <span style={{ marginLeft: "1200px", marginTop: "3px" }}>
+        <span style={{ marginLeft: "1190px", marginTop: "3px" }}>
           Page {currentPage} of {Math.ceil(filteredData.length / rowsPerPage)}
         </span>
         <button
