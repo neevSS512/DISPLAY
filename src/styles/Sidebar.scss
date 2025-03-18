@@ -1,10 +1,317 @@
 
+// .sidebar {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 246px;
+//   height: 100%;
+//   background-color: #0b151f;
+//   color: #fff;
+//   display: flex;
+//   flex-direction: column;
+//   transition: all 0.3s ease;
+//   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+//   z-index: 9999;
+//   padding-bottom: 30px; 
+// }
+
+// .sidebar.closed {
+//   width: 80px;
+// }
+
+// .sidebar-header {
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 5px;
+// }
+
+// .toggle-btn {
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+//   outline: none;
+//   padding: 10px;
+//   transition: transform 0.3s ease;
+// }
+
+// .arrow {
+//   width: 15px;
+//   height: 15px;
+//   border-top: 2px solid #fff;
+//   border-right: 2px solid #fff;
+//   transform: rotate(45deg);
+//   transition: transform 0.3s ease;
+// }
+
+// .arrow.left {
+//   transform: rotate(-45deg); 
+// }
+
+// .arrow.right {
+//   transform: rotate(135deg);
+// }
+
+// .nav-menu {
+//   flex-grow: 1;
+//   padding-top: 20px;
+//   overflow-y: auto; 
+// }
+
+// .nav-menu ul {
+//   list-style-type: none;
+//   padding-left: 0;
+// }
+
+// .nav-menu ul li {
+//   margin: 5px 0;
+// }
+
+// .nav-menu ul li a {
+//   display: flex;
+//   align-items: center;
+//   padding: 10px 20px; 
+//   text-decoration: none;
+//   color: #ecf0f1;
+//   font-size: 1.1rem;
+//   transition: background-color 0.3s ease, padding 0.3s ease;
+//   border-radius: 4px;
+//   width: 100%;
+// }
+
+// .nav-menu ul li a:hover {
+//   background-color: #34495e;
+//   padding: 8px 20px;
+//   border-radius: 18px;
+//   width:65%;
+// }
+
+// .nav-menu ul li a .icon {
+//   margin-right: 10px; 
+//   font-size: 1.3rem;
+// }
+
+// .nav-menu ul li a .title {
+//   font-size: 1rem;
+//   transition: opacity 0.3s ease;
+//   margin-left: 0px; /* Reduced margin-left for titles */
+//   white-space: nowrap; /* Prevent text from wrapping */
+//   // overflow: hidden; /* Hide overflowed text */
+//   text-overflow: ellipsis; /* Add ellipsis if text overflows */
+// }
+
+
+// .nav-menu ul li a:hover .title {
+//   font-weight: bold;
+// }
+
+// .sub-menu {
+//   list-style: none;
+//   padding-left: 0;
+//   display: none; /* Hide the sub-menu by default */
+// }
+
+// .sub-menu li {
+//   padding: 5px 0; /* Reduced padding */
+//   margin: 0; /* Remove margin */
+// }
+
+// .sub-menu li a {
+//   display: flex;
+//   justify-content: flex-start; /* Align items to the left */
+//   align-items: center;
+//   padding: 10px 20px; /* Use consistent padding for sub-menu items */
+//   text-decoration: none;
+//   color: #ecf0f1;
+//   font-size: 1rem;
+//   transition: background-color 0.3s ease, padding 0.3s ease;
+//   border-radius: 4px;
+// }
+
+// .sub-menu li a .icon {
+//   margin-left: 50px; /* Reduced margin-left for sub-menu icons */
+//   font-size: 1.3rem;
+// }
+
+// .sub-menu li a .title {
+//   margin-left: 5px; /* Reduced margin-left for sub-menu titles */
+//   font-size: 1rem;
+//   transition: opacity 0.3s ease;
+// }
+
+// /* Hover effect for subitems */
+// .sub-menu li a:hover {
+//   background-color: #34495e;
+//   padding: 8px 20px; /* Keep consistent padding on hover */
+//   border-radius: 18px;
+//   width:65%
+// }
+
+// .sub-menu li a:hover .title {
+//   font-weight: bold;
+// }
+
+// .nav-menu ul li.active .sub-menu {
+//   display: block; /* Show sub-menu when item is active */
+// }
+
+// .nested-sub-menu li {
+//   margin-left: 20px; /* Add left margin to nested sub-items */
+//   padding: 5px 0;
+// }
+
+// .nested-sub-menu li a {
+//   padding: 10px 20px; /* Consistent padding for nested sub-menu items */
+//   text-decoration: none;
+//   color: #ecf0f1;
+//   font-size: 1rem;
+//   transition: background-color 0.3s ease, padding 0.3s ease;
+//   border-radius: 4px;
+// }
+
+// .nested-sub-menu li a:hover {
+//   background-color: #34495e;
+//   padding: 8px 20px; /* Keep consistent padding on hover */
+//   border-radius: 18px;
+//   width:65%
+// }
+
+// .nested-sub-menu li a .icon {
+//   margin-left: 90px; /* Adjust icon position */
+// }
+
+// .nested-sub-menu li a .title {
+//   margin-left: 5px; /* Adjust margin for nested sub-menu titles */
+//   font-size: 1rem;
+//   transition: opacity 0.3s ease;
+// }
+
+// /* Optional: Adding media query for responsive sidebar */
+// @media (max-width: 768px) {
+//   .sidebar {
+//     width: 100%; /* Full width on smaller screens */
+//   }
+
+//   .sidebar.closed {
+//     width: 60px;
+//   }
+
+//   .nav-menu ul li a {
+//     justify-content: center;
+//   }
+
+//   .nav-menu ul li a .title {
+//     display: none;
+//   }
+// }
+
+
+
+
+
+
+// /* Base styles for all sidebar items (unchanged) */
+// .nav-menu ul li a {
+//   display: flex;
+//   align-items: center;
+//   padding: 10px 20px;
+//   text-decoration: none;
+//   color: #ecf0f1;
+//   font-size: 1.1rem;
+//   transition: background-color 0.3s ease, padding 0.3s ease;
+//   border-radius: 4px;
+//   width: 100%;
+// }
+
+// .nav-menu ul li a .icon {
+//   margin-right: 10px; /* Standard margin */
+//   font-size: 1.3rem;
+// }
+
+// .nav-menu ul li a .title {
+//   font-size: 1rem;
+//   transition: opacity 0.3s ease;
+//   margin-left: 0px; /* Standard margin for title */
+// }
+
+// /* Styling only for the Admin menu item */
+// .nav-menu ul li a.admin-item {
+//   background-color: #398fff; /* Darker background color for Admin item */
+//   color: #323027; /* Default text color for Admin item */
+//   font-weight: bold; /* Make Admin item text bold */
+//   // border-radius: 8px; /* Apply border-radius to all corners */
+//   border-radius: 28px 0px 18px 0px;
+//   margin-left: 5px;
+//   margin-right: 5px;
+//   transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition */
+//   margin-bottom: 50px; /* Space between Admin item and other items */
+//   padding: 8px 15px; /* Reduced padding to make the item narrower */
+//   display: flex;
+//   align-items: center; /* Vertically align the icon and title */
+//   min-width: 150px; /* Reduced width */
+// }
+
+// /* Hover effect for the Admin item */
+// .nav-menu ul li a.admin-item:hover {
+//   background-color: #a4a6a7; /* Slightly lighter on hover */
+//   transform: scale(1.05); /* Zoom effect when hovered */
+//   color: #000000; /* Change text color to black when hovered */
+// }
+
+// /* Icon styling for the Admin item */
+// .nav-menu ul li a.admin-item .icon {
+//   font-size: 1.2rem; /* Smaller icon size */
+//   background-color: #ffffffe2; /* Icon circle background color */
+//   border-radius: 50%; /* Make the icon circular */
+//   padding: 8px; /* Reduced padding inside the circle */
+//   margin-right: 10px; /* Space between icon and title */
+//   transition: background-color 0.3s ease; /* Smooth transition for icon color */
+//   display: inline-flex; /* Center the icon within the circle */
+//   align-items: center;
+//   justify-content: center; /* Ensure the icon is centered */
+// }
+
+// /* Hover effect for the Admin item's icon */
+// .nav-menu ul li a.admin-item:hover .icon {
+//   background-color: #34495e; /* Darker background for icon on hover */
+// }
+
+// /* Title styling for the Admin item */
+// .nav-menu ul li a.admin-item .title {
+//   font-size: 0.9rem; /* Smaller title text size */
+//   white-space: nowrap; /* Prevent text from wrapping */
+//   overflow: hidden; /* Hide overflowed text */
+//   text-overflow: ellipsis; /* Add ellipsis if text overflows */
+//   transition: font-weight 0.3s ease, color 0.3s ease; /* Smooth transition for text weight and color */
+// }
+
+// /* Active state for Admin item */
+// .nav-menu ul li a.admin-item.active {
+//   background-color: #1abc9c; /* Change background when Admin item is active */
+//   color: #fff; /* White text color for active Admin item */
+// }
+
+// /* Active state for Admin item's icon */
+// .nav-menu ul li a.admin-item.active .icon {
+//   color: #fff; /* White icon when active */
+//   background-color: #16a085; /* Change icon background to a lighter color when active */
+// }
+
+// /* Active state for Admin item's title */
+// .nav-menu ul li a.admin-item.active .title {
+//   font-weight: bold; /* Make the title bold when active */
+//   color: #fff; /* White title when active */
+// }
+
+
+
+
+/* Sidebar styles */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 246px;
-  height: 100%;
+  height: 100%; /* Full height of the screen */
   background-color: #0b151f;
   color: #fff;
   display: flex;
@@ -12,7 +319,8 @@
   transition: all 0.3s ease;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
-  padding-bottom: 30px; 
+  padding-bottom: 30px;
+  overflow-y: auto;
 }
 
 .sidebar.closed {
@@ -44,22 +352,26 @@
 }
 
 .arrow.left {
-  transform: rotate(-45deg); 
+  transform: rotate(-45deg);
 }
 
 .arrow.right {
   transform: rotate(135deg);
 }
 
+/* Navigation menu styles */
 .nav-menu {
   flex-grow: 1;
   padding-top: 20px;
-  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-menu ul {
   list-style-type: none;
   padding-left: 0;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .nav-menu ul li {
@@ -69,7 +381,7 @@
 .nav-menu ul li a {
   display: flex;
   align-items: center;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   text-decoration: none;
   color: #ecf0f1;
   font-size: 1.1rem;
@@ -78,117 +390,115 @@
   width: 100%;
 }
 
+/* Main item hover styles */
 .nav-menu ul li a:hover {
   background-color: #34495e;
   padding: 8px 20px;
   border-radius: 18px;
-  width:65%;
+  width: 65%;
 }
 
 .nav-menu ul li a .icon {
-  margin-right: 10px; 
+  margin-right: 10px;
   font-size: 1.3rem;
 }
 
 .nav-menu ul li a .title {
   font-size: 1rem;
   transition: opacity 0.3s ease;
-  margin-left: 0px; /* Reduced margin-left for titles */
-  white-space: nowrap; /* Prevent text from wrapping */
-  // overflow: hidden; /* Hide overflowed text */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  margin-left: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
 
 .nav-menu ul li a:hover .title {
   font-weight: bold;
 }
 
+/* Sub-menu styles */
 .sub-menu {
   list-style: none;
   padding-left: 0;
-  display: none; /* Hide the sub-menu by default */
+  display: none;
+  margin-top: 5px;
 }
 
+/* Submenu item styles - Adjusted for left-side positioning */
 .sub-menu li {
-  padding: 5px 0; /* Reduced padding */
-  margin: 0; /* Remove margin */
+  padding: 5px 0;
+  margin: 0;
 }
 
 .sub-menu li a {
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px 20px; /* Use consistent padding for sub-menu items */
+  padding: 10px 20px;
   text-decoration: none;
   color: #ecf0f1;
   font-size: 1rem;
   transition: background-color 0.3s ease, padding 0.3s ease;
   border-radius: 4px;
+  width: calc(100% - 20px); /* Make subitems width smaller */
+  margin-left: 10px; /* Adjust this to make the subitems a bit to the left */
 }
 
-.sub-menu li a .icon {
-  margin-left: 50px; /* Reduced margin-left for sub-menu icons */
-  font-size: 1.3rem;
+/* Submenu hover effect */
+.sub-menu li a:hover {
+  background-color: #34495e;
+  padding: 8px 20px;
+  border-radius: 18px;
+  width: 70%; /* Adjust hover width to be different from main item */
 }
 
+/* Title style in submenu */
 .sub-menu li a .title {
-  margin-left: 5px; /* Reduced margin-left for sub-menu titles */
+  margin-left: 5px;
   font-size: 1rem;
   transition: opacity 0.3s ease;
 }
 
-/* Hover effect for subitems */
-.sub-menu li a:hover {
-  background-color: #34495e;
-  padding: 8px 20px; /* Keep consistent padding on hover */
-  border-radius: 18px;
-  width:65%
+/* Nested sub-menu styles */
+.nested-sub-menu li {
+  margin-left: 10px; /* Make nested items a bit to the left */
+  padding: 5px 0;
 }
 
-.sub-menu li a:hover .title {
-  font-weight: bold;
+.nested-sub-menu li a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  border-radius: 4px;
+  width: calc(100% - 40px); /* Adjust for nested subitems */
+}
+
+/* Nested subitem hover effect */
+.nested-sub-menu li a:hover {
+  background-color: #34495e;
+  padding: 8px 20px;
+  border-radius: 18px;
+  width: 75%; /* Adjust width for nested items */
+}
+
+.nested-sub-menu li a .icon {
+  margin-left: 30px; /* Make the nested item icons more indented */
+}
+
+.nested-sub-menu li a .title {
+  margin-left: 5px;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
 }
 
 .nav-menu ul li.active .sub-menu {
   display: block; /* Show sub-menu when item is active */
 }
 
-.nested-sub-menu li {
-  margin-left: 20px; /* Add left margin to nested sub-items */
-  padding: 5px 0;
-}
-
-.nested-sub-menu li a {
-  padding: 10px 20px; /* Consistent padding for nested sub-menu items */
-  text-decoration: none;
-  color: #ecf0f1;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, padding 0.3s ease;
-  border-radius: 4px;
-}
-
-.nested-sub-menu li a:hover {
-  background-color: #34495e;
-  padding: 8px 20px; /* Keep consistent padding on hover */
-  border-radius: 18px;
-  width:65%
-}
-
-.nested-sub-menu li a .icon {
-  margin-left: 90px; /* Adjust icon position */
-}
-
-.nested-sub-menu li a .title {
-  margin-left: 5px; /* Adjust margin for nested sub-menu titles */
-  font-size: 1rem;
-  transition: opacity 0.3s ease;
-}
-
-/* Optional: Adding media query for responsive sidebar */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 
   .sidebar.closed {
@@ -204,100 +514,63 @@
   }
 }
 
-
-
-
-
-
-/* Base styles for all sidebar items (unchanged) */
-.nav-menu ul li a {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #ecf0f1;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease, padding 0.3s ease;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.nav-menu ul li a .icon {
-  margin-right: 10px; /* Standard margin */
-  font-size: 1.3rem;
-}
-
-.nav-menu ul li a .title {
-  font-size: 1rem;
-  transition: opacity 0.3s ease;
-  margin-left: 0px; /* Standard margin for title */
-}
-
-/* Styling only for the Admin menu item */
+/* Admin and Wallet item styles */
 .nav-menu ul li a.admin-item {
-  background-color: #398fff; /* Darker background color for Admin item */
-  color: #323027; /* Default text color for Admin item */
-  font-weight: bold; /* Make Admin item text bold */
-  // border-radius: 8px; /* Apply border-radius to all corners */
+  background-color: #398fff;
+  color: #323027;
+  font-weight: bold;
   border-radius: 28px 0px 18px 0px;
   margin-left: 5px;
   margin-right: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition */
-  margin-bottom: 50px; /* Space between Admin item and other items */
-  padding: 8px 15px; /* Reduced padding to make the item narrower */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 50px;
+  padding: 8px 15px;
   display: flex;
-  align-items: center; /* Vertically align the icon and title */
-  min-width: 150px; /* Reduced width */
-}
-
-/* Hover effect for the Admin item */
-.nav-menu ul li a.admin-item:hover {
-  background-color: #a4a6a7; /* Slightly lighter on hover */
-  transform: scale(1.05); /* Zoom effect when hovered */
-  color: #000000; /* Change text color to black when hovered */
-}
-
-/* Icon styling for the Admin item */
-.nav-menu ul li a.admin-item .icon {
-  font-size: 1.2rem; /* Smaller icon size */
-  background-color: #ffffffe2; /* Icon circle background color */
-  border-radius: 50%; /* Make the icon circular */
-  padding: 8px; /* Reduced padding inside the circle */
-  margin-right: 10px; /* Space between icon and title */
-  transition: background-color 0.3s ease; /* Smooth transition for icon color */
-  display: inline-flex; /* Center the icon within the circle */
   align-items: center;
-  justify-content: center; /* Ensure the icon is centered */
+  min-width: 150px;
 }
 
-/* Hover effect for the Admin item's icon */
+.nav-menu ul li a.admin-item:hover {
+  background-color: #a4a6a7;
+  transform: scale(1.05);
+  color: #000000;
+}
+
+.nav-menu ul li a.admin-item .icon {
+  font-size: 1.2rem;
+  background-color: #ffffffe2;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav-menu ul li a.admin-item:hover .icon {
-  background-color: #34495e; /* Darker background for icon on hover */
+  background-color: #34495e;
 }
 
-/* Title styling for the Admin item */
 .nav-menu ul li a.admin-item .title {
-  font-size: 0.9rem; /* Smaller title text size */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflowed text */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
-  transition: font-weight 0.3s ease, color 0.3s ease; /* Smooth transition for text weight and color */
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-weight 0.3s ease, color 0.3s ease;
 }
 
-/* Active state for Admin item */
 .nav-menu ul li a.admin-item.active {
-  background-color: #1abc9c; /* Change background when Admin item is active */
-  color: #fff; /* White text color for active Admin item */
+  background-color: #1abc9c;
+  color: #fff;
 }
 
-/* Active state for Admin item's icon */
 .nav-menu ul li a.admin-item.active .icon {
-  color: #fff; /* White icon when active */
-  background-color: #16a085; /* Change icon background to a lighter color when active */
+  color: #fff;
+  background-color: #16a085;
 }
 
-/* Active state for Admin item's title */
 .nav-menu ul li a.admin-item.active .title {
-  font-weight: bold; /* Make the title bold when active */
-  color: #fff; /* White title when active */
+  font-weight: bold;
+  color: #fff;
 }

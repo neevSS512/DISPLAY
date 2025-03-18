@@ -1,9 +1,78 @@
+// /* Sidebar container styling */
+// .sidebar {
+//   width: 207px;
+//   background-color: #012850; /* Dark background for the sidebar */
+//   padding: 20px;
+//   height: 120vh;
+// }
+
+// /* Styling for individual sidebar items */
+// .sidebar-item {
+//   display: flex;
+//   align-items: center;
+//   padding: 10px;
+//   color: #ecf0f1; /* Light text color */
+//   margin-bottom: 10px;
+//   border-radius: 5px; /* Optional: adds rounded corners to each item */
+//   text-decoration: none;
+// }
+
+// /* Hover effect for sidebar items */
+// .sidebar-item:hover {
+//   background-color: #34495e;
+// }
+
+// /* Styling for icons (circles) */
+// .sidebar-icon {
+//   background-color: #3498db; /* Blue background for icons */
+//   color: white;
+//   border-radius: 50%;
+//   padding: 10px;
+//   margin-right: 10px;
+//   font-size: 15px;
+// }
+
+// /* Styling for the titles in sidebar */
+// .sidebar-item .title {
+//   font-size: 13px;
+//   font-weight: bold;
+//   flex: 1;
+// }
+
+// /* Submenu item styling */
+// .submenu-item {
+//   padding-left: 30px;
+//   font-size: 14px;
+// }
+
+// .submenu-item .sidebar-icon {
+//   background-color: #9b59b6; /* Different color for submenu icons */
+// }
+
+// .submenu-item:hover {
+//   background-color: #e4edee;
+// }
+
+// /* Optional: spacing and margin adjustments */
+// .sidebar-item {
+//   margin-bottom: 20px;
+// }
+
+// .submenu-item {
+//   margin-bottom: 15px;
+// }
+
+
+
+
+
+
 /* Sidebar container styling */
 .sidebar {
   width: 207px;
   background-color: #012850; /* Dark background for the sidebar */
   padding: 20px;
-  height: 120vh;
+  height: 100vh;
 }
 
 /* Styling for individual sidebar items */
@@ -29,12 +98,12 @@
   border-radius: 50%;
   padding: 10px;
   margin-right: 10px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 /* Styling for the titles in sidebar */
 .sidebar-item .title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
   flex: 1;
 }
@@ -53,6 +122,21 @@
   background-color: #e4edee;
 }
 
+/* Specific hover effect for Ludo submenu */
+.ludo-item:hover {
+  background-color: #16a085; /* Unique background color for Ludo */
+}
+
+/* Specific hover effect for Snake submenu */
+.snake-item:hover {
+  background-color: #f39c12; /* Unique background color for Snake */
+}
+
+/* Specific hover effect for Rummy submenu */
+.rummy-item:hover {
+  background-color: #e74c3c; /* Unique background color for Rummy */
+}
+
 /* Optional: spacing and margin adjustments */
 .sidebar-item {
   margin-bottom: 20px;
@@ -61,8 +145,4 @@
 .submenu-item {
   margin-bottom: 15px;
 }
-
-
-
-
 
