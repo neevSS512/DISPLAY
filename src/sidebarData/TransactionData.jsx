@@ -13,7 +13,7 @@ const TransactionData = () => {
   const [error, setError] = useState("");
   const [search, setSearch] = useState(""); // The search query
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
-  const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page
+  const [rowsPerPage, setRowsPerPage] = useState(8); // Rows per page
 
   // Fetch game user data
   useEffect(() => {
@@ -33,26 +33,6 @@ const TransactionData = () => {
     fetchGameuserData();
   }, []);
 
-  // Handle search input change
-  // const handleSearchChange = (e) => {
-  //   const query = e.target.value.trim();
-  //   setSearch(query);
-
-  //   if (query) {
-  //     setFilteredData(
-  //       data.filter(
-  //         (item) =>
-  //           (item.mobile_no &&
-  //             item.mobile_no.toLowerCase().startsWith(query.toLowerCase())) ||
-  //           (item.tbid &&
-  //             item.tbid.toLowerCase().startsWith(query.toLowerCase()))
-  //       )
-  //     );
-  //   } else {
-  //     setFilteredData(data);
-  //   }
-  //   setCurrentPage(1); // Reset to first page on new search
-  // };
 
 // Handle search input change
 const handleSearchChange = (e) => {
@@ -386,7 +366,7 @@ const handleSearchChange = (e) => {
             Previous
           </button>
         )}
-        <span style={{ marginLeft: "1190px", marginTop: "3px" }}>
+        <span style={{ marginLeft: "1180px", marginTop: "3px" }}>
           Page {currentPage} of {Math.ceil(filteredData.length / rowsPerPage)}
         </span>
         <button

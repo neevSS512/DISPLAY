@@ -295,7 +295,7 @@ export default function AdminHkiData() {
             <h3 className="circle-g" style={{marginTop:"30px"}}>{transactionData.totalUsers}</h3>
             <p className="card-text-g" style={{marginTop:"8px"}}>Registered Players</p>
             <h3 className="circle-g" >{transactionData.newUsersLast7Days}</h3>
-            <p className="card-text-g" style={{marginBottom:"115px"}}>Users in Last 7 Days</p>
+            <p className="card-text-g" style={{marginBottom:"115px"}}>Todays's Users</p>
           </div>
          
          
@@ -309,7 +309,7 @@ export default function AdminHkiData() {
             <h3 className="circle-d"  style={{marginTop:"40px"}}>{transactionData.totalAmount}</h3>
             <p className="card-text-d" >Total Deposit</p>
             <h3 className="circle-d" >{transactionData.totalRechargeLast7Days}</h3>
-            <p className="card-text-d"  >Deposit in last 7 days</p>
+            <p className="card-text-d"  >Today's Deposit</p>
             <div className="status-info" style={{paddingBottom:"2px"}}>
               <p className="s-d-d">Successful Deposit: {transactionData.totalSuccess}</p>
               <p className="s-p-d">Pending Deposit: {transactionData.totalPending}</p>
@@ -324,7 +324,7 @@ export default function AdminHkiData() {
             <h3 className="circle-w" style={{marginTop:"40px"}}>{transactionData.totalWithdraw}</h3>
             <p className="card-text-w">Total Withdrawals</p>
             <h3 className="circle-w">{transactionData.totalWithdrawLast7Days}</h3>
-            <p className="card-text-w" style={{marginBottom:"34px"}}>Withdraw in Last 7 Days</p>
+            <p className="card-text-w" style={{marginBottom:"34px"}}>Today's Withdraw</p>
             <div className="status-info-w" style={{paddingBottom:"2px"}}>
               <p className="s-d-w">Successful Withdraw: {transactionData.totalSuccessW}</p>
               <p className="s-p-w">Pending Withdraw: {transactionData.totalPendingW}</p>

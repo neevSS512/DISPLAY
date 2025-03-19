@@ -12,6 +12,9 @@ const SnakeScoreData = () => {
   const [error, setError] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [showUserData, setShowUserData] = useState(false);
+   // Pagination state
+    const [currentPage, setCurrentPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page
 
 
   const handleCreateRow = () => {
@@ -269,6 +272,24 @@ const showAlert = (message) => {
     display: "inline-block",  // Ensure it's inline-block so the text stays in one line
   
   };
+
+
+   // Pagination logic
+   const indexOfLastRow = currentPage * rowsPerPage;
+   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+   const currentRows = filteredData.slice(indexOfFirstRow, indexOfLastRow);
+ 
+   const handleNextPage = () => {
+     if (currentPage < Math.ceil(filteredData.length / rowsPerPage)) {
+       setCurrentPage(currentPage + 1);
+     }
+   };
+ 
+   const handlePreviousPage = () => {
+     if (currentPage > 1) {
+       setCurrentPage(currentPage - 1);
+     }
+   };
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -282,6 +303,8 @@ const showAlert = (message) => {
   }
 
 
+
+
   return (
     <div className="neev">
       <h3 className="sp">Snake Classic
@@ -290,7 +313,19 @@ const showAlert = (message) => {
       <button className="btn-w" onClick={handleCreateRow} >Create Data</button>
       <button className="btn-q" onClick={handleSaveData} >Save Data</button>
       </h3>
-   
+         {/* Rows per page dropdown */}
+         <div style={{ marginBottom: "5px", visibility: "hidden" }}>
+        <label style={{ marginRight: "10px" }}>Rows per page:</label>
+        <select
+          value={rowsPerPage}
+          onChange={(e) => setRowsPerPage(Number(e.target.value))}
+          style={{ padding: "5px", fontSize: "14px" }}
+        >
+          <option value={10}>5</option>
+          <option value={20}>8</option>
+          <option value={30}>10</option>
+        </select>
+      </div>
 
       <table style={tableStyles}>
         <thead>
@@ -310,8 +345,10 @@ const showAlert = (message) => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((item, index) => (
+          {/* {filteredData.length > 0 ? (
+            filteredData.map((item, index) => ( */}
+             {currentRows.length > 0 ? (
+             currentRows.map((item, index) => (
               <tr key={item.Id} style={{ backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffffff" }}>
             
             <td style={tdStyles}>
@@ -557,6 +594,28 @@ const showAlert = (message) => {
           )}
         </tbody>
       </table>
+
+
+        {/* Pagination Controls */}
+        <div style={{ marginLeft: "1200px" }}>
+        {/* Previous button */}
+        {currentPage > 1 && (
+          <button onClick={handlePreviousPage} style={{ height: "27px", fontSize: "14px", marginBottom: "4px" }}>
+            Previous
+          </button>
+        )}
+
+        <span style={{ whiteSpace: "nowrap" }}>
+          Page {currentPage} of {Math.ceil(filteredData.length / rowsPerPage)}
+        </span>
+
+        {/* Next button */}
+        {currentPage < Math.ceil(filteredData.length / rowsPerPage) && (
+          <button onClick={handleNextPage} style={{ height: "27px", fontSize: "14px", marginBottom: "12px" }}>
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 };

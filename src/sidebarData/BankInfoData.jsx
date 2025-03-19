@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/BankData.scss";
@@ -9,10 +10,15 @@ import variables from "../styles/variables.scss";
 
 const BankInfoData = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]); // Store filtered data
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [search, setSearch] = useState("");
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10); // Rows per page
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,23 +44,37 @@ const BankInfoData = () => {
     if (query) {
       setFilteredData(
         data.filter(
-          (item) =>
-           
-            (item.details.number&& item.details.number.toLowerCase().startsWith(query.toLowerCase()))
-           
+          (item) => item.details.number && item.details.number.toLowerCase().startsWith(query.toLowerCase())
         )
       );
     } else {
-      // If search is cleared, reset to show all data
       setFilteredData(data);
+    }
+    setCurrentPage(1); // Reset pagination when search is changed
+  };
+
+  const handleClearSearch = () => {
+    setSearch("");
+    setFilteredData(data); // Show all data again
+    setCurrentPage(1); // Reset pagination when search is cleared
+    navigate("/BankData"); // Navigate to the /BankData path
+  };
+
+  // Pagination logic
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = filteredData.slice(indexOfFirstRow, indexOfLastRow);
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(filteredData.length / rowsPerPage)) {
+      setCurrentPage(currentPage + 1);
     }
   };
 
-
-  const handleClearSearch = () => {
-    setSearch(""); 
-    setFilteredData(data); // Show all data again
-    navigate("/BankData"); // Navigate to the /BankData path
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   if (loading) {
@@ -108,27 +128,38 @@ const BankInfoData = () => {
         </IconButton>
       </div>
 
-     {/* Display message when no results are found */}
-           {search && filteredData.length === 0 && (
-           <p className="no-results-message-b">
-              No users found matching your search.
-          </p>
-          )}
-
+      {/* Display message when no results are found */}
+      {search && filteredData.length === 0 && (
+        <p className="no-results-message-b">
+          No users found matching your search.
+        </p>
+      )}
 
       {/* Display message when results are found */}
-        {search && filteredData.length > 0 && (
-         <p className="found-message-b">
+      {search && filteredData.length > 0 && (
+        <p className="found-message-b">
           Found {filteredData.length} {filteredData.length === 1 ? "user" : "users"} matching your search.
         </p>
-        )}
+      )}
 
+       {/* Rows per page dropdown */}
+       <div style={{ marginBottom: "5px", visibility: "hidden" }}>
+        <label style={{ marginRight: "10px" }}>Rows per page:</label>
+        <select
+          value={rowsPerPage}
+          onChange={(e) => setRowsPerPage(Number(e.target.value))}
+          style={{ padding: "5px", fontSize: "14px" }}
+        >
+          <option value={10}>5</option>
+          <option value={20}>8</option>
+          <option value={30}>10</option>
+        </select>
+      </div>
 
       {/* Table for Bank Info Data */}
       <table className="table-container">
         <thead>
           <tr>
-            
             <th className="table-header">Type</th>
             <th className="table-header">Account Holder Name</th>
             <th className="table-header">Account Number</th>
@@ -138,52 +169,55 @@ const BankInfoData = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((item, index) => (
+          {currentRows.length > 0 ? (
+            currentRows.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? "table-row-even-b" : "table-row-odd-b"}>
-                <td className="table-data">{item.type|| 'N/A'}</td>
+                <td className="table-data">{item.type || 'N/A'}</td>
                 <td className="table-data">{item.details.a_h_name || 'N/A'}</td>
                 <td className="table-data">{item.details.number || 'N/A'}</td>
                 <td className="table-data">{item.details.IFSC || 'N/A'}</td>
-          
-            
                 <td className="table-data">
                   <span className={item.isVerify ? 'yes-status' : 'no-status'}>
                     {item.isVerify ? 'Yes' : 'No'}
                   </span>
                 </td>
                 <td className="table-data">
-                  <span className={item.isRejected? 'yes-status' : 'no-status'}>
-                    {item.isRejected? 'Yes' : 'No'}
+                  <span className={item.isRejected ? 'yes-status' : 'no-status'}>
+                    {item.isRejected ? 'Yes' : 'No'}
                   </span>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="8" className="table-data">No results found.</td>
+              <td colSpan="6" className="table-data">No results found.</td>
             </tr>
           )}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      <div style={{ marginLeft: "1200px" }}>
+        {/* Previous button */}
+        {currentPage > 1 && (
+          <button onClick={handlePreviousPage} style={{ height: "27px", fontSize: "14px", marginBottom: "4px" }}>
+            Previous
+          </button>
+        )}
+
+        <span style={{ whiteSpace: "nowrap" }}>
+          Page {currentPage} of {Math.ceil(filteredData.length / rowsPerPage)}
+        </span>
+
+        {/* Next button */}
+        {currentPage < Math.ceil(filteredData.length / rowsPerPage) && (
+          <button onClick={handleNextPage} style={{ height: "27px", fontSize: "14px", marginBottom: "12px" }}>
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 };
 
 export default BankInfoData;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

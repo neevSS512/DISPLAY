@@ -374,7 +374,8 @@ const WalletData = () => {
         );
   
         if (transactionResponse.status === 201) {
-          alert("Transaction created successfully");
+          // alert("Transaction create successfully");
+          alert("Data Updated successfully");
         } else {
           alert("Failed to create the transaction entry");
         }

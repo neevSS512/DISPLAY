@@ -211,17 +211,6 @@ const ConfigData = () => {
                   )}
                 </td>
 
-                {/* <td style={tdStyles}>
-  {editedRow === index && editedField === "sDate" ? (
-    <input
-      type="date"
-      value={item.sDate ? item.sDate.substring(0, 10) : ''}  // Ensure correct date format (YYYY-MM-DD)
-      onChange={(e) => handleInputChange(e, index, 'sDate')}
-    />
-  ) : (
-    <span onClick={() => handleEdit(index, "sDate")}>{item.sDate ? item.sDate.substring(0, 10) : 'N/A'}</span>
-  )}
-</td> */}
 
                 <td style={tdStyles}>
                   {editedRow === index && editedField === "sDate" ? (
