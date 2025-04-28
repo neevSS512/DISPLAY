@@ -57,7 +57,7 @@ const SnakeScoreData = () => {
         newRows.map(async (newRow) => {
           console.log('New Row Data:', newRow); // Log each new row
   
-          const response = await axios.post('http://localhost:3001/snakescore/snakescorectg', newRow);
+          const response = await axios.post('http://147.93.27.170:3001/snakescore/snakescorectg', newRow);
   
           if (response.status === 201) {
             setFilteredData((prevData) =>
@@ -81,7 +81,7 @@ const SnakeScoreData = () => {
   useEffect(() => {
     const fetchGameuserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/snakescore/snakescorectg');
+        const response = await axios.get('http://147.93.27.170:3001/snakescore/snakescorectg');
         setFilteredData(response.data); // Initially set filtered data to all data
       } catch (err) {
         setError('Error fetching gameuser data');
@@ -134,7 +134,7 @@ const SnakeScoreData = () => {
       };
       
   
-      const response = await axios.patch(`http://localhost:3001/snakescore/snakescorectg/${item._id}`, updatedUser);
+      const response = await axios.patch(`http://147.93.27.170:3001/snakescore/snakescorectg/${item._id}`, updatedUser);
   
       if (response.status === 200) {
         alert('Data updated successfully!');
@@ -162,7 +162,7 @@ const SnakeScoreData = () => {
         console.log(`Deleting row with id: ${id}`);
         
         // Send the delete request to the backend
-        const response = await axios.delete(`http://localhost:3001/snakescore/snakescorectg/${id}`);
+        const response = await axios.delete(`http://147.93.27.170:3001/snakescore/snakescorectg/${id}`);
   
         // Log the response to check if the request was successful
         console.log('Delete Response:', response);

@@ -13,7 +13,7 @@ function RummyPlayData({ userId }) {
     const fetchMatches = async () => {
       try {
         if (userId) {
-          const response = await fetch(`http://localhost:3001/rummyMatchTrackdata/rummymatchtrack/${userId}`);
+          const response = await fetch(`http://147.93.27.170:3001/rummyMatchTrackdata/rummymatchtrack/${userId}`);
           if (!response.ok) {
             throw new Error('Failed to fetch match data');
           }

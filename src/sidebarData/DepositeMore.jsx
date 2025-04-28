@@ -29,7 +29,7 @@ const RechargeTable = ({ user }) => {
 
         // Fetch data using the AbortController signal to cancel the request if needed
         const response = await axios.get(
-          `http://localhost:3001/recharge/depositDetailsById/${user.mobile_no}`,
+          `http://147.93.27.170:3001/recharge/depositDetailsById/${user.mobile_no}`,
           { signal: abortControllerRef.current.signal }
         );
         

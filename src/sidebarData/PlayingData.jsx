@@ -18,7 +18,7 @@ const PlayingData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/pctg/ctgData');
+        const response = await axios.get('http://147.93.27.170:3001/pctg/ctgData');
         if (response.data) {
           setFilteredData(response.data);  // Set the fetched data
         }
@@ -35,7 +35,7 @@ const PlayingData = () => {
   // Handle row updates
   const handleUpdate = async (id, updatedData) => {
     try {
-      const response = await axios.patch(`http://localhost:3001/pctg/ctgData/${id}`, updatedData);
+      const response = await axios.patch(`http://147.93.27.170:3001/pctg/ctgData/${id}`, updatedData);
       if (response.status === 200) {
         setFilteredData((prevData) =>
           prevData.map((item) => (item._id === id ? { ...item, ...updatedData } : item))
@@ -76,7 +76,7 @@ const PlayingData = () => {
       // Save new rows and ensure only unique entries are added
       const savedRows = await Promise.all(
         newRows.map(async (newRow) => {
-          const response = await axios.post('http://localhost:3001/pctg/ctgData', newRow);
+          const response = await axios.post('http://147.93.27.170:3001/pctg/ctgData', newRow);
           console.log("Response from save:", response);
           if (response.status === 201) {
             return { ...newRow, _id: response.data._id };  // Add the _id returned from the server
@@ -109,7 +109,7 @@ const PlayingData = () => {
         console.log(`Deleting row with id: ${id}`);
         
         // Send the delete request to the backend
-        const response = await axios.delete(`http://localhost:3001/pctg/ctgData/${id}`);
+        const response = await axios.delete(`http://147.93.27.170:3001/pctg/ctgData/${id}`);
   
         // Log the response to check if the request was successful
         console.log('Delete Response:', response);

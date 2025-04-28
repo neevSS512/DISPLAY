@@ -24,7 +24,7 @@
 //     const fetchGameuserData = async () => {
 //       try {
 //         const response = await axios.get(
-//           "http://localhost:3001/gameuser/gameUsers"
+//           "http://147.93.27.170:3001/gameuser/gameUsers"
 //         );
 //         setData(response.data); // Store full data
 //         setFilteredData(response.data); // Initially set filtered data to all data
@@ -75,7 +75,7 @@
 //   const handleUpdate = async (id, updatedData, index) => {
 //     try {
 //       const response = await axios.patch(
-//         `http://localhost:3001/gameuser/gameUsers/${id}`,
+//         `http://147.93.27.170:3001/gameuser/gameUsers/${id}`,
 //         updatedData
 //       );
   
@@ -347,7 +347,7 @@ const GameUserData = () => {
     const fetchGameuserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/gameuser/gameUsers"
+          "http://147.93.27.170:3001/gameuser/gameUsers"
         );
         setData(response.data); // Store full data
         setFilteredData(response.data); // Initially set filtered data to all data
@@ -400,7 +400,7 @@ const GameUserData = () => {
   const handleUpdate = async (id, updatedData, index) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3001/gameuser/gameUsers/${id}`,
+        `http://147.93.27.170:3001/gameuser/gameUsers/${id}`,
         updatedData
       );
 

@@ -18,7 +18,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:3001/ludopublic/ludopublicctg');
+//         const response = await axios.get('http://147.93.27.170:3001/ludopublic/ludopublicctg');
 //         if (response.data) {
 //           setFilteredData(response.data); 
 //         }
@@ -75,7 +75,7 @@
 //       // Save each new row to the database
 //       await Promise.all(
 //         newRows.map(async (newRow) => {
-//           const response = await axios.post('http://localhost:3001/ludopublic/ludopublicctg', newRow);
+//           const response = await axios.post('http://147.93.27.170:3001/ludopublic/ludopublicctg', newRow);
 //           if (response.status === 201) {
 //             // After saving, update the row with the `_id` from the backend
 //             setFilteredData((prevData) =>
@@ -102,7 +102,7 @@
 //   const handleUpdate = async (id, updatedData) => {
 //     try {
       
-//       const response = await axios.patch(`http://localhost:3001/ludopublic/ludopublicctg/${id}`, updatedData);
+//       const response = await axios.patch(`http://147.93.27.170:3001/ludopublic/ludopublicctg/${id}`, updatedData);
 
 //       if (response.status === 200) {
 //         setFilteredData((prevData) =>
@@ -531,7 +531,7 @@ const LudoScoreData = () => {
         newRows.map(async (newRow) => {
           console.log('New Row Data:', newRow); // Log each new row
   
-          const response = await axios.post('http://localhost:3001/ludopublic/ludopublicctg', newRow);
+          const response = await axios.post('http://147.93.27.170:3001/ludopublic/ludopublicctg', newRow);
   
           if (response.status === 201) {
             setFilteredData((prevData) =>
@@ -555,7 +555,7 @@ const LudoScoreData = () => {
   useEffect(() => {
     const fetchGameuserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/ludopublic/ludopublicctg');
+        const response = await axios.get('http://147.93.27.170:3001/ludopublic/ludopublicctg');
         setFilteredData(response.data); // Initially set filtered data to all data
       } catch (err) {
         setError('Error fetching gameuser data');
@@ -608,7 +608,7 @@ const LudoScoreData = () => {
       };
       
   
-      const response = await axios.patch(`http://localhost:3001/ludopublic/ludopublicctg/${item._id}`, updatedUser);
+      const response = await axios.patch(`http://147.93.27.170:3001/ludopublic/ludopublicctg/${item._id}`, updatedUser);
   
       if (response.status === 200) {
         alert('Data updated successfully!');
@@ -642,7 +642,7 @@ const handleDelete = async (id) => {
       console.log(`Deleting row with id: ${id}`);
       
       // Send the delete request to the backend
-      const response = await axios.delete(`http://localhost:3001/ludopublic/ludopublicctg/${id}`);
+      const response = await axios.delete(`http://147.93.27.170:3001/ludopublic/ludopublicctg/${id}`);
 
       // Log the response to check if the request was successful
       console.log('Delete Response:', response);

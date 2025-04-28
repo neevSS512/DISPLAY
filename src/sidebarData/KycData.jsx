@@ -17,7 +17,7 @@
 //   useEffect(() => {
 //     const fetchKycData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:3001/kyc/kycData");
+//         const response = await axios.get("http://147.93.27.170:3001/kyc/kycData");
 //         if (response.data && Array.isArray(response.data)) {
 //           setData(response.data);
 //           setFilteredData(response.data); // Initialize filtered data
@@ -222,7 +222,7 @@ export default function KycData() {
   useEffect(() => {
     const fetchKycData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/kyc/kycData");
+        const response = await axios.get("http://147.93.27.170:3001/kyc/kycData");
         if (response.data && Array.isArray(response.data)) {
           setData(response.data);
           setFilteredData(response.data); // Initialize filtered data

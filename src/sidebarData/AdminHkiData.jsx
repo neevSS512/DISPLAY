@@ -41,12 +41,12 @@
 //           StatusResponseW,
 //           newUsersLast7DaysResponse, // Add this line for the new API endpoint
 //         ] = await Promise.all([
-//           fetch("http://localhost:3001/gameuser/total-users"),
-//           fetch("http://localhost:3001/recharge/totalAmount"),
-//           fetch("http://localhost:3001/withdraw/totalWithdraw"),
-//           fetch("http://localhost:3001/recharge/txStatusCounts"),
-//           fetch("http://localhost:3001/withdraw/StatusCounts"),
-//           fetch("http://localhost:3001/gameuser/newUsersCountLast7Days"), // Fetch count of users created in last 7 days
+//           fetch("http://147.93.27.170:3001/gameuser/total-users"),
+//           fetch("http://147.93.27.170:3001/recharge/totalAmount"),
+//           fetch("http://147.93.27.170:3001/withdraw/totalWithdraw"),
+//           fetch("http://147.93.27.170:3001/recharge/txStatusCounts"),
+//           fetch("http://147.93.27.170:3001/withdraw/StatusCounts"),
+//           fetch("http://147.93.27.170:3001/gameuser/newUsersCountLast7Days"), // Fetch count of users created in last 7 days
 //         ]);
 
 //         if (
@@ -205,14 +205,14 @@ export default function AdminHkiData() {
           withdrawLast7DaysResponse, // Fetch totalWithdrawLast7Days here
           rechargeLast7DaysResponse, // Fetch totalWithdrawLast7Days here
         ] = await Promise.all([
-          fetch("http://localhost:3001/gameuser/total-users"),
-          fetch("http://localhost:3001/recharge/totalAmount"),
-          fetch("http://localhost:3001/withdraw/totalWithdraw"),
-          fetch("http://localhost:3001/recharge/txStatusCounts"),
-          fetch("http://localhost:3001/withdraw/StatusCounts"),
-          fetch("http://localhost:3001/gameuser/newUsersCountLast7Days"),
-          fetch("http://localhost:3001/withdraw/totalWithdrawLast7Days"), // Add this API endpoint
-          fetch("http://localhost:3001/recharge/totalRechargeLast7Days"), // Add this API endpoint
+          fetch("http://147.93.27.170:3001/gameuser/total-users"),
+          fetch("http://147.93.27.170:3001/recharge/totalAmount"),
+          fetch("http://147.93.27.170:3001/withdraw/totalWithdraw"),
+          fetch("http://147.93.27.170:3001/recharge/txStatusCounts"),
+          fetch("http://147.93.27.170:3001/withdraw/StatusCounts"),
+          fetch("http://147.93.27.170:3001/gameuser/newUsersCountLast7Days"),
+          fetch("http://147.93.27.170:3001/withdraw/totalWithdrawLast7Days"), // Add this API endpoint
+          fetch("http://147.93.27.170:3001/recharge/totalRechargeLast7Days"), // Add this API endpoint
         ]);
 
         // Check if all responses are successful

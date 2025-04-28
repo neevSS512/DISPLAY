@@ -18,7 +18,7 @@ const DealData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/dealctg/dealctgData');
+        const response = await axios.get('http://147.93.27.170:3001/dealctg/dealctgData');
         console.log('Fetched data:', response.data); // Log data to verify it
         setFilteredData(response.data);
         setLoading(false);
@@ -36,7 +36,7 @@ const DealData = () => {
   // Handle row updates
   const handleUpdate = async (id, updatedData) => {
     try {
-      const response = await axios.patch(`http://localhost:3001/dealctg/dealctgData/${id}`, updatedData);
+      const response = await axios.patch(`http://147.93.27.170:3001/dealctg/dealctgData/${id}`, updatedData);
       if (response.status === 200) {
         setFilteredData((prevData) =>
           prevData.map((item) => (item._id === id ? { ...item, ...updatedData } : item))
@@ -77,7 +77,7 @@ const DealData = () => {
       // Save each new row to the database
       await Promise.all(
         newRows.map(async (newRow) => {
-          const response = await axios.post('http://localhost:3001/dealctg/dealctgData', newRow);
+          const response = await axios.post('http://147.93.27.170:3001/dealctg/dealctgData', newRow);
           if (response.status === 201) {
             // After saving, update the row with the `_id` from the backend
             setFilteredData((prevData) =>
@@ -106,7 +106,7 @@ const DealData = () => {
       try {
         // console.log(`Deleting row with id: ${id}`);
         
-        const response = await axios.delete(`http://localhost:3001/dealctg/dealctgData/${id}`);
+        const response = await axios.delete(`http://147.93.27.170:3001/dealctg/dealctgData/${id}`);
   
         console.log('Delete Response:', response);
   

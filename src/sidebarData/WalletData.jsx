@@ -24,7 +24,7 @@ const WalletData = () => {
   useEffect(() => {
     const fetchGameuserData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/gameuser/gameUsers");
+        const response = await axios.get("http://147.93.27.170:3001/gameuser/gameUsers");
         setData(response.data); // Store full data
         setFilteredData([]); // No data initially
       } catch (err) {
@@ -115,7 +115,7 @@ const WalletData = () => {
 
   //     // Send the updated data to the backend if selectedUser is valid
   //     const response = await axios.patch(
-  //       `http://localhost:3001/gameuser/gameUsers/${selectedUser._id}`,
+  //       `http://147.93.27.170:3001/gameuser/gameUsers/${selectedUser._id}`,
   //       updatedData
   //     );
 
@@ -193,7 +193,7 @@ const WalletData = () => {
   
   //     // Send the updated data to the backend if selectedUser is valid
   //     const response = await axios.patch(
-  //       `http://localhost:3001/gameuser/gameUsers/${selectedUser._id}`,
+  //       `http://147.93.27.170:3001/gameuser/gameUsers/${selectedUser._id}`,
   //       updatedData
   //     );
   
@@ -250,7 +250,7 @@ const WalletData = () => {
         
   
   //       const transactionResponse = await axios.post(
-  //         "http://localhost:3001/transaction/createTransaction",
+  //         "http://147.93.27.170:3001/transaction/createTransaction",
   //         transactionData
   //       );
   
@@ -355,7 +355,7 @@ const WalletData = () => {
   
       // Send the updated data to the backend if selectedUser is valid
       const response = await axios.patch(
-        `http://localhost:3001/gameuser/gameUsers/${selectedUser._id}`,
+        `http://147.93.27.170:3001/gameuser/gameUsers/${selectedUser._id}`,
         updatedData
       );
   
@@ -369,7 +369,7 @@ const WalletData = () => {
   
         // Create transaction entry
         const transactionResponse = await axios.post(
-          "http://localhost:3001/transaction/createTransaction",
+          "http://147.93.27.170:3001/transaction/createTransaction",
           transactionData
         );
   

@@ -22,7 +22,7 @@ const WithdrawData = () => {
   useEffect(() => {
     const fetchTransactionData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/withdraw/withdrawData");
+        const response = await axios.get("http://147.93.27.170:3001/withdraw/withdrawData");
         setData(response.data);
         setFilteredData(response.data); // Set filtered data to all initially
       } catch (err) {

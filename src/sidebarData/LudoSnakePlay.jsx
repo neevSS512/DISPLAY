@@ -11,7 +11,7 @@
 //     const fetchMatches = async () => {
 //       try {
 //         if (user && user.userId) { // Ensure user is passed and has userId
-//           const response = await fetch(`http://localhost:3001/matchTrackData/matchtrack/${user.userId}`);
+//           const response = await fetch(`http://147.93.27.170:3001/matchTrackData/matchtrack/${user.userId}`);
 //           if (!response.ok) {
 //             throw new Error('Failed to fetch match data');
 //           }
@@ -117,7 +117,7 @@
 //     const fetchMatches = async () => {
 //       try {
 //         if (userId) { // Ensure userId is passed
-//           const response = await fetch(`http://localhost:3001/matchTrackData/matchtrack/${userId}`);
+//           const response = await fetch(`http://147.93.27.170:3001/matchTrackData/matchtrack/${userId}`);
 //           if (!response.ok) {
 //             throw new Error('Failed to fetch match data');
 //           }
@@ -225,7 +225,7 @@ function LudoSnakePlay({ userId }) {
     const fetchMatches = async () => {
       try {
         if (userId) { 
-          const response = await fetch(`http://localhost:3001/matchTrackData/matchtrack/${userId}`);
+          const response = await fetch(`http://147.93.27.170:3001/matchTrackData/matchtrack/${userId}`);
           if (!response.ok) {
             throw new Error('Failed to fetch match data');
           }

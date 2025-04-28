@@ -38,7 +38,7 @@ const RegisterPage = () => {
 
       }
 
-      const response = await fetch("http://localhost:3001/auth/register", {
+      const response = await fetch("http://147.93.27.170:3001/auth/register", {
         method: "POST",
         body: register_form
       })

@@ -10,7 +10,7 @@ const WithdrawalTable = ({ phoneNumber }) => {
     const fetchWithdrawDetails = async () => {
       try {
         // Fetch data from your API
-        const response = await axios.get(`http://localhost:3001/withdraw/withdrawDetailsByMobile/${phoneNumber}`);
+        const response = await axios.get(`http://147.93.27.170:3001/withdraw/withdrawDetailsByMobile/${phoneNumber}`);
         setWithdrawDetails(response.data.withdrawDetails); // Set data to state
         setLoading(false);
       } catch (err) {

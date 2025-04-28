@@ -52,7 +52,7 @@ const SnakeScoreM= ({ user, handleClose }) => {
   const handleUpdate = async (updatedUser) => {
     try {
       // Update the user data on the backend
-      const response = await axios.patch(`http://localhost:3001/snakescore/snakescorectg/${updatedUser._id}`, updatedUser);
+      const response = await axios.patch(`http://147.93.27.170:3001/snakescore/snakescorectg/${updatedUser._id}`, updatedUser);
   
       if (response.status === 200) {
         alert('Data updated successfully!');

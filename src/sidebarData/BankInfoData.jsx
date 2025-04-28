@@ -24,7 +24,7 @@ const BankInfoData = () => {
   useEffect(() => {
     const fetchBankInfoData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/bankdata/bankData');
+        const response = await axios.get('http://147.93.27.170:3001/bankdata/bankData');
         setData(response.data);
         setFilteredData(response.data); // Initially set filtered data to all data
       } catch (err) {

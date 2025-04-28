@@ -14,7 +14,7 @@
 //     const fetchData = async () => {
 //       try {
 //         const response = await axios.get(
-//           `http://localhost:3001/withdraw/getWithdrawDetails?mobile_no=${phoneNumber}`
+//           `http://147.93.27.170:3001/withdraw/getWithdrawDetails?mobile_no=${phoneNumber}`
 //         );
 //         setWithdrawDetails(response.data.withdrawDetails);
 //         setLoading(false);
@@ -157,7 +157,7 @@ const WithdrawMore = ({ phoneNumber }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/withdraw/getWithdrawDetails?mobile_no=${phoneNumber}`
+          `http://147.93.27.170:3001/withdraw/getWithdrawDetails?mobile_no=${phoneNumber}`
         );
         setWithdrawDetails(response.data.withdrawDetails);
         setLoading(false);

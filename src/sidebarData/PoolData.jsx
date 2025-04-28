@@ -17,7 +17,7 @@ const PoolData = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/poolctg/poolctgData"
+          "http://147.93.27.170:3001/poolctg/poolctgData"
         );
         if (response.data) {
           setFilteredData(response.data); // Set the fetched data
@@ -36,7 +36,7 @@ const PoolData = () => {
   const handleUpdate = async (id, updatedData) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3001/poolctg/poolctgData/${id}`,
+        `http://147.93.27.170:3001/poolctg/poolctgData/${id}`,
         updatedData
       );
       if (response.status === 200) {
@@ -80,7 +80,7 @@ const PoolData = () => {
       const savedRows = await Promise.all(
         newRows.map(async (newRow) => {
           const response = await axios.post(
-            "http://localhost:3001/poolctg/poolctgData",
+            "http://147.93.27.170:3001/poolctg/poolctgData",
             newRow
           );
           console.log("Response from save:", response);
@@ -114,7 +114,7 @@ const PoolData = () => {
 
         // Send the delete request to the backend
         const response = await axios.delete(
-          `http://localhost:3001/poolctg/poolctgData/${id}`
+          `http://147.93.27.170:3001/poolctg/poolctgData/${id}`
         );
 
         // Log the response to check if the request was successful

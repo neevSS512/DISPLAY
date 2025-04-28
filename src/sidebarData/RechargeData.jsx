@@ -23,7 +23,7 @@ const RechargeData = () => {
     const fetchRechargeData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/recharge/rechargeData"
+          "http://147.93.27.170:3001/recharge/rechargeData"
         );
         setData(response.data);
         setFilteredData(response.data);

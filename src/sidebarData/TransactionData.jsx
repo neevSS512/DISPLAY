@@ -20,7 +20,7 @@ const TransactionData = () => {
     const fetchGameuserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/transaction/transactionData"
+          "http://147.93.27.170:3001/transaction/transactionData"
         );
         setData(response.data); // Store full data
         setFilteredData(response.data); // Initially set filtered data to all data

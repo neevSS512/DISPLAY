@@ -12,7 +12,7 @@ const ConfigData = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/gameconfigdata/gameconfigurations"
+          "http://147.93.27.170:3001/gameconfigdata/gameconfigurations"
         );
         if (response.data) {
           // Ensure each item has a player field initialized as an empty object if not present
@@ -36,7 +36,7 @@ const ConfigData = () => {
   const handleUpdate = async (id, updatedData) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3001/gameconfigdata/gameconfigurations/${id}`,
+        `http://147.93.27.170:3001/gameconfigdata/gameconfigurations/${id}`,
         updatedData
       );
       if (response.status === 200) {

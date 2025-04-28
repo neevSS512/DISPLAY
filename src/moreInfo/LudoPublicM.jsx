@@ -13,7 +13,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:3001/ludopublic/ludopublicctg');
+//         const response = await axios.get('http://147.93.27.170:3001/ludopublic/ludopublicctg');
 //         if (response.data) {
 //           setFilteredData(response.data);
 //         }
@@ -44,7 +44,7 @@
 //   const handleUpdate = async (id, updatedData) => {
 //     try {
 
-//       const response = await axios.patch(`http://localhost:3001/ludopublic/ludopublicctg/${id}`, updatedData);
+//       const response = await axios.patch(`http://147.93.27.170:3001/ludopublic/ludopublicctg/${id}`, updatedData);
 
 //       if (response.status === 200) {
 //         setFilteredData((prevData) =>

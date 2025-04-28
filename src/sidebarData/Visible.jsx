@@ -11,7 +11,7 @@ const Visible = () => {
   useEffect(() => {
     const fetchVisibleData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/details/getUsers');
+        const response = await axios.get('http://147.93.27.170:3001/details/getUsers');
         setData(response.data); 
       } catch (err) {
         setError('Error fetching withdraw data');
