@@ -18,7 +18,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/auth/login", {
+      const response = await fetch("http://147.93.27.170:3001/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

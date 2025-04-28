@@ -412,7 +412,7 @@ const LudoPublicM = ({ user, handleClose }) => {
     try {
       // Update the user data on the backend
       const response = await axios.patch(
-        `http://localhost:3001/ludopublic/ludopublicctg/${updatedUser._id}`,
+        `http://147.93.27.170:3001/ludopublic/ludopublicctg/${updatedUser._id}`,
         updatedUser
       );
 
