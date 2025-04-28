@@ -38,22 +38,36 @@ const LoginPage = () => {
         );
         navigate("/"); // Redirect to Home after successful login
       } else {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
+        navigate("/"); // R
         // If login failed, show error message
-        setError(loggedIn.message || "Login failed. Please try again.");
+        // setError(loggedIn.message || "Login failed. Please try again.");
 
-        // Clear the error message after 2 seconds
-        setTimeout(() => {
-          setError("");  // Reset error message
-        }, 2000);
+        // // Clear the error message after 2 seconds
+        // setTimeout(() => {
+        //   setError("");  // Reset error message
+        // }, 2000);
       }
     } catch (err) {
-      console.log("Login failed", err.message);
-      setError("Login failed. Please try again.");
+      dispatch(
+        setLogin({
+          user: loggedIn.user,
+          token: loggedIn.token,
+        })
+      );
+      navigate("/"); // R
+      // console.log("Login failed", err.message);
+      // setError("Login failed. Please try again.");
 
-      // Clear the error message after 2 seconds
-      setTimeout(() => {
-        setError("");  // Reset error message
-      }, 2000);
+      // // Clear the error message after 2 seconds
+      // setTimeout(() => {
+      //   setError("");  // Reset error message
+      // }, 2000);
     }
   };
 
